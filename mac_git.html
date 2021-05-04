@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Strength & Honor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://user-images.githubusercontent.com/80723305/116153862-44185180-a6e8-11eb-9ce1-6fbaa094605e.png");
+            height: 30%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+
+        /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+        .navbar {
+            overflow: hidden;
+            background-color: rgb(9, 108, 173);
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+        }
+
+        /* Style the navigation bar links */
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+
+        /* Right-aligned link */
+        .navbar a.right {
+            float: right;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Active/current link */
+        .navbar a.active {
+            background-color: rgb(9, 108, 173);
+            color: white;
+        }
+
+        
+        /* Column container */
+        .row {
+            display: -ms-flexbox;
+            /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap;
+            /* IE10 */
+            flex-wrap: wrap;
+        }
+
+        /* Create two unequal columns that sits next to each other */
+        /* Sidebar/left column */
+        .side {
+            -ms-flex: 20%;
+            /* IE10 */
+            flex: 20%;
+            background-color: ivory;
+            padding: 20px;
+        }
+
+        .circle-img {
+            border-radius: 50%;
+
+        }
+
+        .info {
+            margin-top: 150px;
+        }
+
+        .home {
+            width: 20%;
+            border-radius: 20%;
+        }
+
+        .email {
+            width: 20%;
+            border-radius: 20%;
+        }
+
+        .linkedin {
+            width: 17%;
+            border-radius: 20%;
+        }
+        
+        /* Main column */
+        .main {
+            -ms-flex: 70%;
+            /* IE10 */
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+        
+        .w3-panel {
+        width: 700px;
+        white-space: nowrap;
+        overflow-x:scroll;
+        text-overflow: ellipsis;
+         }
+
+         
+        .skin_view .area_view pre code { 
+            background-color:transparent; border:0; margin:0; padding:0;
+            outline:none; border-radius:0; font-family: Menlo,Consolas,Monaco,monospace; font-size:14px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+        @media screen and (max-width: 400px) {
+            .navbar a {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size:50px">Strength & Honor</h1>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mac_intro.html">MacBook</a>
+        <a href="html_intro.html">Html</a>
+        <a href="css_intro.html">CSS</a>
+        <a href="javascript_intro.html">JavaScript</a>
+        <a href="python_intro.html">Python</a>
+        <a href="etc_intro.html">etc.</a>
+
+        <!-- <a href="#" class="right">Link</a> -->
+    </div>
+
+    <div class="row">
+        <div class="side">
+            <div style="width: 50%; text-align :center; height:250px; float: left;">
+                <h2>Wizzen2801</h2>
+                <h4>One Day, One New!</h4>
+                <img class="circle-img"
+                    src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+                    alt="Avatar" style="width:120px">
+            </div>
+            <div class="info" style="width: 50%; height:100px; float: right;">
+                <a href="index.html" target="_blank"><img class="home"
+                        src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+                <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+                        src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+                <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+                        class="linkedin"
+                        src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+            </div>
+            <div style="clear:both:"></div>
+            <!-- <div class="wizzenimg" style="height:200px;">Image</div> -->
+            &nbsp;
+            <h3>MacBook</h3>
+            <a href="mac_intro.html">
+                <li>Intro...</li>
+            </a>
+            <a href="mac_terminal.html">
+                <li>터미널 꾸미기</li>
+            </a>
+            <a href="mac_brew.html">
+                <li>홈브류 설치 및 활용</li>
+            </a>
+            <a href="mac_brew.html">
+                <li>Git 설치 및 활용 (1)</li>
+            </a>
+        </div>
+        <div class="main">
+            <div width="1200px">
+                
+                <h3 span style="color:#3ea1f1">Git 설치 및 활용</h3>
+                <hr width="1000px" align="left"></p>
+                <h4 span style="color:#04599e">Git 버전 확인 및 Sourcetree 설치</h4>
+            
+            개인적으로 공부를 하기 위해 유투브에서 "드림코딩"을 운영하고 계신 "엘리"님의 자료를 가지고 정리 해 본다.<br><br>
+            
+            맥에서는 기본적으로 git 이 설치가 되어 있다.<br> 
+            아래 터미널 화면처럼 git 의 설치된 버전과 sourcetree 를 홈브류를 통해 설치 해 보자.<br>
+
+            <img width="1000px" src="https://user-images.githubusercontent.com/80723305/117069195-8404b780-ad2c-11eb-8ed4-33aa03a98f59.png"><br>
+
+            VS Code 와 git 을 연동할 수 있는데 터미널에서 code . 을 입력하면 VS Code 가 실행이 된다.<br><br> 
+
+            git 에서 user name 과 email 을 아래 터미널 화면에서와 같이 명령어를 입력해서 생성 후 조회를 해 본다.<br><br> 
+
+            <img width="900px" alt="git_user_email_setup" src="https://user-images.githubusercontent.com/80723305/117070190-b19e3080-ad2d-11eb-99c3-2ee62bc360e0.png"><br><br>
+
+            <h4 span style="color:#04599e">Git 폴더 생성 및 초기화</h4>
+
+            아래 터미널 화면에서와 같이 mkdir 로 git 폴더를 생성하고 git init 으로 초기화를 한다.<br><br> 
+
+            <img width="1000px" alt="mkdir_git_init" src="https://user-images.githubusercontent.com/80723305/117070613-430da280-ad2e-11eb-9a46-ab8174bb1c39.png"><br>
+
+            아래와 같이 확장자가 git 으로 되어 있는 숨겨진 파일을 삭제하고 git init 이라는 명령으로 다시 생성 해 보자.<br><br> 
+
+            <img width="1000px" alt="hidden_file_delete_create" src="https://user-images.githubusercontent.com/80723305/117070878-a13a8580-ad2e-11eb-9a34-9f6c53ef5470.png"><br>
+
+            아래와 같이 echo 명령으로 txt 파일을 생성 해 보고 그 파일들의 현재 상태를 확인 해 본다.<br><br> 
+
+            <img width="1000px" alt="create_txt_check_status" src="https://user-images.githubusercontent.com/80723305/117071113-ed85c580-ad2e-11eb-9ddb-f9a884625ca1.png"><br>
+
+            생성된 txt 파일들을 add 명령을 통해 commit 할 준비가 되게 만들어 보자.<br><br>
+
+            <img width="1000px" alt="ready_to_commit" src="https://user-images.githubusercontent.com/80723305/117071293-363d7e80-ad2f-11eb-9a1d-43a023b063cc.png"><br>
+
+            오늘은 여기까지!!!<br><br>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+
+</html>
