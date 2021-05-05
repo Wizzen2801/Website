@@ -5,172 +5,9 @@
     <meta charset="utf-8">
     <title>Strength & Honor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        /* Style the body */
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-        }
-
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://user-images.githubusercontent.com/80723305/116153862-44185180-a6e8-11eb-9ce1-6fbaa094605e.png");
-            height: 30%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-
-        .hero-text {
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-        }
-
-
-        /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
-        .navbar {
-            overflow: hidden;
-            background-color: rgb(9, 108, 173);
-            position: sticky;
-            position: -webkit-sticky;
-            top: 0;
-        }
-
-        /* Style the navigation bar links */
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-
-
-        /* Right-aligned link */
-        .navbar a.right {
-            float: right;
-        }
-
-        /* Change color on hover */
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        /* Active/current link */
-        .navbar a.active {
-            background-color: rgb(9, 108, 173);
-            color: white;
-        }
-
-        
-        /* Column container */
-        .row {
-            display: -ms-flexbox;
-            /* IE10 */
-            display: flex;
-            -ms-flex-wrap: wrap;
-            /* IE10 */
-            flex-wrap: wrap;
-        }
-
-        /* Create two unequal columns that sits next to each other */
-        /* Sidebar/left column */
-        .side {
-            -ms-flex: 20%;
-            /* IE10 */
-            flex: 20%;
-            background-color: ivory;
-            padding: 20px;
-        }
-
-        .circle-img {
-            border-radius: 50%;
-
-        }
-
-        .info {
-            margin-top: 150px;
-        }
-
-        .home {
-            width: 20%;
-            border-radius: 20%;
-        }
-
-        .email {
-            width: 20%;
-            border-radius: 20%;
-        }
-
-        .linkedin {
-            width: 17%;
-            border-radius: 20%;
-        }
-        
-        /* Main column */
-        .main {
-            -ms-flex: 70%;
-            /* IE10 */
-            flex: 70%;
-            background-color: white;
-            padding: 20px;
-        }
-        
-        .w3-panel {
-        width: 700px;
-        white-space: nowrap;
-        overflow-x:scroll;
-        text-overflow: ellipsis;
-         }
-
-         
-        .skin_view .area_view pre code { 
-            background-color:transparent; border:0; margin:0; padding:0;
-            outline:none; border-radius:0; font-family: Menlo,Consolas,Monaco,monospace; font-size:14px;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 20px;
-            text-align: center;
-            background: #ddd;
-        }
-
-        /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 700px) {
-            .row {
-                flex-direction: column;
-            }
-        }
-
-        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-        @media screen and (max-width: 400px) {
-            .navbar a {
-                float: none;
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="wizzen.css">
 </head>
-
 <body>
 
     <div class="hero-image">
@@ -193,14 +30,14 @@
 
     <div class="row">
         <div class="side">
-            <div style="width: 50%; text-align :center; height:250px; float: left;">
+            <div style="width: 180px; text-align :center; height:250px; float: left;">
                 <h2>Wizzen2801</h2>
                 <h4>One Day, One New!</h4>
                 <img class="circle-img"
                     src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
                     alt="Avatar" style="width:120px">
             </div>
-            <div class="info" style="width: 50%; height:100px; float: right;">
+            <div class="info" style="width: 130px; height:100px; float: right; text-align: center;">
                 <a href="index.html" target="_blank"><img class="home"
                         src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
                 <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
@@ -246,7 +83,10 @@ zsh 기본 버전도 사용하는데 불편함이 없지만 예쁜 설정과 편
 
 터미널에서 아래 명령어를 실행한다.</br></br>
 
-<div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue"><code><p style="font: consolas;">sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</p></code>
+<div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+    <code><p style="font: consolas;">
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    </p></code>
 </div>
 
 아래와 같은 화면이 보이면 설치가 된 것이다.</br></br>
