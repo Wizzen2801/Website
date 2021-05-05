@@ -67,14 +67,65 @@
             <a href="mac_git2.html">
                 <li>Git 설치 및 활용 (2)</li>
             </a>
+            
         </div>
         <div class="main">
             <div width="1200px">
                 
                 <h3 span style="color:#3ea1f1">Git 설치 및 활용 (2)</h3>
                 <hr width="1000px" align="left"></p>
-                <h4 span style="color:#04599e">Git 버전 확인 및 Sourcetree 설치</h4>
+                <h4 span style="color:#04599e">터미널에서 Github 연동</h4>
             
+                엘리님의 강의를 계속해서 이어나갈려고 하였다가 쉬운 내용을 너무 어렵게 강의하시는 것 같아<br>
+                나 같은 초보자들이 좀 더 쉽게 할 수 있는 방법을 찾아서 다시 이어 나가 보겠다. <br><br>
+
+                우선 유투브에서 생활코딩님께서 올리신 강의들이 몇편있다. <br>
+                주옥과 같은 영상이니 초보자분들은 반드시 조급함을 버리고 시간내서 강의를 들어보기 바란다. <br>
+                web1 부터 web2 까지 거의 60편 정도인데 난 개인적으로 2번씩 들었다. <br><br>
+                
+                역시 초보이다 보니 조금 더 공부를 한 후 처음부터 다시 들어 볼 예정이다. <br>
+
+                <h4 span style="color:#04599e">Github 가입 및 Repository 생성</h4>
+                
+                생활코딩님의 강의 자료 중 <a href="https://www.youtube.com/watch?v=n1wvs7xuUYk&list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb&index=18">WEB1 - 18. 웹호스팅 : github page</a> 을
+                참고해서 Github 가입 및 Repository 를 생성한다. <br><br>
+
+                유투브 허민석님 강의 자료중 <a href="https://www.youtube.com/watch?v=YrrZgX4wyJk">git clone - 깃 클론 - 깃허브에 있는 프로젝트를 내 컴퓨터로 가져오기</a> 을<br>
+                참고하여 강의를 정리 해 보겠다. <br>
+
+                <h4 span style="color:#04599e">Github Clone</h4>
+
+                Github 와 연동할 폴더를 pc 또는 맥에서 생성 해 준다. <br><br>
+
+                아래 그림과 같이 본인의 Github 페이지에서 생성한 Repository 의 코드 부분을 클릭하면 Clone 밑에 웹사이트 주소가 있는데 복사한다. <br><br>
+
+                <img style="padding-left: 50px;" width="400px" alt="github_clone" src="https://user-images.githubusercontent.com/80723305/117202115-ba563b80-aded-11eb-84bf-f2104bccc80e.png"><br><br>
+
+                아래 그림의 프로세스는 추후 터미널에서 "git pull"의 명령어로 업데이트 하는 개념인데 우선 처음으로 가지고 와야 하므로<br>
+                아래 그림과 같이 "git cloe 웹페이지 주소" 명령으로 즉 위에서 복사한 웹사이트에 있는 모든 파일을 맥의 폴더로 가지고 온다. <br><br>
+                
+                하나의 파일을 신규로 생성 해 보고 "git status" 명령을 입력 해 보면 아래 그림과 같이 붉은색으로 신규 생성 한 파일을 볼 수 있다.<br>
+
+                <img width="1000px" alt="git_pull" src="https://user-images.githubusercontent.com/80723305/117204029-0b672f00-adf0-11eb-98de-e44c354b4b8d.png">
+
+                <h4 span style="color:#04599e">업데이트 한 내용을 Github 에 업로드 하기</h4>
+
+                아래 그림과 같이 "git add ." 서 부터 "git push origin main" 까지 실행하여 Github 웹사이트에 업데이트 한다. <br>
+                push 시 username 과 password 를 물어보는데 입력하면 된다. <br><br>
+
+                <img width="1000px" alt="git_push" src="https://user-images.githubusercontent.com/80723305/117204727-fd65de00-adf0-11eb-8f5e-fb8032d4b6e8.png"><br>
+
+                본인이 업데이트 한 내용이 제대로 반영이 되었는지 Github 웹사이트에 가서 확인 해 본다. <br><br>
+
+                이를 정리 해 보면, <br><br>
+
+                1) git pull 명령어로 Github 웹사이트의 내용을 본인의 폴더로 업데이트 한다. <br>
+                   특히 이 부분은 누군가와 협업시 매우 중요한 프로세스 이므로 습관적으로 실행한다. <br><br>
+                   
+                2) 본인이 작업한 파일을 업로드 할 때는 git push 명령을 사용한다. <br><br>
+
+                끝이다. 조금 더 다양한 기능들이 있겠으나 일단 여기까지만 알아두고 사용하면서 더 필요한 기능이 있으면 구글링을 통해 업데이트 해 보겠다.<br><br> 
+
             
 
             </div>
