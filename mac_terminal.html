@@ -12,7 +12,7 @@
 
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size:50px">Strength & Honor</h1>
+            <h1 style="font-size:300%">Strength & Honor</h1>
         </div>
     </div>
 
@@ -27,118 +27,106 @@
 
         <!-- <a href="#" class="right">Link</a> -->
     </div>
+    <div class="main_page">
+        <h3 span style="color:#3ea1f1">터미널 꾸미기...</h3>
+            <hr width="80%" align="left"></p>
+            <h4 span style="color:#082d4b">iTerm2 설치</h4>
+            맥은 기본적으로 터미널이 설치되어 있어 윈도우 보다 터미널을 많이 사용하게 된다.</br>
+            그렇다 보니 오타로 인한 잘못된 명령을 입력하고 있음에도 가끔은 어디서 오타가 났는지를 한참 찾게 되는 경우가 허다하다.</br></br>
 
-    <div class="row">
-        <div class="side">
-            <div style="width: 180px; text-align :center; height:250px; float: left;">
-                <h2>Wizzen2801</h2>
-                <h4>One Day, One New!</h4>
-                <img class="circle-img"
-                    src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
-                    alt="Avatar" style="width:120px">
+            많은 분들이 본인이 사용하고 있는 에디터에서 코딩 실수를 쉽게 알아보기 위해 별도의 테마를 설치하는 것처럼</br>
+            맥의 기본 터미널이 아닌 가독성이 더 좋은 터미널 프로그램을 설치해서 사용한다.</br></br>
+
+            우선 <span><a href="https://iterm2.com/downloads.html">iTerm2 웹페이지"</a></span>를 방문해서 설치한다.</br></br>
+
+            <h3 span style="color:#082d4b">Oh my zsh 설치</h3>
+            macOS Big Sur 버전부터 기본 쉘이 기존 bash 에서 zsh 로 변경되었다.</br>
+            zsh 기본 버전도 사용하는데 불편함이 없지만 예쁜 설정과 편리한 기능을 사용하기 위해 “Oh My Zsh”을 설치 해 보자.</br></br>
+
+            터미널에서 아래 명령어를 실행한다.</br></br>
+
+            <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+                <code><p style="font: consolas;">
+                    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+                </p></code>
             </div>
-            <div class="info" style="width: 130px; height:100px; float: right; text-align: center;">
-                <a href="index.html" target="_blank"><img class="home"
-                        src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
-                <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
-                        src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
-                <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
-                        class="linkedin"
-                        src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+
+            아래와 같은 화면이 보이면 설치가 된 것이다.</br></br>
+
+            <img width="70%" src="https://user-images.githubusercontent.com/80723305/116813518-641a9b80-ab54-11eb-9f41-e6acd70db3c4.png"></br></br></br>
+
+            <h3 span style="color:#082d4b">zsh 꾸미기</h3>
+            터미널에서 아래 명령을 실행하여 Pure prompt를 설치한다.</br>
+
+            <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue"><code><p style="font: consolas;">mkdir -p "$HOME/.zsh")"<br>
+                git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"<br>
+                echo "\nfpath+=$HOME/.zsh/pure\nautoload -U promptinit; promptinit\nprompt pure" >> "$HOME/.zshrc"<br>
+                exec $SHELL
+            </p></code>
             </div>
-            <div style="clear:both:"></div>
-            <!-- <div class="wizzenimg" style="height:200px;">Image</div> -->
-            &nbsp;
-            <h3>MacBook</h3>
-            <a href="mac_intro.html">
-                <li>Intro...</li>
-            </a>
-            <a href="mac_terminal.html">
-                <li>터미널 꾸미기</li>
-            </a>
-            <a href="mac_brew.html">
-                <li>홈브류 설치 및 활용</li>
-            </a>
-            <a href="mac_git.html">
-                <li>Git 설치 및 활용 (1)</li>
-            </a>
-            <a href="mac_git2.html">
-                <li>Git 설치 및 활용 (2)</li>
-            </a>
-        </div>
-        <div class="main">
-            <div width="1200px">
-                
-                <h3 span style="color:#3ea1f1">터미널 꾸미기...</h3>
-                <hr width="1000px" align="left"></p>
-                <h4 span style="color:#082d4b">iTerm2 설치</h4>
-맥은 기본적으로 터미널이 설치되어 있어 윈도우 보다 터미널을 많이 사용하게 된다.</br>
-그렇다 보니 오타로 인한 잘못된 명령을 입력하고 있음에도 가끔은 어디서 오타가 났는지를 한참 찾게 되는 경우가 허다하다.</br></br>
-
-많은 분들이 본인이 사용하고 있는 에디터에서 코딩 실수를 쉽게 알아보기 위해 별도의 테마를 설치하는 것처럼</br>
-맥의 기본 터미널이 아닌 가독성이 더 좋은 터미널 프로그램을 설치해서 사용한다.</br></br>
-
-우선 <span><a href="https://iterm2.com/downloads.html">iTerm2 웹페이지"</a></span>를 방문해서 설치한다.</br></br>
-
-<h3 span style="color:#082d4b">Oh my zsh 설치</h3>
-macOS Big Sur 버전부터 기본 쉘이 기존 bash 에서 zsh 로 변경되었다.</br>
-zsh 기본 버전도 사용하는데 불편함이 없지만 예쁜 설정과 편리한 기능을 사용하기 위해 “Oh My Zsh”을 설치 해 보자.</br></br>
-
-터미널에서 아래 명령어를 실행한다.</br></br>
-
-<div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-    <code><p style="font: consolas;">
-        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    </p></code>
-</div>
-
-아래와 같은 화면이 보이면 설치가 된 것이다.</br></br>
-
-<img width="700px" src="https://user-images.githubusercontent.com/80723305/116813518-641a9b80-ab54-11eb-9f41-e6acd70db3c4.png">
-
-<h3 span style="color:#082d4b">zsh 꾸미기</h3>
-터미널에서 아래 명령을 실행하여 Pure prompt를 설치한다.</br>
-
-<div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue"><code><p style="font: consolas;">mkdir -p "$HOME/.zsh")"<br>
-    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"<br>
-    echo "\nfpath+=$HOME/.zsh/pure\nautoload -U promptinit; promptinit\nprompt pure" >> "$HOME/.zshrc"<br>
-    exec $SHELL
-</p></code>
-</div>
 
 
-<span><a href="https://github.com/sindresorhus/iterm2-snazzy">iTerm2 snazzy 페이지"</a></span>에 들어가서 Install 항목에 있는 “Snazzy.itermcolors” 파일을 저장 후 클릭해서 실행한다.</br></br>
+            <span><a href="https://github.com/sindresorhus/iterm2-snazzy">iTerm2 snazzy 페이지"</a></span>에 들어가서 Install 항목에 있는 “Snazzy.itermcolors” 파일을 저장 후 클릭해서 실행한다.</br></br>
 
-<h3 span style="color:#082d4b">iTerm2 컬러 스킴 설치</h3>
-iTerm2 에서 Preferences > Profiles 클릭 후 Default 프로파일을 선택하고 Colors 탭을 클릭 후</br>
-오른쪽 아래 Color Presets 셀렉트 박스를 클릭하고 Snazzy를 선택한다.</br></br>
+            <h3 span style="color:#082d4b">iTerm2 컬러 스킴 설치</h3>
+            iTerm2 에서 Preferences > Profiles 클릭 후 Default 프로파일을 선택하고 Colors 탭을 클릭 후</br>
+            오른쪽 아래 Color Presets 셀렉트 박스를 클릭하고 Snazzy를 선택한다.</br></br>
 
-<img width="700px" src="https://user-images.githubusercontent.com/80723305/116813947-bc529d00-ab56-11eb-8e6e-fc1669edeecb.png"><br><br>
+            <img width="70%" src="https://user-images.githubusercontent.com/80723305/116813947-bc529d00-ab56-11eb-8e6e-fc1669edeecb.png"><br><br>
 
-<h3 style="color:#082d4b">마지막으로 syntax highlighting을 설치</h3>
-아래 명령어를 실행한다.<br>
+            <h3 style="color:#082d4b">마지막으로 syntax highlighting을 설치</h3>
+            아래 명령어를 실행한다.<br>
 
-<div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue"><code><p style="font: consolas;">
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"<br>
-    echo "\nsource $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"<br>
-    </p></code>
-</div>
+            <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue"><code><p style="font: consolas;">
+                git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh/zsh-syntax-highlighting"<br>
+                echo "\nsource $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"<br>
+                </p></code>
+            </div>
 
-현재 실행중인 터미널을 종료하고 새로 시작한다.<br><br>
+            현재 실행중인 터미널을 종료하고 새로 시작한다.<br><br>
 
-기존에 단순히 하얀색으로만 표시되던 쉘 명령어가 예뻐진 것을 확인할 수 있다.<br>
-pws 라고 입력했을 때는 빨간색으로 표시되는데 이와같이 알 수 없는 명령어를 실행했을 때 빨간색으로 표시돼서<br>
-아래와 같이 오타나 설치 안 된 프로그램을 실행하는 경우 미리 알 수 있다.<br><br>
+            기존에 단순히 하얀색으로만 표시되던 쉘 명령어가 예뻐진 것을 확인할 수 있다.<br>
+            pws 라고 입력했을 때는 빨간색으로 표시되는데 이와같이 알 수 없는 명령어를 실행했을 때 빨간색으로 표시돼서<br>
+            아래와 같이 오타나 설치 안 된 프로그램을 실행하는 경우 미리 알 수 있다.<br><br>
 
-이제 터미널과 많이 친해지자!<br>
+            이제 터미널과 많이 친해지자!<br>
 
-<img width="700px" src="https://user-images.githubusercontent.com/80723305/116814249-3d5e6400-ab58-11eb-8de4-cb49b550785f.png">
-        </div>
-        </div>
+            <img width="70%" src="https://user-images.githubusercontent.com/80723305/116814249-3d5e6400-ab58-11eb-8de4-cb49b550785f.png">
     </div>
-
-    
-
+    <div class="wizzen2801">
+        <h6>Wizzen2801</h6>
+        <h8>One Day, One New!</h8>
+        <img class="circle-img"
+            src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+            alt="Avatar">
+    </div>
+    <div class="info">
+        <a href="index.html" target="_blank"><img class="home"
+                src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+        <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+                src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+                class="linkedin"
+                src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+    </div>
+    <div class="content_list">
+        <a href="mac_intro.html"><h3>MacBook</h3></a>
+        <a href="mac_intro.html">
+            <li>Intro...</li>
+        </a>
+        <a href="mac_terminal.html">
+            <li>터미널 꾸미기</li>
+        </a>
+        <a href="mac_brew.html">
+            <li>홈브류 설치 및 활용</li>
+        </a>
+        <a href="mac_git.html">
+            <li>Git 설치 및 활용 (1)</li>
+        </a>
+        <a href="mac_git2.html">
+            <li>Git 설치 및 활용 (2)</li>
+        </a>
+    </div>
 </body>
 
 </html>

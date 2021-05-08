@@ -12,7 +12,7 @@
 
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size:50px">Strength & Honor</h1>
+            <h1 style="font-size:300%">Strength & Honor</h1>
         </div>
     </div>
 
@@ -27,323 +27,308 @@
 
         <!-- <a href="#" class="right">Link</a> -->
     </div>
+    <div class="main_page">
+        <h3 span style="color:#3ea1f1">재고수불부 작성</h3>
+        <hr width="80%" align="left"></p>
+        일반적으로 IT 팀이 있는 대기업에서는 제품 재고수불부를 시스템에서 자동 생성을 해 주는 프로그램을<br>
+        가지고 있겠으나 중소기업에서는 저가의 ERP 시스템을 구매하여 사용하다 보니 재고수불부를 수작업으로<br>
+        생성을 하게 된다.<br><br>
 
-    <div class="row">
-        <div class="side">
-            <div style="width: 180px; text-align :center; height:250px; float: left;">
-                <h2>Wizzen2801</h2>
-                <h4>One Day, One New!</h4>
-                <img class="circle-img"
-                    src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
-                    alt="Avatar" style="width:120px">
-            </div>
-            <div class="info" style="width: 130px; height:100px; float: right; text-align: center;">
-                <a href="index.html" target="_blank"><img class="home"
-                        src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
-                <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
-                        src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
-                <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
-                        class="linkedin"
-                        src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
-            </div>
-            <div style="clear:both:"></div>
-            <!-- <div class="wizzenimg" style="height:200px;">Image</div> -->
-            &nbsp;
-            <h3>Python</h3>
-            <a href="python_intro.html">
-                <li>Intro...</li>
-            </a>
-            <a href="python_inv_mov.html">
-                <li>재고수불부</li>
-            </a>
-            
+        이때 재고수불부 생성을 위한 소스 파일들을 각 담당자들이 엑셀로 수작업을 통해 생성을 하게 되는데<br>
+        이를 바탕으로 재고수불부를 역시 수작업으로 생성하게 된다.<br><br>
+
+        데이타가 많이 않으면 엑셀에서 피벗테이블을 통해 만들 수도 있겠으나 파이썬 공부를 위해 이를 파이썬으로<br>
+        만들어 보았다.<br><br>
+
+        <h4 span style="color:#082d4b">주피터 랩 설치</h4>
+
+        파이썬에는 많은 모듈들이 존재한다.<br>
+        이중 Data Frame 기능을 제공하는 Pandas 와 엑셀 기능을 제공하는 Openpyxl 모듈을 사용 해 보겠다.<br><br>
+
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                import pandas as pd<br>
+                from pandas import DataFrame<br>
+                import sys<br>
+                import numpy as np<br>
+                from openpyxl import load_workbook<br>
+            </p></code>
         </div>
-        <div class="main">
-            <div width="1200px">
+        <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
+            <code><p style="font: consolas;">
+                ---------------------------------------------------------------------------<br>
+                ModuleNotFoundError                       Traceback (most recent call last)<br>
+                <ipython-input-1-abb412c68070> in <module><br>
+                ----> 1 import pandas as pd<br>
+                        2 from pandas import DataFrame<br>
+                        3 import sys<br>
+                        4 import numpy as np<br>
+                        5 from openpyxl import load_workbook<br><br>
                 
-                <h3 span style="color:#3ea1f1">재고수불부 작성</h3>
-                <hr width="1000px" align="left"></p>
+                ModuleNotFoundError: No module named 'pandas'
+            </p></code>
+        </div>
 
-                일반적으로 IT 팀이 있는 대기업에서는 제품 재고수불부를 시스템에서 자동 생성을 해 주는 프로그램을<br>
-                가지고 있겠으나 중소기업에서는 저가의 ERP 시스템을 구매하여 사용하다 보니 재고수불부를 수작업으로<br>
-                생성을 하게 된다.<br><br>
+        모듈을 import 하였더니 모듈이 없다는 메세지가 뜬다.<br>
+        이럴때에는 해당 모듈을 설치 해 준다.<br>
 
-                이때 재고수불부 생성을 위한 소스 파일들을 각 담당자들이 엑셀로 수작업을 통해 생성을 하게 되는데<br>
-                이를 바탕으로 재고수불부를 역시 수작업으로 생성하게 된다.<br><br>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                pip install pandas
+            </p></code>
+        </div>
 
-                데이타가 많이 않으면 엑셀에서 피벗테이블을 통해 만들 수도 있겠으나 파이썬 공부를 위해 이를 파이썬으로<br>
-                만들어 보았다.<br><br>
+        <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
+            <code><p style="font: consolas;">
+                Collecting pandas<br>
+                Downloading pandas-1.2.4-cp39-cp39-macosx_10_9_x86_64.whl (10.7 MB)<br>
+                    |████████████████████████████████| 10.7 MB 5.0 MB/s eta 0:00:01<br>
+                Requirement already satisfied: python-dateutil>=2.7.3 in /usr/local/Cellar/<br>
+                jupyterlab/3.0.14/libexec/lib/python3.9/site-packages (from pandas) (2.8.1)<br>
+                Collecting numpy>=1.16.5<br>
+                Downloading numpy-1.20.2-cp39-cp39-macosx_10_9_x86_64.whl (16.1 MB)<br>
+                    |████████████████████████████████| 16.1 MB 10.4 MB/s eta 0:00:01<br>
+                Requirement already satisfied: pytz>=2017.3 in /usr/local/Cellar/jupyterlab/<br>
+                3.0.14/libexec/lib/python3.9/site-packages (from pandas) (2021.1)<br>
+                Requirement already satisfied: six>=1.5 in /usr/local/Cellar/jupyterlab/3.0.14/<br>
+                libexec/lib/python3.9/site-packages (from python-dateutil>=2.7.3->pandas) (1.15.0)<br>
+                Installing collected packages: numpy, pandas<br>
+                Successfully installed numpy-1.20.2 pandas-1.2.4<br>
+                WARNING: You are using pip version 21.0.1; however, version 21.1.1 is available.<br>
+                You should consider upgrading via the '/usr/local/Cellar/jupyterlab/3.0.14/libexec/
+                bin/python3.9 -m pip install --upgrade pip' command.<br>
+                Note: you may need to restart the kernel to use updated packages.
+            </p></code>
+        </div>
 
-                <h4 span style="color:#082d4b">주피터 랩 설치</h4>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                pip install numpy
+            </p></code>
+        </div>
 
-                파이썬에는 많은 모듈들이 존재한다.<br>
-                이중 Data Frame 기능을 제공하는 Pandas 와 엑셀 기능을 제공하는 Openpyxl 모듈을 사용 해 보겠다.<br><br>
+        <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
+            <code><p style="font: consolas;">
+                Requirement already satisfied: numpy in /usr/local/Cellar/jupyterlab/<br>
+                3.0.14/libexec/lib/python3.9/site-packages (1.20.2)<br>
+                WARNING: You are using pip version 21.0.1; however, version 21.1.1 is available.<br>
+                You should consider upgrading via the '/usr/local/Cellar/jupyterlab/<br>
+                3.0.14/libexec/bin/python3.9 -m pip install --upgrade pip' command.<br>
+                Note: you may need to restart the kernel to use updated packages.
+            </p></code>
+        </div>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        import pandas as pd<br>
-                        from pandas import DataFrame<br>
-                        import sys<br>
-                        import numpy as np<br>
-                        from openpyxl import load_workbook<br>
-                    </p></code>
-                </div>
-                <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
-                    <code><p style="font: consolas;">
-                        ---------------------------------------------------------------------------<br>
-                        ModuleNotFoundError                       Traceback (most recent call last)<br>
-                        <ipython-input-1-abb412c68070> in <module><br>
-                        ----> 1 import pandas as pd<br>
-                              2 from pandas import DataFrame<br>
-                              3 import sys<br>
-                              4 import numpy as np<br>
-                              5 from openpyxl import load_workbook<br><br>
-                        
-                        ModuleNotFoundError: No module named 'pandas'
-                    </p></code>
-                </div>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                pip install openpyxl
+            </p></code>
+        </div>
 
-                모듈을 import 하였더니 모듈이 없다는 메세지가 뜬다.<br>
-                이럴때에는 해당 모듈을 설치 해 준다.<br>
+        <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
+            <code><p style="font: consolas;">
+                Collecting openpyxl<br>
+                Using cached openpyxl-3.0.7-py2.py3-none-any.whl (243 kB)<br>
+                Collecting et-xmlfile<br>
+                Downloading et_xmlfile-1.1.0-py3-none-any.whl (4.7 kB)<br>
+                Installing collected packages: et-xmlfile, openpyxl<br>
+                Successfully installed et-xmlfile-1.1.0 openpyxl-3.0.7<br>
+                WARNING: You are using pip version 21.0.1; however, version 21.1.1 is available.<br>
+                You should consider upgrading via the '/usr/local/Cellar/jupyterlab/<br>
+                3.0.14/libexec/bin/python3.9 -m pip install --upgrade pip' command.<br>
+                Note: you may need to restart the kernel to use updated packages.
+            </p></code>
+        </div>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        pip install pandas
-                    </p></code>
-                </div>
+        이제 설치를 다 했으니 각종 모듈들을 import 해 준다.<br>
 
-                <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
-                    <code><p style="font: consolas;">
-                        Collecting pandas<br>
-                        Downloading pandas-1.2.4-cp39-cp39-macosx_10_9_x86_64.whl (10.7 MB)<br>
-                           |████████████████████████████████| 10.7 MB 5.0 MB/s eta 0:00:01<br>
-                      Requirement already satisfied: python-dateutil>=2.7.3 in /usr/local/Cellar/<br>
-                      jupyterlab/3.0.14/libexec/lib/python3.9/site-packages (from pandas) (2.8.1)<br>
-                      Collecting numpy>=1.16.5<br>
-                        Downloading numpy-1.20.2-cp39-cp39-macosx_10_9_x86_64.whl (16.1 MB)<br>
-                           |████████████████████████████████| 16.1 MB 10.4 MB/s eta 0:00:01<br>
-                      Requirement already satisfied: pytz>=2017.3 in /usr/local/Cellar/jupyterlab/<br>
-                      3.0.14/libexec/lib/python3.9/site-packages (from pandas) (2021.1)<br>
-                      Requirement already satisfied: six>=1.5 in /usr/local/Cellar/jupyterlab/3.0.14/<br>
-                      libexec/lib/python3.9/site-packages (from python-dateutil>=2.7.3->pandas) (1.15.0)<br>
-                      Installing collected packages: numpy, pandas<br>
-                      Successfully installed numpy-1.20.2 pandas-1.2.4<br>
-                      WARNING: You are using pip version 21.0.1; however, version 21.1.1 is available.<br>
-                      You should consider upgrading via the '/usr/local/Cellar/jupyterlab/3.0.14/libexec/
-                      bin/python3.9 -m pip install --upgrade pip' command.<br>
-                      Note: you may need to restart the kernel to use updated packages.
-                    </p></code>
-                </div>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                import pandas as pd<br>
+                from pandas import DataFrame<br>
+                import sys<br>
+                import numpy as np<br>
+                from openpyxl import load_workbook
+            </p></code>
+        </div>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        pip install numpy
-                    </p></code>
-                </div>
+        아무 에러 없이 import 가 되었다.<br><br>
 
-                <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
-                    <code><p style="font: consolas;">
-                        Requirement already satisfied: numpy in /usr/local/Cellar/jupyterlab/<br>
-                        3.0.14/libexec/lib/python3.9/site-packages (1.20.2)<br>
-                        WARNING: You are using pip version 21.0.1; however, version 21.1.1 is available.<br>
-                        You should consider upgrading via the '/usr/local/Cellar/jupyterlab/<br>
-                        3.0.14/libexec/bin/python3.9 -m pip install --upgrade pip' command.<br>
-                        Note: you may need to restart the kernel to use updated packages.
-                    </p></code>
-                </div>
+        나의 경우에는 test 폴더를 생성해서 소스 파일들을 갖다 놓고 이 프로그램을 테스티 해 보았다.<br>
+        이를 위해 프로그램에서 반복적으로 사용하는 폴더 경로인 test 폴더를 변수로 설정하였다.<br>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        pip install openpyxl
-                    </p></code>
-                </div>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                var_path = '/Users/wizzen2801/Python_WZN/Test/' 
+            </p></code>
+        </div>
 
-                <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
-                    <code><p style="font: consolas;">
-                        Collecting openpyxl<br>
-                        Using cached openpyxl-3.0.7-py2.py3-none-any.whl (243 kB)<br>
-                      Collecting et-xmlfile<br>
-                        Downloading et_xmlfile-1.1.0-py3-none-any.whl (4.7 kB)<br>
-                      Installing collected packages: et-xmlfile, openpyxl<br>
-                      Successfully installed et-xmlfile-1.1.0 openpyxl-3.0.7<br>
-                      WARNING: You are using pip version 21.0.1; however, version 21.1.1 is available.<br>
-                      You should consider upgrading via the '/usr/local/Cellar/jupyterlab/<br>
-                      3.0.14/libexec/bin/python3.9 -m pip install --upgrade pip' command.<br>
-                      Note: you may need to restart the kernel to use updated packages.
-                    </p></code>
-                </div>
+        아래와 같은 컬럼명이 있는 Data Frame 을 생성 후 엑셀로 저장한다.<br>
 
-                이제 설치를 다 했으니 각종 모듈들을 import 해 준다.<br>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                df = DataFrame(columns = ['Product_Code', 'Product_Name', 'BOH_Qty', 'BOH_Amt', 'IN_Qty', 'IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
+                df.to_excel(var_path+'INV_MOV.xlsx', index=False)
+            </p></code>
+        </div>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        import pandas as pd<br>
-                        from pandas import DataFrame<br>
-                        import sys<br>
-                        import numpy as np<br>
-                        from openpyxl import load_workbook
-                    </p></code>
-                </div>
+        제대로 생성이 되었는지 살펴본다.<br>
 
-                아무 에러 없이 import 가 되었다.<br><br>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                df
+            </p></code>
+        </div>
 
-                나의 경우에는 test 폴더를 생성해서 소스 파일들을 갖다 놓고 이 프로그램을 테스티 해 보았다.<br>
-                이를 위해 프로그램에서 반복적으로 사용하는 폴더 경로인 test 폴더를 변수로 설정하였다.<br>
+        <img width="70%" alt="df" src="https://user-images.githubusercontent.com/80723305/117357766-a118c200-aeb5-11eb-98df-3ccfcc49509a.png"><br><br>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                      var_path = '/Users/wizzen2801/Python_WZN/Test/' 
-                    </p></code>
-                </div>
+        아래 소스 파일들을 모두 합쳐서 INV_MOV_Total.xlsx 이름으로 저장한다.<br>
 
-                아래와 같은 컬럼명이 있는 Data Frame 을 생성 후 엑셀로 저장한다.<br>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                excel_names = [var_path+'INV_MOV.xlsx', var_path+'BOH.xlsx', var_path+'IN.xlsx', var_path+'OUT.xlsx', var_path+'EOH.xlsx']<br><br>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        df = DataFrame(columns = ['Product_Code', 'Product_Name', 'BOH_Qty', 'BOH_Amt', 'IN_Qty', 'IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
-                        df.to_excel(var_path+'INV_MOV.xlsx', index=False)
-                    </p></code>
-                </div>
+                excels = [pd.ExcelFile(name) for name in excel_names] <br><br>
 
-                제대로 생성이 되었는지 살펴본다.<br>
+                frames = [x.parse(x.sheet_names[0], header=None,index_col=None) for x in excels]  <br>
+                frames[1:] = [df[1:] for df in frames[1:]]  <br>
+                combined = pd.concat(frames)<br><br>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        df
-                    </p></code>
-                </div>
+                combined.to_excel(var_path+'INV_MOV_Total.xlsx', header=False, index=False)
+            </p></code>
+        </div>
 
-                <img width="900px" alt="df" src="https://user-images.githubusercontent.com/80723305/117357766-a118c200-aeb5-11eb-98df-3ccfcc49509a.png"><br><br>
+        생성된 파일을 Pivot 테이블로 변환한다.<br>
 
-                아래 소스 파일들을 모두 합쳐서 INV_MOV_Total.xlsx 이름으로 저장한다.<br>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                df = pd.read_excel(var_path+'INV_MOV_Total.xlsx')<br>
+                df = df.pivot_table(index = ['Product_Code'], aggfunc = {'BOH_Qty':sum, 'BOH_Amt':sum, 'IN_Qty':sum, 'IN_Amt':sum, 'OUT_Qty':sum, 'OUT_Amt':sum, 'EOH_Qty':sum, 'EOH_Amt':sum})
+            </p></code>
+        </div>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        excel_names = [var_path+'INV_MOV.xlsx', var_path+'BOH.xlsx', var_path+'IN.xlsx', var_path+'OUT.xlsx', var_path+'EOH.xlsx']<br><br>
+        제품명을 코드 마스터 테이블에서 가져와 제품코드별 매칭하여 Product_name 컬럼에 넣어준다.<br>
 
-                        excels = [pd.ExcelFile(name) for name in excel_names] <br><br>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                df2 = pd.read_excel(var_path+'Code_Master.xlsx')<br>
+                df = df.join(df2.set_index('Product_Code')['Product_Name'], on='Product_Code')
+            </p></code>
+        </div>
 
-                        frames = [x.parse(x.sheet_names[0], header=None,index_col=None) for x in excels]  <br>
-                        frames[1:] = [df[1:] for df in frames[1:]]  <br>
-                        combined = pd.concat(frames)<br><br>
+        피벗테이블로 변환시 칼럼 위치가 변경되는데 이것의 순서를 다시 바로잡아 엑셀로 저장한다.<br>
 
-                        combined.to_excel(var_path+'INV_MOV_Total.xlsx', header=False, index=False)
-                    </p></code>
-                </div>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                df = df.reindex(columns=['Product_Name', 'BOH_Qty','BOH_Amt','IN_Qty','IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
+                df.to_excel(var_path+'INV_MOV_Pivot.xlsx')
+            </p></code>
+        </div>
 
-                생성된 파일을 Pivot 테이블로 변환한다.<br>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                df
+            </p></code>
+        </div>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        df = pd.read_excel(var_path+'INV_MOV_Total.xlsx')<br>
-                        df = df.pivot_table(index = ['Product_Code'], aggfunc = {'BOH_Qty':sum, 'BOH_Amt':sum, 'IN_Qty':sum, 'IN_Amt':sum, 'OUT_Qty':sum, 'OUT_Amt':sum, 'EOH_Qty':sum, 'EOH_Amt':sum})
-                    </p></code>
-                </div>
+        <img width="70%" alt="df2" src="https://user-images.githubusercontent.com/80723305/117358613-a88c9b00-aeb6-11eb-80d8-b4305f75684b.png"><br><br>
 
-                제품명을 코드 마스터 테이블에서 가져와 제품코드별 매칭하여 Product_name 컬럼에 넣어준다.<br>
+        위와 같이 원하는 결과 값을 얻어서 엑셀로 잘 저장을 해 놓았다.<br>
+        재고수불부를 작성하다 보면 기초 + 입고 = 출고 + 재고 가 일치하여야 하나<br>
+        여러가지 이유로 그렇지 못할 경우가 발생하는데 이의 차이를 계산해서 adjust 칼럼에 그 값을 넣는다.<br>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        df2 = pd.read_excel(var_path+'Code_Master.xlsx')<br>
-                        df = df.join(df2.set_index('Product_Code')['Product_Name'], on='Product_Code')
-                    </p></code>
-                </div>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                wb = load_workbook(var_path+'INV_MOV_Pivot.xlsx')<br>
+                ws = wb.active
+            </p></code>
+        </div>
 
-                피벗테이블로 변환시 칼럼 위치가 변경되는데 이것의 순서를 다시 바로잡아 엑셀로 저장한다.<br>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                for r in ws.rows:<br>
+                row_index = r[0].row<br>
+                ws.cell(row=row_index, column=11).value = "=C"+str(row_index)+"+E"+str(row_index)+"-G"+str(row_index)+"-I"+str(row_index)+''<br>
+                ws['K1'] ='Adjust_Qty'<br>
+                ws.cell(row=row_index, column=12).value = "=D"+str(row_index)+"+F"+str(row_index)+"-H"+str(row_index)+"-J"+str(row_index)+''<br>
+                ws['L1'] ='Adjust_Amt'<br><br>
+                
+                wb.save(var_path+'INV_MOV_Final.xlsx')
+            </p></code>
+        </div>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        df = df.reindex(columns=['Product_Name', 'BOH_Qty','BOH_Amt','IN_Qty','IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
-                        df.to_excel(var_path+'INV_MOV_Pivot.xlsx')
-                    </p></code>
-                </div>
+        이제 아래와 같이 완성된 프로그램을 만들었다.<br>
 
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                      df
-                    </p></code>
-                </div>
-
-                <img width="976px" alt="df2" src="https://user-images.githubusercontent.com/80723305/117358613-a88c9b00-aeb6-11eb-80d8-b4305f75684b.png"><br><br>
-
-                위와 같이 원하는 결과 값을 얻어서 엑셀로 잘 저장을 해 놓았다.<br>
-                재고수불부를 작성하다 보면 기초 + 입고 = 출고 + 재고 가 일치하여야 하나<br>
-                여러가지 이유로 그렇지 못할 경우가 발생하는데 이의 차이를 계산해서 adjust 칼럼에 그 값을 넣는다.<br>
-
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        wb = load_workbook(var_path+'INV_MOV_Pivot.xlsx')<br>
-                        ws = wb.active
-                    </p></code>
-                </div>
-
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        for r in ws.rows:<br>
-                        row_index = r[0].row<br>
-                        ws.cell(row=row_index, column=11).value = "=C"+str(row_index)+"+E"+str(row_index)+"-G"+str(row_index)+"-I"+str(row_index)+''<br>
-                        ws['K1'] ='Adjust_Qty'<br>
-                        ws.cell(row=row_index, column=12).value = "=D"+str(row_index)+"+F"+str(row_index)+"-H"+str(row_index)+"-J"+str(row_index)+''<br>
-                        ws['L1'] ='Adjust_Amt'<br><br>
-                       
-                        wb.save(var_path+'INV_MOV_Final.xlsx')
-                    </p></code>
-                </div>
-
-                이제 아래와 같이 완성된 프로그램을 만들었다.<br>
-
-                <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
-                    <code><p style="font: consolas;">
-                        import pandas as pd<br>
-                        from pandas import DataFrame<br>
-                        import sys<br>
-                        import numpy as np<br>
-                        from openpyxl import load_workbook<br><br>
-                        
-                        var_path = '/Users/wizzen2801/Python_WZN/Test/' <br><br>
-                        
-                        df = DataFrame(columns = ['Product_Code', 'Product_Name', 'BOH_Qty', 'BOH_Amt', 'IN_Qty', 'IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
-                        df.to_excel(var_path+'INV_MOV.xlsx', index=False)<br><br>
-                        
-                        excel_names = [var_path+'INV_MOV.xlsx', var_path+'BOH.xlsx', var_path+'IN.xlsx', var_path+'OUT.xlsx', var_path+'EOH.xlsx']<br><br>
-                        
-                        excels = [pd.ExcelFile(name) for name in excel_names] <br><br>
-                        
-                        frames = [x.parse(x.sheet_names[0], header=None,index_col=None) for x in excels]  <br>
-                        frames[1:] = [df[1:] for df in frames[1:]]  <br>
-                        combined = pd.concat(frames)<br><br>
-                        
-                        combined.to_excel(var_path+'INV_MOV_Total.xlsx', header=False, index=False)<br><br>
-                        
-                        df = pd.read_excel(var_path+'INV_MOV_Total.xlsx')<br>
-                        df = df.pivot_table(index = ['Product_Code'], aggfunc = {'BOH_Qty':sum, 'BOH_Amt':sum, 'IN_Qty':sum, 'IN_Amt':sum, 'OUT_Qty':sum, 'OUT_Amt':sum, 'EOH_Qty':sum, 'EOH_Amt':sum})<br><br>
-                        
-                        df2 = pd.read_excel(var_path+'Code_Master.xlsx')<br>
-                        df = df.join(df2.set_index('Product_Code')['Product_Name'], on='Product_Code')<br><br>
-                        
-                        df = df.reindex(columns=['Product_Name', 'BOH_Qty','BOH_Amt','IN_Qty','IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
-                        df.to_excel(var_path+'INV_MOV_Pivot.xlsx')<br><br>
-                        
-                        wb = load_workbook(var_path+'INV_MOV_Pivot.xlsx')<br>
-                        ws = wb.active<br><br>
-                        
-                        for r in ws.rows:<br>
-                            row_index = r[0].row<br>
-                            ws.cell(row=row_index, column=11).value = "=C"+str(row_index)+"+E"+str(row_index)+"-G"+str(row_index)+"-I"+str(row_index)+''<br>
-                            ws['K1'] ='Adjust_Qty'<br>
-                            ws.cell(row=row_index, column=12).value = "=D"+str(row_index)+"+F"+str(row_index)+"-H"+str(row_index)+"-J"+str(row_index)+''<br>
-                            ws['L1'] ='Adjust_Amt'<br><br>
-                           
-                            wb.save(var_path+'INV_MOV_Final.xlsx')
-                    </p></code>
-                </div>
-
-            </div>
+        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+            <code><p style="font: consolas;">
+                import pandas as pd<br>
+                from pandas import DataFrame<br>
+                import sys<br>
+                import numpy as np<br>
+                from openpyxl import load_workbook<br><br>
+                
+                var_path = '/Users/wizzen2801/Python_WZN/Test/' <br><br>
+                
+                df = DataFrame(columns = ['Product_Code', 'Product_Name', 'BOH_Qty', 'BOH_Amt', 'IN_Qty', 'IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
+                df.to_excel(var_path+'INV_MOV.xlsx', index=False)<br><br>
+                
+                excel_names = [var_path+'INV_MOV.xlsx', var_path+'BOH.xlsx', var_path+'IN.xlsx', var_path+'OUT.xlsx', var_path+'EOH.xlsx']<br><br>
+                
+                excels = [pd.ExcelFile(name) for name in excel_names] <br><br>
+                
+                frames = [x.parse(x.sheet_names[0], header=None,index_col=None) for x in excels]  <br>
+                frames[1:] = [df[1:] for df in frames[1:]]  <br>
+                combined = pd.concat(frames)<br><br>
+                
+                combined.to_excel(var_path+'INV_MOV_Total.xlsx', header=False, index=False)<br><br>
+                
+                df = pd.read_excel(var_path+'INV_MOV_Total.xlsx')<br>
+                df = df.pivot_table(index = ['Product_Code'], aggfunc = {'BOH_Qty':sum, 'BOH_Amt':sum, 'IN_Qty':sum, 'IN_Amt':sum, 'OUT_Qty':sum, 'OUT_Amt':sum, 'EOH_Qty':sum, 'EOH_Amt':sum})<br><br>
+                
+                df2 = pd.read_excel(var_path+'Code_Master.xlsx')<br>
+                df = df.join(df2.set_index('Product_Code')['Product_Name'], on='Product_Code')<br><br>
+                
+                df = df.reindex(columns=['Product_Name', 'BOH_Qty','BOH_Amt','IN_Qty','IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
+                df.to_excel(var_path+'INV_MOV_Pivot.xlsx')<br><br>
+                
+                wb = load_workbook(var_path+'INV_MOV_Pivot.xlsx')<br>
+                ws = wb.active<br><br>
+                
+                for r in ws.rows:<br>
+                    row_index = r[0].row<br>
+                    ws.cell(row=row_index, column=11).value = "=C"+str(row_index)+"+E"+str(row_index)+"-G"+str(row_index)+"-I"+str(row_index)+''<br>
+                    ws['K1'] ='Adjust_Qty'<br>
+                    ws.cell(row=row_index, column=12).value = "=D"+str(row_index)+"+F"+str(row_index)+"-H"+str(row_index)+"-J"+str(row_index)+''<br>
+                    ws['L1'] ='Adjust_Amt'<br><br>
+                    
+                    wb.save(var_path+'INV_MOV_Final.xlsx')
+                </p></code>
         </div>
     </div>
-
-    
-
+    <div class="wizzen2801">
+        <h6>Wizzen2801</h6>
+        <h8>One Day, One New!</h8>
+        <img class="circle-img"
+            src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+            alt="Avatar">
+    </div>
+    <div class="info">
+        <a href="index.html" target="_blank"><img class="home"
+                src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+        <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+                src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+                class="linkedin"
+                src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+    </div>
+    <div class="content_list">
+        <a href="python_intro.html"><h3>Python</h3></a>
+        <a href="python_intro.html">
+            <li>Intro...</li>
+        </a>
+        <a href="python_inv_mov.html">
+            <li>재고수불부</li>
+        </a>
+    </div>
 </body>
 
 </html>
