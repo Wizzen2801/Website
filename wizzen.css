@@ -158,7 +158,7 @@ html {
 }
 
 .dropbtn1 {
-    background-color: #4d94ff;
+    background-color: rgb(9, 108, 173);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     color: white;
@@ -167,21 +167,21 @@ html {
     font-size: 13px;
 }
 .dropbtn2 {
-    background-color: #4d94ff;
+    background-color: rgb(9, 108, 173);
     margin-right:-8px;
     color: white;
     padding: 13px;
     font-size: 13px;
 }
 .dropbtn3 {
-    background-color: #4d94ff;
+    background-color: rgb(9, 108, 173);
     margin-right:-8px;
     color: white;
     padding: 13px;
     font-size: 13px;
 }
 .dropbtn4 {
-    background-color: #4d94ff;
+    background-color: rgb(9, 108, 173);
     margin-right:-8px;
     color: white;
     padding: 13px;
@@ -189,7 +189,7 @@ html {
 }
 
 .dropbtn5 {
-    background-color: #4d94ff;
+    background-color: rgb(9, 108, 173);
     border-top-right-radius: 10px; 
     border-bottom-right-radius: 10px; 
     margin-right:-8px;
