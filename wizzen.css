@@ -55,18 +55,18 @@ html {
 
 
 /* Right-aligned link */
-.navbar a.right {
+.navbar_wzn a.right {
     float: right;
 }
 
 /* Change color on hover */
-.navbar a:hover {
+.navbar_wzn a:hover {
     background-color: #ddd;
     color: black;
 }
 
 /* Active/current link */
-.navbar a.active {
+.navbar_wzn a.active {
     background-color: rgb(9, 108, 173);
     color: white;
 }
@@ -92,13 +92,11 @@ html {
 }
 
 .wizzen2801 {
-    margin-top: 3%;
-    margin-left: 20%;
-    margin-right: 3 %;
-    width: 15%; 
+    width: 30%; 
     height:25%; 
     float: left; 
     text-align: center;
+    margin-bottom: 12%;
 }
 
 .circle-img {
@@ -109,7 +107,7 @@ html {
 }
 
 .info {
-    margin-top: 10%;
+    margin-top: 15%;
     width: 15%; 
     height:7%; 
     float: left; 
@@ -158,6 +156,92 @@ html {
     max-width: 100%;
     height: auto;
 }
+
+.dropbtn1 {
+    background-color: #4d94ff;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+    margin-right:-8px;
+    padding: 13px;
+    font-size: 13px;
+}
+.dropbtn2 {
+    background-color: #4d94ff;
+    margin-right:-8px;
+    color: white;
+    padding: 13px;
+    font-size: 13px;
+}
+.dropbtn3 {
+    background-color: #4d94ff;
+    margin-right:-8px;
+    color: white;
+    padding: 13px;
+    font-size: 13px;
+}
+.dropbtn4 {
+    background-color: #4d94ff;
+    margin-right:-8px;
+    color: white;
+    padding: 13px;
+    font-size: 13px;
+}
+
+.dropbtn5 {
+    background-color: #4d94ff;
+    border-top-right-radius: 10px; 
+    border-bottom-right-radius: 10px; 
+    margin-right:-8px;
+    color: white;
+    padding: 13px;
+    font-size: 13px;
+}
+.dropup {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropup-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    bottom: 50px;
+    z-index: 1;
+}
+
+.dropup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropup-content a:hover {background-color: #ddd;}
+  
+.dropup:hover .dropup-content {display: block;}
+  
+.dropup:hover .dropbtn1 {background-color: #3e8e41;}
+.dropup:hover .dropbtn2 {background-color: #ffff00;}
+.dropup:hover .dropbtn3 {background-color: #ff3377;}
+.dropup:hover .dropbtn4 {background-color: #00e6e6;}
+.dropup:hover .dropbtn5 {background-color: #0000ff;}
+
+.footer {
+    padding: 1%;
+    position: relative;
+    height: 50px;
+    background: rgb(9, 108, 173);
+  }
+
+.wrap {
+    width: 40%;
+    height: auto;
+    margin-left: 20%;
+}
+
+
 
 .skin_view .area_view pre code { 
     background-color:transparent; border:0; margin:0; padding:0;
