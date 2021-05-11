@@ -63,32 +63,48 @@ html {
     border-style: solid; 
     border-width: 0 0 0 8px; 
     padding: 12px; 
-    word-break: break-all; 
+    
+    
 } 
 
 .txtBox10bg { 
     border-color: LightGray; 
     background-color:rgba(211, 211, 211, 0.2); 
+    display: inline-block;
+    white-space: nowrap;
+    overflow-x: scroll;
 } 
 
 .txtBox11bg { 
     border-color: DodgerBlue; 
     background-color:rgba(30, 144, 255, 0.2); 
+    display: inline-block;
+    white-space: nowrap;
+    overflow-x: scroll;
 } 
 
 .txtBox12bg { 
     border-color: LightSalmon; 
-    background-color:rgba(255, 160, 122, 0.2); 
+    background-color:rgba(255, 160, 122, 0.2);
+    display: inline-block; 
+    white-space: nowrap;
+    overflow-x: scroll;
 } 
 
 .txtBox13bg { 
     border-color: Tomato; 
     background-color:rgba(255, 99, 71, 0.2); 
+    display: inline-block;
+    white-space: nowrap;
+    overflow-x: scroll;
 } 
 
 .txtBox14bg { 
     border-color: Crimson; 
     background-color:rgba(237, 20, 61, 0.2); 
+    display: inline-block;
+    white-space: nowrap;
+    overflow-x: scroll;
 }
 
 .wrap {
