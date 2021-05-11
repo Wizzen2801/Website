@@ -13,6 +13,7 @@ html {
     height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 200%;
 }
 
 .hero-image {
@@ -53,24 +54,48 @@ html {
     text-decoration: none;
 }
 
-
-/* Column container */
-.row {
-    display: -ms-flexbox;
-    /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap;
-    /* IE10 */
-    flex-wrap: wrap;
+.main_page {
+    margin-top: 3%;
+    margin-left: 20%;
 }
 
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-    -ms-flex: 20%;
-    /* IE10 */
-    flex: 20%;
-    background-color: ivory;
+.txtBox10bg, .txtBox11bg, .txtBox12bg, .txtBox13bg, .txtBox14bg { 
+    border-style: solid; 
+    border-width: 0 0 0 8px; 
+    padding: 12px; 
+    word-break: break-all; 
+} 
+
+.txtBox10bg { 
+    border-color: LightGray; 
+    background-color:rgba(211, 211, 211, 0.2); 
+} 
+
+.txtBox11bg { 
+    border-color: DodgerBlue; 
+    background-color:rgba(30, 144, 255, 0.2); 
+} 
+
+.txtBox12bg { 
+    border-color: LightSalmon; 
+    background-color:rgba(255, 160, 122, 0.2); 
+} 
+
+.txtBox13bg { 
+    border-color: Tomato; 
+    background-color:rgba(255, 99, 71, 0.2); 
+} 
+
+.txtBox14bg { 
+    border-color: Crimson; 
+    background-color:rgba(237, 20, 61, 0.2); 
+}
+
+.wrap {
+    width: 40%;
+    height: auto;
+    margin-left: 20%;
+    background-color: green;
 }
 
 .wizzen2801 {
@@ -89,7 +114,7 @@ html {
 }
 
 .info {
-    margin-top: 15%;
+    margin-top: 25%;
     width: 25%; 
     height:15%; 
     float: left; 
@@ -111,38 +136,11 @@ html {
     border-radius: 20%;
 }
 
-.content_list {
-    margin-top: 1%;
-    margin-left: 2%;
-    width: 70%; 
-    height:auto; 
-    text-align: left;
-    color: #00b3b3;
-    line-height: 200%;
-}  
-/* Main column */
-.main {
-    -ms-flex: 70%;
-    /* IE10 */
-    flex: 70%;
-    background-color: white;
-    padding: 1% 0% 0% 3%;
-}
-
-.main_page {
-    margin-top: 3%;
-    margin-left: 20%;
-}
-.img {
-    width: inherit;
-    max-width: 100%;
-    height: auto;
-}
 
 .dropbtn1 {
     background-color: rgb(9, 108, 173);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: 15%;
+    border-bottom-left-radius: 15%;
     color: white;
     margin-right:-8px;
     padding: 13px;
@@ -209,26 +207,6 @@ html {
 .dropup:hover .dropbtn3 {background-color: #ff3377;}
 .dropup:hover .dropbtn4 {background-color: #00e6e6;}
 .dropup:hover .dropbtn5 {background-color: #0000ff;}
-
-.footer {
-    padding: 1%;
-    position: relative;
-    height: 50px;
-    background: rgb(9, 108, 173);
-  }
-
-.wrap {
-    width: 40%;
-    height: auto;
-    margin-left: 20%;
-}
-
-
-
-.skin_view .area_view pre code { 
-    background-color:transparent; border:0; margin:0; padding:0;
-    outline:none; border-radius:0; font-family: Menlo,Consolas,Monaco,monospace; font-size:14px;
-}
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 70%) {

@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>Strength & Honor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="wizzen.css">
 </head>
 <body>
@@ -47,19 +46,19 @@
 
         터미널에서 아래 명령어를 실행한다.  <br><br>
 
-        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        <div style="width: 70%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 /usr/sbin/softwareupdate --install-rosetta --agree-to-license
             </p></code>
         </div>
-
+        <br>
         터미널을 종료 후 다시 실행하여 열면 아래 화면과 같은 에러가 뜬다.  <br><br>
 
         <img width="70%" src="https://user-images.githubusercontent.com/80723305/116918039-b55b8580-ac4f-11eb-8255-5d0eecebe4f5.png"><br><br>
         
         아래 명령어를 실행하고 터미널 종료한다.  <br><br>
 
-        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        <div style="width: 70%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 compaudit | xargs chmod g-w,o-w
             </p></code>
@@ -71,9 +70,9 @@
 
         <img width="70%" src="https://user-images.githubusercontent.com/80723305/116919045-0324bd80-ac51-11eb-88c4-9358e1e54559.png"><br><br>
 
-        터미널을 다시 연 후 아래 명령어를 차례대로 실행한다.  <br>
+        터미널을 다시 연 후 아래 명령어를 차례대로 실행한다.  <br><br>
 
-        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        <div style="width: 70%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br>
                 brew install wget<br>
@@ -82,21 +81,21 @@
                 brew config
             </p></code>
         </div>  
+        <br>
+        마지막 brew config 를 실행하면 아래와 같이 macOS version 정보 옆에 "x86_64" 와 "Rosetta 2: true" 를 확인한다.  <br><br>
 
-        마지막 brew config 를 실행하면 아래와 같이 macOS version 정보 옆에 "x86_64" 와 "Rosetta 2: true" 를 확인한다.  <br>
-
-        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        <div style="width: 70%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 macOS: 11.3-x86_64<br>
                 Rosetta 2: true
             </p></code>
         </div>
-
+        <br>
         <h4 span style="color:#04599e">루비 설치</h4>
 
-        아래 명령어를 차례대로 터미널에서 실행한다.  <br>
+        아래 명령어를 차례대로 터미널에서 실행한다.  <br><br>
 
-        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        <div style="width: 70%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 brew install rbenv<br>
                 rbenv init<br>
@@ -107,39 +106,39 @@
                 ruby -v
             </p></code>
         </div>
+        <br>
+        버전 확인 즉 ruby -v 를 터미널에서 입력하면 아래와 같이 2.7.2 버전을 확인하고 마지막에 x86_64 를 확인한다. <br><br>
         
-        버전 확인 즉 ruby -v 를 터미널에서 입력하면 아래와 같이 2.7.2 버전을 확인하고 마지막에 x86_64 를 확인한다. <br>
-        
-        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        <div style="width: 70%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
             </p></code>
         </div> 
+        <br>
+        <h4 span style="color:#04599e">jekyll 설치</h4><br>
 
-        <h4 span style="color:#04599e">jekyll 설치</h4>
+        터미널에서 아래 명령어를 실행한다.  <br><br>
 
-        터미널에서 아래 명령어를 실행한다.  <br>
-
-        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        <div style="width: 70%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 gem install --user-install bundler jekyll                    
             </p></code>
         </div> 
-
+        <br>
         여기까지만 하고 그 이상 jekyll 을 설치 할 수 없었다. <br>
         허나 홈브류를 통해 앱을 설치하는데 문제는 없었다. <br><br>
 
         <h4 span style="color:#04599e">홈브류 설치</h4>
 
-        먼저 터미널에서 아래 명령어를 실행해 casks를 설치한다. <br>
-        <div class="w3-panel w3-pale-blue w3-leftbar w3-border-blue">
+        먼저 터미널에서 아래 명령어를 실행해 casks를 설치한다. <br><br>
+        <div style="width: 70%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 brew install casks<br>
                 brew install mas <br>
                 brew bundle                     
             </p></code>
         </div>
-
+        <br>
         일부 앱은 brew 를 통해서 또 다른 일부 앱은 mas 를 통해서 설치 할 수 있다. <br>
         예를들어 카카오톡의 경우 mas search KaKaoTalk 이란 명령을 통해 조회가 되면 <br>
         아래 그림과 같이 번호가 조회가 된다. <br><br>
@@ -159,7 +158,7 @@
     <hr style="margin-left: 20%;" width="60%" align="left">
     <div class="wrap">
         <div class="wizzen2801">
-            <h6 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h6>
+            <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
             <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
             <img class="circle-img"
                 src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
