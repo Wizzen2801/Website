@@ -16,6 +16,11 @@ html {
     line-height: 200%;
 }
 
+.img {
+    max-width: 100%;
+    height: auto;
+}
+
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://user-images.githubusercontent.com/80723305/116153862-44185180-a6e8-11eb-9ce1-6fbaa094605e.png");
     height: 30%;
