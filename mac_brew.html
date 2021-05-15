@@ -29,7 +29,7 @@
     </div>
     <div class="main_page">
         <h3 span style="color:#3ea1f1">홈브류 설치 및 활용</h3>
-        <hr width="80%" align="left"></p>
+        <hr width="100%" align="left"></p>
         <h4 span style="color:#04599e">로제타2 설치</h4>
 
         윈도우 pc 와 다르게 맥은 홈브류를 통해 터미널에서 구글 크롬, 비주얼 스튜디오 코드 심지어 카카오톡등<br>
@@ -47,7 +47,7 @@
 
         터미널에서 아래 명령어를 실행한다.  <br><br>
 
-        <div style="width: 70%;" class="txtBox11bg">
+        <div style="width: 100%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 /usr/sbin/softwareupdate --install-rosetta --agree-to-license
             </p></code>
@@ -55,11 +55,11 @@
         <br>
         터미널을 종료 후 다시 실행하여 열면 아래 화면과 같은 에러가 뜬다.  <br><br>
 
-        <img width="70%" src="https://user-images.githubusercontent.com/80723305/116918039-b55b8580-ac4f-11eb-8255-5d0eecebe4f5.png"><br><br>
+        <img width="100%" src="https://user-images.githubusercontent.com/80723305/116918039-b55b8580-ac4f-11eb-8255-5d0eecebe4f5.png"><br><br>
         
         아래 명령어를 실행하고 터미널 종료한다.  <br><br>
 
-        <div style="width: 70%;" class="txtBox11bg">
+        <div style="width: 100%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 compaudit | xargs chmod g-w,o-w
             </p></code>
@@ -69,11 +69,11 @@
 
         Application 폴더에서 iTerm 를 우클릭하여 정보 가져오기 후 아래와 같이 로제타 옵션을 활성화 한다.  <br><br>
 
-        <img width="70%" src="https://user-images.githubusercontent.com/80723305/116919045-0324bd80-ac51-11eb-88c4-9358e1e54559.png"><br><br>
+        <img width="100%" src="https://user-images.githubusercontent.com/80723305/116919045-0324bd80-ac51-11eb-88c4-9358e1e54559.png"><br><br>
 
         터미널을 다시 연 후 아래 명령어를 차례대로 실행한다.  <br><br>
 
-        <div style="width: 70%;" class="txtBox11bg">
+        <div style="width: 100%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br>
                 brew install wget<br>
@@ -85,7 +85,7 @@
         <br>
         마지막 brew config 를 실행하면 아래와 같이 macOS version 정보 옆에 "x86_64" 와 "Rosetta 2: true" 를 확인한다.  <br><br>
 
-        <div style="width: 70%;" class="txtBox11bg">
+        <div style="width: 100%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 macOS: 11.3-x86_64<br>
                 Rosetta 2: true
@@ -96,7 +96,7 @@
 
         아래 명령어를 차례대로 터미널에서 실행한다.  <br><br>
 
-        <div style="width: 70%;" class="txtBox11bg">
+        <div style="width: 100%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 brew install rbenv<br>
                 rbenv init<br>
@@ -110,7 +110,7 @@
         <br>
         버전 확인 즉 ruby -v 를 터미널에서 입력하면 아래와 같이 2.7.2 버전을 확인하고 마지막에 x86_64 를 확인한다. <br><br>
         
-        <div style="width: 70%;" class="txtBox11bg">
+        <div style="width: 100%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
             </p></code>
@@ -120,7 +120,7 @@
 
         터미널에서 아래 명령어를 실행한다.  <br><br>
 
-        <div style="width: 70%;" class="txtBox11bg">
+        <div style="width: 100%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 gem install --user-install bundler jekyll                    
             </p></code>
@@ -132,7 +132,7 @@
         <h4 span style="color:#04599e">홈브류 설치</h4>
 
         먼저 터미널에서 아래 명령어를 실행해 casks를 설치한다. <br><br>
-        <div style="width: 70%;" class="txtBox11bg">
+        <div style="width: 100%;" class="txtBox11bg">
             <code><p style="font: consolas;">
                 brew install casks<br>
                 brew install mas <br>
@@ -148,14 +148,14 @@
         구글 크롬을 설치하기 위해 조회를 하면 google-chrome 이 보이는데 이의 위치가 Casks 아래에 있다. <br>
         그러면 명령창에서 "brew install --casks google-chrome" 을 입력하여 설치 할 수 있다. <br><br>
 
-        <img width="70%" src="https://user-images.githubusercontent.com/80723305/116928982-138f6500-ac5e-11eb-9d82-28ace47092da.png"><br><br>
+        <img width="100%" src="https://user-images.githubusercontent.com/80723305/116928982-138f6500-ac5e-11eb-9d82-28ace47092da.png"><br><br>
 
         아직 나도 배우는 중이라 궁금할때는 항상 유투브를 통해서 배우고 또 이를 실행하고 느낀 것을 <br>
         블로그에 하나 하나씩 정리하고 있는 중 이다. <br><br>
 
         허나 해당 앱들의 버전이 업데이트 됨에 따라 예전에는 이렇게 했는데 추후 이 방법이 안될때도 있어<br>
         그때 그때 블로그를 다시 수정해야 할 것 같다. <br>
-        <hr width="80%" align="left"></p>
+        <hr width="100%" align="left"></p>
     </div>
         <div class="wizzen2801">
             <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
