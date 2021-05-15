@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Strength & Honor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="wizzen.css">
+</head>
+<body>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size:300%">Strength & Honor</h1>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mac_intro.html">MacBook</a>
+        <a href="html_intro.html">Html</a>
+        <a href="css_intro.html">CSS</a>
+        <a href="javascript_intro.html">JavaScript</a>
+        <a href="python_intro.html">Python</a>
+        <a href="etc_intro.html">etc.</a>
+        <a href="all_posts_intro.html">All Posts.</a>
+
+        <!-- <a href="#" class="right">Link</a> -->
+    </div>
+    <div class="main_page">
+        <h3 span style="color:#3ea1f1">웹사이트에서 유투브 자동재생 하기 </h3>
+        <hr width="80%" align="left"></p>
+        유투브에서 웹사이트에 추가하고자 하는 영상을 선택 후 <br><br>
+
+        <img width="60%" alt="yt1" src="https://user-images.githubusercontent.com/80723305/118378034-32ccb180-b5d1-11eb-934e-2e8dffed24ef.png"><br><br>
+
+        공유 버튼을 클릭하면 아래와 같은 화면이 보이는데 여기서 노란색 마크한 부분이 이 동영상의 id 값이다. <br><br>
+
+        <img width="60%" alt="yt_share" src="https://user-images.githubusercontent.com/80723305/118378118-bab2bb80-b5d1-11eb-9edf-6edddfda38e5.png"><br><br>
+
+        그럼 이 id를 아래 소스코드에서 웹사이트 주소의 맨 마지막 부분인 "playlist=" 다음 값에 넣으면 된다. <br>
+        여기서 autoplay 값을 1 을 설정한 것은 웹사이트 접속시 자동 재생을, mute 값을 0 은 음소거 하지 않도록,<br>
+        그리고 loop 값을 1 을 설정한 것은 무한반복의 옵션 값이다. <br><br>
+
+        <div style="width: 70%;" class="txtBox11bg">
+          <code><p style="font: consolas;">
+            "https://www.youtube.com/embed/ipCb7FyRll0?rel=0&amp;autoplay=1&mute=0&amp;loop=1;playlist=ipCb7FyRll0"
+          </p></code>
+      </div>
+      <br><br>
+
+        태그까지 포함한 완성된 소스코드는 아래와 같고 여기서 위에서 설명한 것과 같이 id 값을 변경 해 주면 된다. <br><br>
+
+        <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">&lt;iframe&nbsp;width="60%"&nbsp;height="350px"&nbsp;src="https://www.youtube.com/embed/ipCb7FyRll0?rel=0&amp;amp;autoplay=1&amp;mute=0&amp;amp;loop=1;playlist=ipCb7FyRll0"&nbsp;frameborder="0"&gt;&lt;/iframe&gt;</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div><br>
+
+        실행 해 보니 로컬에서는 잘된다. <br>
+        그런데 웹에 올리면 자동재생은 되지 않고 반드시 클릭을 해 줘야 재생이 된다. <br>
+        사파리, 크롬 모두 테스트 해 보았으나 동일하게 안되는 것을 보면 아무래도 해당 사이트를 접속시 갑작스럽게 음악이 재생되어<br>
+        사용자들이 당황하지 않도록 배려 한 것이 아닌가 하는 생각이 든다. <br><br>
+
+        <iframe width="60%" height="350px" src="https://www.youtube.com/embed/ipCb7FyRll0?rel=0&amp;autoplay=1&mute=0&amp;loop=1;playlist=ipCb7FyRll0" frameborder="0"></iframe><br><br>
+
+        <hr width="80%" align="left"></p>
+    </div>
+          <div class="wizzen2801">
+              <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+              <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+          </div>
+              <img class="circle-img"
+                  src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+                  alt="Avatar">
+          
+          <div class="info">
+              <a href="index.html" target="_blank"><img class="home"
+                      src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+              <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+                      src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+              <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+                      class="linkedin"
+                      src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+          </div>    
+    <div class="dropup-menu">
+      <div class="dropup">
+        <button class="dropbtn1">MacBook</button>
+        <div class="dropup-content">
+          <a href="mac_intro.html">Intro ...</a>
+          <a href="mac_terminal.html">터미널 꾸미기</a>
+          <a href="mac_brew.html">홈브류 설치 및 활용</a>
+          <a href="mac_git.html">Git 설치 및 활용 (1)</a>
+          <a href="mac_git2.html">Git 설치 및 활용 (2)</a>
+          <a href="mac_automator1.html">오토메이터 활용 - 네이버 영어사전</a>
+        </div>
+      </div>
+      <div class="dropup">
+        <button class="dropbtn2">Html</button>
+        <div class="dropup-content">
+          <a href="html_intro.html">Intro ...</a>
+          <a href="markdown_to_html.html">Markdown 파일을 Html 로 변환하기</a>
+        </div>
+      </div>
+      <div class="dropup">
+        <button class="dropbtn3">CSS</button>
+        <div class="dropup-content">
+          <a href="css_intro.html">Intro ...</a>
+        </div>
+      </div>
+      <div class="dropup">
+        <button class="dropbtn4">JavaScript</button>
+        <div class="dropup-content">
+          <a href="javascript_intro.html">Intro ...</a>
+        </div>
+      </div>
+      <div class="dropup">
+        <button class="dropbtn5">Python</button>
+        <div class="dropup-content">
+        <a href="python_intro.html">Intro ...</a>
+        <a href="python_inv_mov.html">재고수불부</a>
+        </div>
+      </div>
+    <div class="dropup">
+      <button class="dropbtn6">etc.</button>
+      <div class="dropup-content">
+        <a href="etc_intro.html">아이폰 벨소리 넣기</a>
+      </div>
+    </div>
+  </div>
+    
+    
+</body>
+
+</html>
