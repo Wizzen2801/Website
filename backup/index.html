@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="wizzen.css">
+
+<body>
+
+<!-- Navigation -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="mac_intro.html">MacBook</a>
+    <a href="html_intro.html">Html</a>
+    <a href="css_intro.html">CSS</a>
+    <a href="javascript_intro.html">JavaScript</a>
+    <a href="python_intro.html">Python</a>
+    <a href="etc_intro.html">etc.</a>
+    <a href="all_posts_intro.html">All Posts.</a>
+
+    <!-- <a href="#" class="right">Link</a> -->
+</div>
+
+<!-- Slide Show -->
+<section>
+  <img class="mySlides" src="https://user-images.githubusercontent.com/80723305/116812527-6f1efd00-ab4f-11eb-9b2d-93754a6f79b3.png"
+  style="width:100%">
+  <img class="mySlides" src="https://user-images.githubusercontent.com/80723305/116812478-3aab4100-ab4f-11eb-9298-d04a2d4be35d.png"
+  style="width:100%">
+  <img class="mySlides" src="https://user-images.githubusercontent.com/80723305/116812564-a4c3e600-ab4f-11eb-9d19-ef1f782b50ed.png"
+  style="width:100%">
+  <img class="mySlides" src="https://user-images.githubusercontent.com/80723305/116812601-cd4be000-ab4f-11eb-89ca-cdcce989a0a6.png"
+  style="width:100%">
+
+</section>
+
+<!-- Band Description -->
+
+<script>
+// Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 3000);
+}
+</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Strength & Honor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="wizzen.css">
+</head>
+<body>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size:300%">Strength & Honor</h1>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mac_intro.html">MacBook</a>
+        <a href="html_intro.html">Html</a>
+        <a href="css_intro.html">CSS</a>
+        <a href="javascript_intro.html">JavaScript</a>
+        <a href="python_intro.html">Python</a>
+        <a href="etc_intro.html">etc.</a>
+        <a href="all_posts_intro.html">All Posts.</a>
+
+        <!-- <a href="#" class="right">Link</a> -->
+    </div>
+    <div class="main_page">
+        <h3 span style="color:#3ea1f1">오토메이터 활용 - 네이버 사전 만들기</h3>
+        <hr width="100%" align="left"></p>
+        윈도우에서 batch 파일이 있다면 맥에서는 오토메이터가 있다.<br> 
+        허나 맥의 오토메이터가 더 활용도가 많다. <br><br>
+
+        우선 간단하게 네이버 사전을 만들어 웹에서 모르는 영어 단어의 뜻을 찾도록 해 보겠다. <br>
+        물론 모르는 단어를 네이버 사전 웹사이트에 접속해서 찾으면 되지만 오토메이터의 주된 활용은<br>
+        여러번 클릭을 통해 수행해야 할 작업을 한번의 클릭으로 할 수 있게 해 준다. <br><br>
+
+        런치패드안에 있는 오토메이터 실행하기 위해서는 4 손가락을 트랙패드에서 모은 후 아래의 오토메이터를 실행한다. <br><br>
+
+        <img width="100%" alt="automator" src="https://user-images.githubusercontent.com/80723305/118116823-10793f00-b3eb-11eb-8046-9dc88cbdd03d.png"><br><br>
+
+        New document 클릭<br><br>
+
+        <img width="100%" alt="New_Document" src="https://user-images.githubusercontent.com/80723305/118117133-7cf43e00-b3eb-11eb-8a1f-0813c3917000.png"><br><br>
+
+        Quick Action 선택<br><br>
+
+        <img width="100%" alt="Quick_Action" src="https://user-images.githubusercontent.com/80723305/118117388-d8bec700-b3eb-11eb-8740-284ad66bd1bd.png"><br><br>
+
+        Run AppleScript 를 오른쪽 공간으로 드래그 해서 갖다 놓는다. <br><br>
+
+        <img width="100%" alt="Apple_script" src="https://user-images.githubusercontent.com/80723305/118117893-73b7a100-b3ec-11eb-815d-638bee60b3f4.png"><br><br>
+
+        아래 스크립트 내용을 복사해서 붙여 넣는다. <br><br>
+
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                on run {input, parameters}<br>
+	                return "http://endic.naver.com/popManager.nhn?m=search&query=" & (input as string)<br>
+                end run<br>
+            </p></code>
+        </div>
+        <br>
+        이번엔 Website Popup 을 드래그 해서 아래와 같이 오른쪽 공간에 갖다 놓는다. <br><br>
+
+        <img width="100%" alt="Run_Script_Text" src="https://user-images.githubusercontent.com/80723305/118124885-7f0fca00-b3f6-11eb-9488-1e475ae216c8.png"><br><br>
+
+        원하는 파일명으로 저장한다. 
+        이때 반드시 Workflow receives current 란을 text 로 선택해서 저장해야지 추후 단어 선택후 우클릭시 아래와 같이 메뉴가 뜨게 된다. <br><br>
+
+        <img width="100%" alt="Menu_Naver_EN" src="https://user-images.githubusercontent.com/80723305/118125148-e3328e00-b3f6-11eb-929a-8b25362e6668.png"><br><br>
+
+        메뉴를 클릭하면 아래와 같이 잘 실행이 된다. <br><br>
+
+        <img width="100%" alt="Naver_search" src="https://user-images.githubusercontent.com/80723305/118125346-1ffe8500-b3f7-11eb-8858-c932504e840d.png"><br><br>
+
+        <hr width="100%" align="left"></p>
+    </div>
+        <div class="wizzen2801">
+            <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+            <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+            <img class="circle-img"
+                src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+                alt="Avatar">
+        
+        <div class="info">
+            <a href="index.html" target="_blank"><img class="home"
+                    src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+            <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+                    src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+            <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+                    class="linkedin"
+                    src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>    
+  <div class="dropup-menu">
+    <div class="dropup">
+      <button class="dropbtn1">MacBook</button>
+      <div class="dropup-content">
+        <a href="mac_intro.html">Intro ...</a>
+        <a href="mac_terminal.html">터미널 꾸미기</a>
+        <a href="mac_brew.html">홈브류 설치 및 활용</a>
+        <a href="mac_git.html">Git 설치 및 활용 (1)</a>
+        <a href="mac_git2.html">Git 설치 및 활용 (2)</a>
+        <a href="mac_automator1.html">오토메이터 활용 - 네이버 영어사전</a>
+      </div>
+    </div>
+    <div class="dropup">
+      <button class="dropbtn2">Html</button>
+      <div class="dropup-content">
+        <a href="html_intro.html">Intro ...</a>
+        <a href="markdown_to_html.html">Markdown 파일을 Html 로 변환하기</a>
+      </div>
+    </div>
+    <div class="dropup">
+      <button class="dropbtn3">CSS</button>
+      <div class="dropup-content">
+        <a href="css_intro.html">Intro ...</a>
+      </div>
+    </div>
+    <div class="dropup">
+      <button class="dropbtn4">JavaScript</button>
+      <div class="dropup-content">
+        <a href="javascript_intro.html">Intro ...</a>
+      </div>
+    </div>
+    <div class="dropup">
+      <button class="dropbtn5">Python</button>
+      <div class="dropup-content">
+      <a href="python_intro.html">Intro ...</a>
+      <a href="python_inv_mov.html">재고수불부</a>
+      </div>
+    </div>
+    <div class="dropup">
+      <button class="dropbtn6">etc.</button>
+      <div class="dropup-content">
+        <a href="etc_intro.html">아이폰 벨소리 넣기</a>
+      </div>
+    </div>
+</div>
+</body>
+
+</html>

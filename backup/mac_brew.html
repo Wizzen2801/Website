@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Strength & Honor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="wizzen.css">
+</head>
+<body>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size:300%">Strength & Honor</h1>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mac_intro.html">MacBook</a>
+        <a href="html_intro.html">Html</a>
+        <a href="css_intro.html">CSS</a>
+        <a href="javascript_intro.html">JavaScript</a>
+        <a href="python_intro.html">Python</a>
+        <a href="etc_intro.html">etc.</a>
+        <a href="all_posts_intro.html">All Posts.</a>
+
+        <!-- <a href="#" class="right">Link</a> -->
+    </div>
+    <div class="main_page">
+        <h3 span style="color:#3ea1f1">홈브류 설치 및 활용</h3>
+        <hr width="100%" align="left"></p>
+        <h4 span style="color:#04599e">로제타2 설치</h4>
+
+        윈도우 pc 와 다르게 맥은 홈브류를 통해 터미널에서 구글 크롬, 비주얼 스튜디오 코드 심지어 카카오톡등<br>
+        여러 Application 을 설치 할 수 있다.  <br><br>
+
+        우선 m1 맥의 경우에는 아직 모든 앱이 호환이 되지 않기에 인텔 베이스의 앱을 설치하기 위해서는<br>
+        로제타라는 앱을 설치해야 한다.  <br><br>
+
+        나도 큰맘 먹고 네이티브로 설치를 해 볼려고 하였으나 많은 분들이 뼈저린 후회를 하시면서 로제타2 설치 후<br>
+        각종 앱을 설치하는 것이 정신건강에 이롭다 라고 해서 그 뒤를 따라야 하겠다고 맘 먹었었다.  <br><br>
+        
+        로제타를 설치하는데 있어 동의를 확인하고 설치 할 것인지 아니면 무조건 자동 동의를 하고 설치할 것인지,<br>
+        2가지 버전의 명령이 있는데 동의를 안한다는 것은 설치하지 않겠다 라는 것과 같으므로 여기서는<br>
+        자동 동의를 하는 버전으로 설치한다. <br><br>
+
+        터미널에서 아래 명령어를 실행한다.  <br><br>
+
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+            </p></code>
+        </div>
+        <br>
+        터미널을 종료 후 다시 실행하여 열면 아래 화면과 같은 에러가 뜬다.  <br><br>
+
+        <img width="100%" src="https://user-images.githubusercontent.com/80723305/116918039-b55b8580-ac4f-11eb-8255-5d0eecebe4f5.png"><br><br>
+        
+        아래 명령어를 실행하고 터미널 종료한다.  <br><br>
+
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                compaudit | xargs chmod g-w,o-w
+            </p></code>
+        </div><br>
+
+        <h4 span style="color:#04599e">iTerm2 로제타 환경설정</h4>
+
+        Application 폴더에서 iTerm 를 우클릭하여 정보 가져오기 후 아래와 같이 로제타 옵션을 활성화 한다.  <br><br>
+
+        <img width="100%" src="https://user-images.githubusercontent.com/80723305/116919045-0324bd80-ac51-11eb-88c4-9358e1e54559.png"><br><br>
+
+        터미널을 다시 연 후 아래 명령어를 차례대로 실행한다.  <br><br>
+
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br>
+                brew install wget<br>
+                export PATH=/opt/homebrew/bin:/Users/yangdonghyeon/.rbenv/shims:/opt/homebrew/bin:/Users/yangdonghyeon/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/opt/homebrew/bin:$PATH<br>
+                /usr/local/bin/brew<br>
+                brew config
+            </p></code>
+        </div>  
+        <br>
+        마지막 brew config 를 실행하면 아래와 같이 macOS version 정보 옆에 "x86_64" 와 "Rosetta 2: true" 를 확인한다.  <br><br>
+
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                macOS: 11.3-x86_64<br>
+                Rosetta 2: true
+            </p></code>
+        </div>
+        <br>
+        <h4 span style="color:#04599e">루비 설치</h4>
+
+        아래 명령어를 차례대로 터미널에서 실행한다.  <br><br>
+
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                brew install rbenv<br>
+                rbenv init<br>
+                eval "$(rbenv init -)"<br>
+                rbenv install 2.7.2<br>
+                rbenv global 2.7.2<br>
+                rbenv rehash<br>
+                ruby -v
+            </p></code>
+        </div>
+        <br>
+        버전 확인 즉 ruby -v 를 터미널에서 입력하면 아래와 같이 2.7.2 버전을 확인하고 마지막에 x86_64 를 확인한다. <br><br>
+        
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
+            </p></code>
+        </div> 
+        <br>
+        <h4 span style="color:#04599e">jekyll 설치</h4><br>
+
+        터미널에서 아래 명령어를 실행한다.  <br><br>
+
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                gem install --user-install bundler jekyll                    
+            </p></code>
+        </div> 
+        <br>
+        여기까지만 하고 그 이상 jekyll 을 설치 할 수 없었다. <br>
+        허나 홈브류를 통해 앱을 설치하는데 문제는 없었다. <br><br>
+
+        <h4 span style="color:#04599e">홈브류 설치</h4>
+
+        먼저 터미널에서 아래 명령어를 실행해 casks를 설치한다. <br><br>
+        <div style="width: 100%;" class="txtBox11bg">
+            <code><p style="font: consolas;">
+                brew install casks<br>
+                brew install mas <br>
+                brew bundle                     
+            </p></code>
+        </div>
+        <br>
+        일부 앱은 brew 를 통해서 또 다른 일부 앱은 mas 를 통해서 설치 할 수 있다. <br>
+        예를들어 카카오톡의 경우 mas search KaKaoTalk 이란 명령을 통해 조회가 되면 <br>
+        아래 그림과 같이 번호가 조회가 된다. <br><br>
+
+        그러면 "mas install 번호" 하면 카카오톡이 설치가 되고<br>
+        구글 크롬을 설치하기 위해 조회를 하면 google-chrome 이 보이는데 이의 위치가 Casks 아래에 있다. <br>
+        그러면 명령창에서 "brew install --casks google-chrome" 을 입력하여 설치 할 수 있다. <br><br>
+
+        <img width="100%" src="https://user-images.githubusercontent.com/80723305/116928982-138f6500-ac5e-11eb-9d82-28ace47092da.png"><br><br>
+
+        아직 나도 배우는 중이라 궁금할때는 항상 유투브를 통해서 배우고 또 이를 실행하고 느낀 것을 <br>
+        블로그에 하나 하나씩 정리하고 있는 중 이다. <br><br>
+
+        허나 해당 앱들의 버전이 업데이트 됨에 따라 예전에는 이렇게 했는데 추후 이 방법이 안될때도 있어<br>
+        그때 그때 블로그를 다시 수정해야 할 것 같다. <br>
+        <hr width="100%" align="left"></p>
+    </div>
+        <div class="wizzen2801">
+            <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+            <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+            <img class="circle-img"
+                src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+                alt="Avatar">
+        
+        <div class="info">
+            <a href="index.html" target="_blank"><img class="home"
+                    src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+            <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+                    src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+            <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+                    class="linkedin"
+                    src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>    
+  <div class="dropup-menu">
+    <div class="dropup">
+      <button class="dropbtn1">MacBook</button>
+      <div class="dropup-content">
+        <a href="mac_intro.html">Intro ...</a>
+        <a href="mac_terminal.html">터미널 꾸미기</a>
+        <a href="mac_brew.html">홈브류 설치 및 활용</a>
+        <a href="mac_git.html">Git 설치 및 활용 (1)</a>
+        <a href="mac_git2.html">Git 설치 및 활용 (2)</a>
+        <a href="mac_automator1.html">오토메이터 활용 - 네이버 영어사전</a>
+      </div>
+    </div>
+    <div class="dropup">
+      <button class="dropbtn2">Html</button>
+      <div class="dropup-content">
+        <a href="html_intro.html">Intro ...</a>
+        <a href="markdown_to_html.html">Markdown 파일을 Html 로 변환하기</a>
+      </div>
+    </div>
+    <div class="dropup">
+      <button class="dropbtn3">CSS</button>
+      <div class="dropup-content">
+        <a href="css_intro.html">Intro ...</a>
+      </div>
+    </div>
+    <div class="dropup">
+      <button class="dropbtn4">JavaScript</button>
+      <div class="dropup-content">
+        <a href="javascript_intro.html">Intro ...</a>
+      </div>
+    </div>
+    <div class="dropup">
+        <button class="dropbtn5">Python</button>
+        <div class="dropup-content">
+        <a href="python_intro.html">Intro ...</a>
+        <a href="python_inv_mov.html">재고수불부</a>
+        </div>
+      </div>
+      <div class="dropup">
+        <button class="dropbtn6">etc.</button>
+        <div class="dropup-content">
+          <a href="etc_intro.html">아이폰 벨소리 넣기</a>
+        </div>
+      </div>
+  </div>
+    
+</body>
+
+</html>

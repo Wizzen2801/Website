@@ -1,133 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Strength & Honor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="wizzen.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
 </head>
+
 <body>
 
-    <div class="hero-image">
-        <div class="hero-text">
-            <h1 style="font-size:300%">Strength & Honor</h1>
-        </div>
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
     </div>
+  </div>
 
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="mac_intro.html">MacBook</a>
-        <a href="html_intro.html">Html</a>
-        <a href="css_intro.html">CSS</a>
-        <a href="javascript_intro.html">JavaScript</a>
-        <a href="python_intro.html">Python</a>
-        <a href="etc_intro.html">etc.</a>
-        <a href="all_posts_intro.html">All Posts.</a>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="mac_intro.html">MacBook</a>
+    <a href="html_intro.html">Html</a>
+    <a href="css_intro.html">CSS</a>
+    <a href="javascript_intro.html">JavaScript</a>
+    <a href="python_intro.html">Python</a>
+    <a href="etc_intro.html">etc.</a>
+    <a href="all_posts_intro.html">All Posts.</a>
 
-        <!-- <a href="#" class="right">Link</a> -->
-    </div>
-    <div class="main_page">
-        <h3 span style="color:#3ea1f1">Git 설치 및 활용</h3>
-        <hr width="100%" align="left"></p>
-        <h4 span style="color:#04599e">Git 버전 확인 및 Sourcetree 설치</h4>
-            
-            개인적으로 공부를 하기 위해 유투브에서 "드림코딩"을 운영하고 계신 "엘리"님의 자료를 가지고 정리 해 본다.<br><br>
-            
-            맥에서는 기본적으로 git 이 설치가 되어 있다.<br> 
-            아래 터미널 화면처럼 git 의 설치된 버전과 sourcetree 를 홈브류를 통해 설치 해 보자.<br>
+    <!-- <a href="#" class="right">Link</a> -->
+  </div>
 
-            <img width="100%" src="https://user-images.githubusercontent.com/80723305/117069195-8404b780-ad2c-11eb-8ed4-33aa03a98f59.png"><br>
+  <div class="row" id="content">
+    <div class="medium-8 columns">
+      <div class="blog-post">
+        <br>
+        <h4 span style="color:#3ea1f1">Git 설치 및 활용</h4>
+        <hr width="100%" align="left">
+        </p>
+        <h4 span style="color:#04599e">Git 버전 확인 및 Sourcetree 설치</h4><br>
 
-            VS Code 와 git 을 연동할 수 있는데 터미널에서 code . 을 입력하면 VS Code 가 실행이 된다.<br><br> 
+        개인적으로 공부를 하기 위해 유투브에서 "드림코딩"을 운영하고 계신 "엘리"님의 자료를 가지고 정리 해 본다.<br><br>
 
-            git 에서 user name 과 email 을 아래 터미널 화면에서와 같이 명령어를 입력해서 생성 후 조회를 해 본다.<br><br> 
+        맥에서는 기본적으로 git 이 설치가 되어 있다.<br>
+        아래 터미널 화면처럼 git 의 설치된 버전과 sourcetree 를 홈브류를 통해 설치 해 보자.<br>
 
-            <img style="padding-left: 4%;" width="100%" alt="git_user_email_setup" src="https://user-images.githubusercontent.com/80723305/117070190-b19e3080-ad2d-11eb-99c3-2ee62bc360e0.png"><br><br>
+        <img width="100%"
+          src="https://user-images.githubusercontent.com/80723305/117069195-8404b780-ad2c-11eb-8ed4-33aa03a98f59.png"><br>
 
-            <h4 span style="color:#04599e">Git 폴더 생성 및 초기화</h4>
+        VS Code 와 git 을 연동할 수 있는데 터미널에서 code . 을 입력하면 VS Code 가 실행이 된다.<br><br>
 
-            아래 터미널 화면에서와 같이 mkdir 로 git 폴더를 생성하고 git init 으로 초기화를 한다.<br><br> 
+        git 에서 user name 과 email 을 아래 터미널 화면에서와 같이 명령어를 입력해서 생성 후 조회를 해 본다.<br><br>
 
-            <img width="100%" alt="mkdir_git_init" src="https://user-images.githubusercontent.com/80723305/117070613-430da280-ad2e-11eb-9a46-ab8174bb1c39.png"><br>
+        <img style="padding-left: 4%;" width="100%" alt="git_user_email_setup"
+          src="https://user-images.githubusercontent.com/80723305/117070190-b19e3080-ad2d-11eb-99c3-2ee62bc360e0.png"><br><br>
 
-            아래와 같이 확장자가 git 으로 되어 있는 숨겨진 파일을 삭제하고 git init 이라는 명령으로 다시 생성 해 보자.<br><br> 
+        <h4 span style="color:#04599e">Git 폴더 생성 및 초기화</h4>
 
-            <img width="100%" alt="hidden_file_delete_create" src="https://user-images.githubusercontent.com/80723305/117070878-a13a8580-ad2e-11eb-9a34-9f6c53ef5470.png"><br>
+        아래 터미널 화면에서와 같이 mkdir 로 git 폴더를 생성하고 git init 으로 초기화를 한다.<br><br>
 
-            아래와 같이 echo 명령으로 txt 파일을 생성 해 보고 그 파일들의 현재 상태를 확인 해 본다.<br><br> 
+        <img width="100%" alt="mkdir_git_init"
+          src="https://user-images.githubusercontent.com/80723305/117070613-430da280-ad2e-11eb-9a46-ab8174bb1c39.png"><br>
 
-            <img width="100%" alt="create_txt_check_status" src="https://user-images.githubusercontent.com/80723305/117071113-ed85c580-ad2e-11eb-9ddb-f9a884625ca1.png"><br>
+        아래와 같이 확장자가 git 으로 되어 있는 숨겨진 파일을 삭제하고 git init 이라는 명령으로 다시 생성 해 보자.<br><br>
 
-            생성된 txt 파일들을 add 명령을 통해 commit 할 준비가 되게 만들어 보자.<br><br>
+        <img width="100%" alt="hidden_file_delete_create"
+          src="https://user-images.githubusercontent.com/80723305/117070878-a13a8580-ad2e-11eb-9a34-9f6c53ef5470.png"><br>
 
-            <img width="100%" alt="ready_to_commit" src="https://user-images.githubusercontent.com/80723305/117071293-363d7e80-ad2f-11eb-9a1d-43a023b063cc.png"><br>
+        아래와 같이 echo 명령으로 txt 파일을 생성 해 보고 그 파일들의 현재 상태를 확인 해 본다.<br><br>
 
-            오늘은 여기까지!!!<br><br>
-            <hr width="100%" align="left"></p>
-          </div>
-              <div class="wizzen2801">
-                  <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
-                  <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
-              </div>
-                  <img class="circle-img"
-                      src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
-                      alt="Avatar">
-              
-              <div class="info">
-                  <a href="index.html" target="_blank"><img class="home"
-                          src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
-                  <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
-                          src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
-                  <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
-                          class="linkedin"
-                          src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
-              </div>    
-        <div class="dropup-menu">
-          <div class="dropup">
-            <button class="dropbtn1">MacBook</button>
-            <div class="dropup-content">
-              <a href="mac_intro.html">Intro ...</a>
-              <a href="mac_terminal.html">터미널 꾸미기</a>
-              <a href="mac_brew.html">홈브류 설치 및 활용</a>
-              <a href="mac_git.html">Git 설치 및 활용 (1)</a>
-              <a href="mac_git2.html">Git 설치 및 활용 (2)</a>
-              <a href="mac_automator1.html">오토메이터 활용 - 네이버 영어사전</a>
-            </div>
-          </div>
-          <div class="dropup">
-            <button class="dropbtn2">Html</button>
-            <div class="dropup-content">
-              <a href="html_intro.html">Intro ...</a>
-              <a href="markdown_to_html.html">Markdown 파일을 Html 로 변환하기</a>
-            </div>
-          </div>
-          <div class="dropup">
-            <button class="dropbtn3">CSS</button>
-            <div class="dropup-content">
-              <a href="css_intro.html">Intro ...</a>
-            </div>
-          </div>
-          <div class="dropup">
-            <button class="dropbtn4">JavaScript</button>
-            <div class="dropup-content">
-              <a href="javascript_intro.html">Intro ...</a>
-            </div>
-          </div>
-          <div class="dropup">
-            <button class="dropbtn5">Python</button>
-            <div class="dropup-content">
-            <a href="python_intro.html">Intro ...</a>
-            <a href="python_inv_mov.html">재고수불부</a>
-            </div>
-          </div>
-          <div class="dropup">
-            <button class="dropbtn6">etc.</button>
-            <div class="dropup-content">
-              <a href="etc_intro.html">아이폰 벨소리 넣기</a>
-            </div>
-          </div>
+        <img width="100%" alt="create_txt_check_status"
+          src="https://user-images.githubusercontent.com/80723305/117071113-ed85c580-ad2e-11eb-9ddb-f9a884625ca1.png"><br>
+
+        생성된 txt 파일들을 add 명령을 통해 commit 할 준비가 되게 만들어 보자.<br><br>
+
+        <img width="100%" alt="ready_to_commit"
+          src="https://user-images.githubusercontent.com/80723305/117071293-363d7e80-ad2f-11eb-9a1d-43a023b063cc.png"><br>
+
+        오늘은 여기까지!!!<br><br>
+        <hr width="100%" align="left">
+        </p>
       </div>
+    </div>
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>MacBook</h4>
+        <ul>
+          <li><a href="mac_intro.html">Intro ...</a></li>
+          <li><a href="mac_terminal.html">터미널 꾸미기</a></li>
+          <li><a href="mac_brew.html">홈브류 설치 및 활용</a></li>
+          <li><a href="mac_git.html">Git 설치 및 활용 (1)</a></li>
+          <li><a href="mac_git2.html">Git 설치 및 활용 (2)</a></li>
+          <li><a href="mac_automator1.html">오토메이터 활용 - 네이버 영어사전</a></li>
+
+
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
 </body>
 
 </html>
