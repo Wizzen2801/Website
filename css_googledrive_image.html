@@ -1,0 +1,261 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
+</head>
+
+<body>
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="mac_intro.html">MacBook</a>
+    <a href="html_intro.html">Html</a>
+    <a href="css_intro.html">CSS</a>
+    <a href="javascript_intro.html">JavaScript</a>
+    <a href="python_intro.html">Python</a>
+    <a href="etc_intro.html">etc.</a>
+    <a href="all_posts_intro.html">All Posts.</a>
+
+    <!-- <a href="#" class="right">Link</a> -->
+  </div>
+
+  <div class="row" id="content">
+    <div class="medium-8 columns">
+      <div class="blog-post">
+        <br>
+        <h4 span style="color:#3ea1f1">구글드라이브에 있는 이미지 파일을 웹사이트에 추가하기</h4>
+        <hr width="100%" align="left">
+        </p>
+
+        구글드라이브에 이미지 파일을 저장 해 놓고 그 이미지 파일을 웹에서 링크를 하고자 할때에는
+        이미지 파일에서 우클릭을 통해 링크를 생성해서 붙여넣기 한다고 해서 웹에서 그 이미지 파일이 보여지는 것은 아니다.<br><br>
+
+        즉 아래와 같이 이미지가 깨져 보인다.<br><br>
+
+        <img width="100%" alt="git1"
+          src="https://drive.google.com/file/d/1jIqvUmM8X4lSHVnlkOJvOGiaUu1f5U3f/view?usp=sharing"><br><br>
+
+        어떻게 하면 이미지를 보여줄 수 있을까 고민하던 차에 아래와 같은 웹사이트를 알게 되었다. <br>
+        이곳에 링크를 복사하면 html 이미지 태그를 할 수 있게 생성 해 준다. <br><br>
+
+        <div class="image_convert">
+
+          <style>
+            #converter {
+              padding: 20px 20px;
+              border-radius: 5px;
+              background-color: #f8f8f8;
+              width: 100%;
+              padding: 15px 15px;
+            }
+
+            #converter textarea {
+              display: block;
+              white-space: wrap;
+              border: 1px solid #888;
+              border-radius: 5px;
+              margin-bottom: 10px;
+              padding: 5px 5px;
+              width: 100%;
+              height: 60px;
+            }
+
+            #converter label {
+              font-weight: bold;
+              color: #333;
+            }
+
+            #converter button {
+              font-weight: bold;
+            }
+
+            #btn-convert {
+              width: 100%;
+            }
+
+            #convert-result {
+              margin-top: 20px;
+            }
+          </style>
+          </head>
+
+          <body>
+            <div id="converter">
+              <label>Google Drive path</label>
+              <textarea id="gd-url" placeholder="Input Google Drive Url"></textarea>
+              <button id="btn-convert" class="btn btn-primary">Make Google Drive Path Linkable</button>
+              <div id="convert-result">
+                <label for="result">Linkable Image path</label>
+                <textarea id="result" name="result" readonly></textarea>
+                <button id="btn-save-result-cb" class="btn btn-success pull-right" data-clipboard-target="#result">
+                  <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                  Save to Clipboard
+                </button>
+                <br><br>
+                <label for="result-img-tag">Image Tag</label>
+                <textarea id="result-img-tag" name="result" readonly></textarea>
+                <button id="btn-save-result-img-tag-cb" class="btn btn-success pull-right"
+                  data-clipboard-target="#result-img-tag">
+                  <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                  Save to Clipboard
+                </button>
+              </div>
+              <br><br><br>
+              <p align="center">
+                <b>Preview image</b>
+              </p>
+              <p align="center">
+                <img id="preview" alt="image preview"
+                  src='https://www.google.com/drive/static/images/drive/logo-drive.png' class="img-thumbnail"
+                  style="max-width: 200px" /><br>
+              </p>
+
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+            <script>
+              var gdUrl = $("#gd-url");
+              $("#btn-convert").on("click", function (event) {
+
+                if (!isValidUrl(gdUrl.val())) {
+                  alert("You have inputted invalid path.");
+                  gdUrl.val("");
+                  return;
+                }
+
+                var gdId = extractFileId(gdUrl.val());
+                var prefix = "http://drive.google.com/uc?export=view&id=";
+                $("#result").val(prefix + gdId);
+                $("#result-img-tag").val(
+                  "<img src='" +
+                  prefix + gdId +
+                  "' /><br>");
+                $("#preview").attr("src", prefix + gdId);
+              });
+
+              var clipboard = new Clipboard('.btn');
+
+              clipboard.on('success', function (e) {
+                console.info('Action:', e.action);
+                console.info('Text:', e.text);
+                console.info('Trigger:', e.trigger);
+
+                e.clearSelection();
+              });
+
+              clipboard.on('error', function (e) {
+                console.error('Action:', e.action);
+                console.error('Trigger:', e.trigger);
+              });
+
+              // validity check. ref: https://gist.github.com/jlong/2428561
+              function isValidUrl(url) {
+                // to be impl...
+                var parser = document.createElement('a');
+                parser.href = url;
+
+                if (url === '' || parser.hostname !== "drive.google.com" || !parser.pathname.includes("/file/d/"))
+                  return false;
+
+                return true;
+              }
+
+              function extractFileId(url) {
+                if (!url)
+                  url = window.location.href;
+
+                var strip = url.replace(/https:\/\/drive.google.com\/file\/d\//gi, "")
+                  .replace(/\/view\?[a-zA-Z=\/]+/gi, "");
+
+                return strip;
+              }
+            </script>
+          </body>
+
+
+
+        </div>
+        <br>
+        아래는 위의 페이지에 대한 소스이다. <br><br>
+
+        <div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#fafafa;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div><div style="line-height:130%">15</div><div style="line-height:130%">16</div><div style="line-height:130%">17</div><div style="line-height:130%">18</div><div style="line-height:130%">19</div><div style="line-height:130%">20</div><div style="line-height:130%">21</div><div style="line-height:130%">22</div><div style="line-height:130%">23</div><div style="line-height:130%">24</div><div style="line-height:130%">25</div><div style="line-height:130%">26</div><div style="line-height:130%">27</div><div style="line-height:130%">28</div><div style="line-height:130%">29</div><div style="line-height:130%">30</div><div style="line-height:130%">31</div><div style="line-height:130%">32</div><div style="line-height:130%">33</div><div style="line-height:130%">34</div><div style="line-height:130%">35</div><div style="line-height:130%">36</div><div style="line-height:130%">37</div><div style="line-height:130%">38</div><div style="line-height:130%">39</div><div style="line-height:130%">40</div><div style="line-height:130%">41</div><div style="line-height:130%">42</div><div style="line-height:130%">43</div><div style="line-height:130%">44</div><div style="line-height:130%">45</div><div style="line-height:130%">46</div><div style="line-height:130%">47</div><div style="line-height:130%">48</div><div style="line-height:130%">49</div><div style="line-height:130%">50</div><div style="line-height:130%">51</div><div style="line-height:130%">52</div><div style="line-height:130%">53</div><div style="line-height:130%">54</div><div style="line-height:130%">55</div><div style="line-height:130%">56</div><div style="line-height:130%">57</div><div style="line-height:130%">58</div><div style="line-height:130%">59</div><div style="line-height:130%">60</div><div style="line-height:130%">61</div><div style="line-height:130%">62</div><div style="line-height:130%">63</div><div style="line-height:130%">64</div><div style="line-height:130%">65</div><div style="line-height:130%">66</div><div style="line-height:130%">67</div><div style="line-height:130%">68</div><div style="line-height:130%">69</div><div style="line-height:130%">70</div><div style="line-height:130%">71</div><div style="line-height:130%">72</div><div style="line-height:130%">73</div><div style="line-height:130%">74</div><div style="line-height:130%">75</div><div style="line-height:130%">76</div><div style="line-height:130%">77</div><div style="line-height:130%">78</div><div style="line-height:130%">79</div><div style="line-height:130%">80</div><div style="line-height:130%">81</div><div style="line-height:130%">82</div><div style="line-height:130%">83</div><div style="line-height:130%">84</div><div style="line-height:130%">85</div><div style="line-height:130%">86</div><div style="line-height:130%">87</div><div style="line-height:130%">88</div><div style="line-height:130%">89</div><div style="line-height:130%">90</div><div style="line-height:130%">91</div><div style="line-height:130%">92</div><div style="line-height:130%">93</div><div style="line-height:130%">94</div><div style="line-height:130%">95</div><div style="line-height:130%">96</div><div style="line-height:130%">97</div><div style="line-height:130%">98</div><div style="line-height:130%">99</div><div style="line-height:130%">100</div><div style="line-height:130%">101</div><div style="line-height:130%">102</div><div style="line-height:130%">103</div><div style="line-height:130%">104</div><div style="line-height:130%">105</div><div style="line-height:130%">106</div><div style="line-height:130%">107</div><div style="line-height:130%">108</div><div style="line-height:130%">109</div><div style="line-height:130%">110</div><div style="line-height:130%">111</div><div style="line-height:130%">112</div><div style="line-height:130%">113</div><div style="line-height:130%">114</div><div style="line-height:130%">115</div><div style="line-height:130%">116</div><div style="line-height:130%">117</div><div style="line-height:130%">118</div><div style="line-height:130%">119</div><div style="line-height:130%">120</div><div style="line-height:130%">121</div><div style="line-height:130%">122</div><div style="line-height:130%">123</div><div style="line-height:130%">124</div><div style="line-height:130%">125</div><div style="line-height:130%">126</div><div style="line-height:130%">127</div><div style="line-height:130%">128</div><div style="line-height:130%">129</div><div style="line-height:130%">130</div><div style="line-height:130%">131</div><div style="line-height:130%">132</div><div style="line-height:130%">133</div><div style="line-height:130%">134</div><div style="line-height:130%">135</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#010101">&lt;</span><span style="color:#066de2">html</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#010101">&lt;</span><span style="color:#066de2">head</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#999999">&lt;!--&nbsp;Latest&nbsp;compiled&nbsp;and&nbsp;minified&nbsp;CSS&nbsp;--&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">link</span>&nbsp;<span style="color:#0a9989">rel</span>=<span style="color:#df5000">"stylesheet"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">href</span>=<span style="color:#df5000">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">integrity</span>=<span style="color:#df5000">"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">crossorigin</span>=<span style="color:#df5000">"anonymous"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">style</span><span style="color:#010101">&gt;</span><span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">&nbsp;&nbsp;&nbsp;&nbsp;#converter&nbsp;</span>{<span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;20px&nbsp;20px</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;5px</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;#f8f8f8</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;100%</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;15px&nbsp;15px</span><span style="color:#ff3399">;</span><span style="color:#0066cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0066cc">&nbsp;&nbsp;&nbsp;&nbsp;</span>}<span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">&nbsp;&nbsp;&nbsp;&nbsp;#converter&nbsp;textarea&nbsp;</span>{<span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;block</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;white-space</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;wrap</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;1px&nbsp;solid&nbsp;#888</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;5px</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-bottom</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;10px</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;5px&nbsp;5px</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;100%</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;60px</span><span style="color:#ff3399">;</span><span style="color:#0066cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0066cc">&nbsp;&nbsp;&nbsp;&nbsp;</span>}<span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">&nbsp;&nbsp;&nbsp;&nbsp;#converter&nbsp;label&nbsp;</span>{<span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-weight</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;bold</span><span style="color:#ff3399">;</span><span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;#333</span><span style="color:#ff3399">;</span><span style="color:#0066cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0066cc">&nbsp;&nbsp;&nbsp;&nbsp;</span>}<span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">&nbsp;&nbsp;&nbsp;&nbsp;#converter&nbsp;button&nbsp;</span>{<span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-weight</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;bold</span><span style="color:#ff3399">;</span><span style="color:#0066cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0066cc">&nbsp;&nbsp;&nbsp;&nbsp;</span>}<span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">&nbsp;&nbsp;&nbsp;&nbsp;#btn-convert&nbsp;</span>{<span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;100%</span><span style="color:#ff3399">;</span><span style="color:#0066cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0066cc">&nbsp;&nbsp;&nbsp;&nbsp;</span>}<span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">&nbsp;&nbsp;&nbsp;&nbsp;#convert-result&nbsp;</span>{<span style="color:#0099cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0099cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-top</span><span style="color:#ff3399">:</span><span style="color:#0066cc">&nbsp;20px</span><span style="color:#ff3399">;</span><span style="color:#0066cc"></span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#0066cc">&nbsp;&nbsp;&nbsp;&nbsp;</span>}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">style</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">head</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#010101">&lt;</span><span style="color:#066de2">body</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">div</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"converter"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">label</span><span style="color:#010101">&gt;</span>Google&nbsp;Drive&nbsp;path<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">label</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">textarea</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"gd-url"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">placeholder</span>=<span style="color:#df5000">"Input&nbsp;Google&nbsp;Drive&nbsp;Url"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">textarea</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">button</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"btn-convert"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">class</span>=<span style="color:#df5000">"btn&nbsp;btn-primary"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span>Make&nbsp;Google&nbsp;Drive&nbsp;Path&nbsp;Linkable<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">button</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">div</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"convert-result"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">label</span>&nbsp;<span style="color:#0a9989">for</span>=<span style="color:#df5000">"result"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span>Linkable&nbsp;Image&nbsp;path<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">label</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">textarea</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"result"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">name</span>=<span style="color:#df5000">"result"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">readonly</span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">textarea</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">button</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"btn-save-result-cb"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">class</span>=<span style="color:#df5000">"btn&nbsp;btn-success&nbsp;pull-right"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">data-clipboard-target</span>=<span style="color:#df5000">"#result"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">span</span>&nbsp;<span style="color:#0a9989">class</span>=<span style="color:#df5000">"glyphicon&nbsp;glyphicon-copy"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">aria-hidden</span>=<span style="color:#df5000">"true"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">span</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;to&nbsp;Clipboard</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">button</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">br</span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#066de2">br</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">label</span>&nbsp;<span style="color:#0a9989">for</span>=<span style="color:#df5000">"result-img-tag"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span>Image&nbsp;Tag<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">label</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">textarea</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"result-img-tag"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">name</span>=<span style="color:#df5000">"result"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">readonly</span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">textarea</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">button</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"btn-save-result-img-tag-cb"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">class</span>=<span style="color:#df5000">"btn&nbsp;btn-success&nbsp;pull-right"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">data-clipboard-target</span>=<span style="color:#df5000">"#result-img-tag"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">span</span>&nbsp;<span style="color:#0a9989">class</span>=<span style="color:#df5000">"glyphicon&nbsp;glyphicon-copy"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">aria-hidden</span>=<span style="color:#df5000">"true"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">span</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Save&nbsp;to&nbsp;Clipboard</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">button</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">div</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">br</span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#066de2">br</span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#066de2">br</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">p</span>&nbsp;<span style="color:#0a9989">align</span>=<span style="color:#df5000">"center"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">b</span><span style="color:#010101">&gt;</span>Preview&nbsp;image<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">b</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">p</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">p</span>&nbsp;<span style="color:#0a9989">align</span>=<span style="color:#df5000">"center"</span><span style="color:#0a9989"></span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">img</span>&nbsp;<span style="color:#0a9989">id</span>=<span style="color:#df5000">"preview"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">alt</span>=<span style="color:#df5000">"image&nbsp;preview"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">src</span>=<span style="color:#df5000">'https://www.google.com/drive/static/images/drive/logo-drive.png'</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">class</span>=<span style="color:#df5000">"img-thumbnail"</span><span style="color:#0a9989"></span>&nbsp;<span style="color:#0a9989">style</span>=<span style="color:#df5000">"max-width:&nbsp;200px"</span><span style="color:#0a9989">/</span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#066de2">br</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">p</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">div</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">script</span>&nbsp;<span style="color:#0a9989">src</span>=<span style="color:#df5000">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span><span style="color:#066de2"></span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">script</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">script</span>&nbsp;<span style="color:#0a9989">src</span>=<span style="color:#df5000">"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"</span><span style="color:#066de2"></span><span style="color:#010101">&gt;</span><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">script</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#066de2">script</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">var</span>&nbsp;gdUrl&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;$(<span style="color:#63a35c">"#gd-url"</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;$(<span style="color:#63a35c">"#btn-convert"</span>).on(<span style="color:#63a35c">"click"</span>,&nbsp;<span style="color:#a71d5d">function</span>(<span style="color:#066de2">event</span>)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">if</span>&nbsp;(<span style="color:#ff3399"></span><span style="color:#a71d5d">!</span>isValidUrl(gdUrl.val()))&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#066de2">alert</span>(<span style="color:#63a35c">"You&nbsp;have&nbsp;inputted&nbsp;invalid&nbsp;path."</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gdUrl.val(<span style="color:#63a35c">""</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">return</span>;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">var</span>&nbsp;gdId&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;extractFileId(gdUrl.val());</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">var</span>&nbsp;prefix&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#63a35c">"http://drive.google.com/uc?export=view&amp;id="</span>;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span style="color:#63a35c">"#result"</span>).val(prefix&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">+</span>&nbsp;gdId);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span style="color:#63a35c">"#result-img-tag"</span>).val(</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#63a35c">"&lt;img&nbsp;src='"</span>&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">+</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prefix&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">+</span>&nbsp;gdId&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">+</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#63a35c">"'&nbsp;/&gt;&lt;br&gt;"</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(<span style="color:#63a35c">"#preview"</span>).attr(<span style="color:#63a35c">"src"</span>,&nbsp;prefix&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">+</span>&nbsp;gdId);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;});</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">var</span>&nbsp;clipboard&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#a71d5d">new</span>&nbsp;Clipboard(<span style="color:#63a35c">'.btn'</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;clipboard.on(<span style="color:#63a35c">'success'</span>,&nbsp;<span style="color:#a71d5d">function</span>(e)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#066de2">console</span>.info(<span style="color:#63a35c">'Action:'</span>,&nbsp;e.action);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#066de2">console</span>.info(<span style="color:#63a35c">'Text:'</span>,&nbsp;e.text);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#066de2">console</span>.info(<span style="color:#63a35c">'Trigger:'</span>,&nbsp;e.trigger);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.clearSelection();</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;});</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;clipboard.on(<span style="color:#63a35c">'error'</span>,&nbsp;<span style="color:#a71d5d">function</span>(e)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#066de2">console</span>.error(<span style="color:#63a35c">'Action:'</span>,&nbsp;e.action);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#066de2">console</span>.error(<span style="color:#63a35c">'Trigger:'</span>,&nbsp;e.trigger);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;});</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#999999">//&nbsp;validity&nbsp;check.&nbsp;ref:&nbsp;https://gist.github.com/jlong/2428561</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">function</span>&nbsp;isValidUrl(url)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#999999">//&nbsp;to&nbsp;be&nbsp;impl...</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">var</span>&nbsp;parser&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#066de2">document</span>.createElement(<span style="color:#63a35c">'a'</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.href&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;url;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">if</span>(url&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span><span style="color:#ff3399"></span><span style="color:#a71d5d">=</span><span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#63a35c">''</span>&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">|</span><span style="color:#ff3399"></span><span style="color:#a71d5d">|</span>&nbsp;parser.hostname&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">!</span><span style="color:#ff3399"></span><span style="color:#a71d5d">=</span><span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#63a35c">"drive.google.com"</span>&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">|</span><span style="color:#ff3399"></span><span style="color:#a71d5d">|</span>&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">!</span>parser.pathname.includes(<span style="color:#63a35c">"/file/d/"</span>))</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">return</span>&nbsp;<span style="color:#0099cc">false</span>;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">return</span>&nbsp;<span style="color:#a71d5d">true</span>;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">function</span>&nbsp;extractFileId(url)&nbsp;{</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">if</span>&nbsp;(<span style="color:#ff3399"></span><span style="color:#a71d5d">!</span>url)&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;<span style="color:#066de2">window</span>.<span style="color:#066de2">location</span>.href;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">var</span>&nbsp;strip&nbsp;<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>&nbsp;url.replace(<span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>https:\<span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>\<span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>drive.google.com\<span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>file\<span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>d\<span style="color:#999999">//gi,&nbsp;"")</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.replace(<span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>\<span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>view\?[a<span style="color:#ff3399"></span><span style="color:#a71d5d">-</span>zA<span style="color:#ff3399"></span><span style="color:#a71d5d">-</span>Z<span style="color:#ff3399"></span><span style="color:#a71d5d">=</span>\<span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>]<span style="color:#ff3399"></span><span style="color:#a71d5d">+</span><span style="color:#ff3399"></span><span style="color:#a71d5d">/</span>gi,&nbsp;<span style="color:#63a35c">""</span>);</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71d5d">return</span>&nbsp;strip;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;<span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">script</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#010101">&lt;</span><span style="color:#010101">/</span><span style="color:#066de2">body</span><span style="color:#010101">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#e5e5e5text-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+        <br>
+        위에서 컨버팅한 값을 html 에 붙여 넣으면 잘 보인다. <br>
+        단, 크롬에서만 보여지고 사파리에서 실행 해 보니 보이질 않는다. <br>
+        좀 더 찾아봐야겠다. <br><br>
+
+        <img width="100%" src='http://drive.google.com/uc?export=view&id=1jIqvUmM8X4lSHVnlkOJvOGiaUu1f5U3f' /><br>
+
+
+        <hr width="100%" align="left">
+        </p>
+      </div>
+
+    </div>
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>Html</h4>
+        <ul>
+          <li><a href="css_intro.html">Intro ...</a></li>
+          <li><a href="css_googledrive_image.html">구글드라이브에 있는 이미지 파일을 웹사이트에 추가하기</a></li>
+
+
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+
+</body>
+
+</html>
