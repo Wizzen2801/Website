@@ -1,0 +1,270 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
+</head>
+
+<body>
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="mac_intro.html">MacBook</a>
+    <a href="html_intro.html">Html</a>
+    <a href="css_intro.html">CSS</a>
+    <a href="javascript_intro.html">JavaScript</a>
+    <a href="python_intro.html">Python</a>
+    <a href="etc_intro.html">etc.</a>
+    <a href="all_posts_intro.html">All Posts.</a>
+
+    <!-- <a href="#" class="right">Link</a> -->
+  </div>
+
+  <div class="row" id="content">
+    <div class="medium-8 columns">
+      <div class="blog-post">
+        <br>
+        <h4 span style="color:#3ea1f1">구글드라이브에 있는 이미지 파일을 웹사이트에 추가하기</h4>
+        <hr width="100%" align="left">
+        </p>
+
+        구글드라이브에 이미지 파일을 저장 해 놓고 그 이미지 파일을 웹에서 링크를 하고자 할때에는
+        이미지 파일에서 우클릭을 통해 링크를 생성해서 붙여넣기 한다고 해서 웹에서 그 이미지 파일이 보여지는 것은 아니다.<br><br>
+
+        즉 아래와 같이 이미지가 깨져 보인다.<br><br>
+
+        <img width="100%" alt="git1"
+          src="https://drive.google.com/file/d/1jIqvUmM8X4lSHVnlkOJvOGiaUu1f5U3f/view?usp=sharing"><br><br>
+
+        어떻게 하면 이미지를 보여줄 수 있을까 고민하던 차에 아래와 같은 웹사이트를 알게 되었다. <br>
+        이곳에 링크를 복사하면 html 이미지 태그를 할 수 있게 생성 해 준다. <br><br>
+
+        <div class="image_convert">
+
+          <style>
+            #converter {
+              padding: 20px 20px;
+              border-radius: 5px;
+              background-color: #f8f8f8;
+              width: 100%;
+              padding: 15px 15px;
+            }
+
+            #converter textarea {
+              display: block;
+              white-space: wrap;
+              border: 1px solid #888;
+              border-radius: 5px;
+              margin-bottom: 10px;
+              padding: 5px 5px;
+              width: 100%;
+              height: 60px;
+            }
+
+            #converter label {
+              font-weight: bold;
+              color: #333;
+            }
+
+            #converter button {
+              font-weight: bold;
+            }
+
+            #btn-convert {
+              width: 100%;
+            }
+
+            #convert-result {
+              margin-top: 20px;
+            }
+          </style>
+          </head>
+
+          <body>
+            <div id="converter">
+              <label>Google Drive path</label>
+              <textarea id="gd-url" placeholder="Input Google Drive Url"></textarea>
+              <button id="btn-convert" class="btn btn-primary">Make Google Drive Path Linkable</button>
+              <div id="convert-result">
+                <label for="result">Linkable Image path</label>
+                <textarea id="result" name="result" readonly></textarea>
+                <button id="btn-save-result-cb" class="btn btn-success pull-right" data-clipboard-target="#result">
+                  <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                  Save to Clipboard
+                </button>
+                <br><br>
+                <label for="result-img-tag">Image Tag</label>
+                <textarea id="result-img-tag" name="result" readonly></textarea>
+                <button id="btn-save-result-img-tag-cb" class="btn btn-success pull-right"
+                  data-clipboard-target="#result-img-tag">
+                  <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                  Save to Clipboard
+                </button>
+              </div>
+              <br><br><br>
+              <p align="center">
+                <b>Preview image</b>
+              </p>
+              <p align="center">
+                <img id="preview" alt="image preview"
+                  src='https://www.google.com/drive/static/images/drive/logo-drive.png' class="img-thumbnail"
+                  style="max-width: 200px" /><br>
+              </p>
+
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+            <script>
+              var gdUrl = $("#gd-url");
+              $("#btn-convert").on("click", function (event) {
+
+                if (!isValidUrl(gdUrl.val())) {
+                  alert("You have inputted invalid path.");
+                  gdUrl.val("");
+                  return;
+                }
+
+                var gdId = extractFileId(gdUrl.val());
+                var prefix = "http://drive.google.com/uc?export=view&id=";
+                $("#result").val(prefix + gdId);
+                $("#result-img-tag").val(
+                  "<img src='" +
+                  prefix + gdId +
+                  "' /><br>");
+                $("#preview").attr("src", prefix + gdId);
+              });
+
+              var clipboard = new Clipboard('.btn');
+
+              clipboard.on('success', function (e) {
+                console.info('Action:', e.action);
+                console.info('Text:', e.text);
+                console.info('Trigger:', e.trigger);
+
+                e.clearSelection();
+              });
+
+              clipboard.on('error', function (e) {
+                console.error('Action:', e.action);
+                console.error('Trigger:', e.trigger);
+              });
+
+              // validity check. ref: https://gist.github.com/jlong/2428561
+              function isValidUrl(url) {
+                // to be impl...
+                var parser = document.createElement('a');
+                parser.href = url;
+
+                if (url === '' || parser.hostname !== "drive.google.com" || !parser.pathname.includes("/file/d/"))
+                  return false;
+
+                return true;
+              }
+
+              function extractFileId(url) {
+                if (!url)
+                  url = window.location.href;
+
+                var strip = url.replace(/https:\/\/drive.google.com\/file\/d\//gi, "")
+                  .replace(/\/view\?[a-zA-Z=\/]+/gi, "");
+
+                return strip;
+              }
+            </script>
+          </body>
+
+
+
+        </div>
+        <br>
+        아래는 위의 페이지에 대한 소스이다. <br><br>
+
+        <script src="https://gist.github.com/Wizzen2801/8192dcdc118171c4ceda36f3aa517114.js"></script>
+
+        
+        <br><br>
+
+        <br>
+        위에서 컨버팅한 값을 html 에 붙여 넣으면 잘 보인다. <br>
+        단, 크롬에서만 보여지고 사파리에서 실행 해 보니 보이질 않는다. <br>
+        좀 더 찾아봐야겠다. <br><br>
+
+        금일 다시 새로운 것을 발견했다. <br>
+        분명 로컬에서는 이미지가 깨지는데 호스트에 올리니 이미지가 아래와 같이 잘 보인다. <br><br>
+
+        그동안 깃허브의 작은 용량 때문에 걱정을 했었는데 이제 당분간 용량 걱정없게 되었다.  <br><br>
+
+        <img width="100%" src='http://drive.google.com/uc?export=view&id=1jIqvUmM8X4lSHVnlkOJvOGiaUu1f5U3f' /><br>
+
+
+        <hr width="100%" align="left">
+        </p>
+      </div>
+
+    </div>
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>Html</h4>
+        <ul>
+          <li><a href="css_intro.html">Intro ...</a></li>
+          <li><a href="css_googledrive_image.html">구글드라이브에 있는 이미지 파일을 웹사이트에 추가하기</a></li>
+
+
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+
+</body>
+
+</html>
