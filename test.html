@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strength & Honor</title>
-  <link rel="stylesheet" href="blog.css">
+  
   <link rel="stylesheet" href="wizzen.css">
 </head>
 
@@ -34,118 +34,90 @@
     <div class="medium-8 columns">
       <div class="blog-post">
         <br>
-        <h4 span style="color:#3ea1f1">오토메이터 활용 - 네이버 사전 만들기</h4>
+        <link rel="stylesheet" href="wizzen.css">
+        <h4 span style="color:#3ea1f1">Intro ...</h4>
+        <hr width="100%" align="left">
+        </p>
+        
+
+        CSS 란 Cascading Style Sheets 의 약자로서 html 이 웹사이트의 뼈대를 구성한다고 생각하면
+        CSS 는 html 에 옷을 입히는 역할을 한다고 할 수 있다. <br><br>
+
+        일반적으로 CSS 는 head 태그 밑에 style 태그로 넣지만 보통 웹사이트를 구축 시 페이지 수 가
+        최소 10 페이지에서 최대 수백 페이지에 달하기에 CSS 파일을 별도로 작성해서 운영하는 것이 일반적이다. <br><br>
+
+        예를들어 30번째 웹페이지를 작성했는데 첫번째 페이지 포함 모든 페이지의 속성을 변경하고자 할 때
+        CSS 파일을 별도로 운영하지 않으면 그동안 작성했던 모든 웹페이지의 style 태그 내용을 변경해야 하는데
+        이는 정말 생각하기도 싫은 작업이 될 것이다. <br><br>
+
+        이에따라 CSS 의 내용을 "파일명.css" 란 확장자를 이용해서 저장해 놓고
+        html 의 head 태그에는 <link rel="stylesheet" href="파일명.css"> 을 넣기만 하면 된다. <br><br>
+
+        지금도 공부를 하고 있지만 CSS 란 녀석은 만만치 않은 놈이다. <br>
+        특별히 조건을 지정하지 않았는데도 자꾸 충돌이 난다. <br><br>
+
+        언젠가 완벽히 정복할 날을 기대하며 ... <br>
+
         <hr width="100%" align="left">
         </p>
 
-        윈도우에서 batch 파일이 있다면 맥에서는 오토메이터가 있다.<br>
-        허나 맥의 오토메이터가 더 활용도가 많다. <br><br>
 
-        우선 간단하게 네이버 사전을 만들어 웹에서 모르는 영어 단어의 뜻을 찾도록 해 보겠다. <br>
-        물론 모르는 단어를 네이버 사전 웹사이트에 접속해서 찾으면 되지만 오토메이터의 주된 활용은
-        여러번 클릭을 통해 수행해야 할 작업을 한번의 클릭으로 할 수 있게 해 준다. <br><br>
-
-        런치패드안에 있는 오토메이터 실행하기 위해서는 4 손가락을 트랙패드에서 모은 후 아래의 오토메이터를 실행한다. <br><br>
-
-        New document 클릭<br><br>
-
-        <img width="100%" alt="New_Document"
-          src="https://user-images.githubusercontent.com/80723305/118117133-7cf43e00-b3eb-11eb-8a1f-0813c3917000.png"><br><br>
-
-        Quick Action 선택<br><br>
-
-        <img width="100%" alt="Quick_Action"
-          src="https://user-images.githubusercontent.com/80723305/118117388-d8bec700-b3eb-11eb-8740-284ad66bd1bd.png"><br><br>
-
-        Run AppleScript 를 오른쪽 공간으로 드래그 해서 갖다 놓는다. <br><br>
-
-        <img width="100%" alt="Apple_script"
-          src="https://user-images.githubusercontent.com/80723305/118117893-73b7a100-b3ec-11eb-815d-638bee60b3f4.png"><br><br>
-
-        아래 스크립트 내용을 복사해서 붙여 넣는다. <br><br>
-
-        <div style="width: 100%;" class="txtBox11bg">
-          <code><p style="font: consolas;">
-                on run {input, parameters}<br>
-	                return "http://endic.naver.com/popManager.nhn?m=search&query=" & (input as string)<br>
-                end run<br>
-            </p></code>
-        </div>
-        <br>
-        이번엔 Website Popup 을 드래그 해서 아래와 같이 오른쪽 공간에 갖다 놓는다. <br><br>
-
-        <img width="100%" alt="Run_Script_Text"
-          src="https://user-images.githubusercontent.com/80723305/118124885-7f0fca00-b3f6-11eb-9488-1e475ae216c8.png"><br><br>
-
-        원하는 파일명으로 저장한다. <br>
-        이때 반드시 Workflow receives current 란을 text 로 선택해서 저장해야지 추후 단어 선택후 우클릭시 아래와 같이 메뉴가 뜨게 된다. <br><br>
-
-        <img width="100%" alt="Menu_Naver_EN"
-          src="https://user-images.githubusercontent.com/80723305/118125148-e3328e00-b3f6-11eb-929a-8b25362e6668.png"><br><br>
-
-        메뉴를 클릭하면 아래와 같이 잘 실행이 된다. <br><br>
-
-        <img width="100%" alt="Naver_search"
-          src="https://user-images.githubusercontent.com/80723305/118125346-1ffe8500-b3f7-11eb-8858-c932504e840d.png"><br><br>
-
-        <hr width="100%" align="left">
-        </p>
       </div>
+
+
     </div>
-    <div class="medium-3 columns" data-sticky-container>
-      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
-        <br>
-        <h4>Categories</h4>
-        <ul>
-          <li><a href="mac_intro.html">MacBook</a></li>
-          <li><a href="html_intro.html">Html</a></li>
-          <li><a href="css_intro.html">CSS</a></li>
-          <li><a href="javascript_intro.html">JavaScript</a></li>
-          <li><a href="python_intro.html">Python</a></li>
-          <li><a href="etc_intro.html">etc.</a></li>
-          <li><a href="all_posts_intro.html">All Posts</a></li>
+    
+        <div class="medium-3 columns" data-sticky-container>
+          <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+            <br>
+            <h4>Categories</h4>
+            <ul>
+              <li><a href="mac_intro.html">MacBook</a></li>
+              <li><a href="html_intro.html">Html</a></li>
+              <li><a href="css_intro.html">CSS</a></li>
+              <li><a href="javascript_intro.html">JavaScript</a></li>
+              <li><a href="python_intro.html">Python</a></li>
+              <li><a href="etc_intro.html">etc.</a></li>
+              <li><a href="all_posts_intro.html">All Posts</a></li>
 
-        </ul>
-        <br>
-        <h4>MacBook</h4>
-        <ul>
-          <li><a href="mac_intro.html">Intro ...</a></li>
-          <li><a href="mac_terminal.html">터미널 꾸미기</a></li>
-          <li><a href="mac_brew.html">홈브류 설치 및 활용</a></li>
-          <li><a href="mac_git.html">Git 설치 및 활용 (1)</a></li>
-          <li><a href="mac_git2.html">Git 설치 및 활용 (2)</a></li>
-          <li><a href="mac_automator1.html">오토메이터 활용 - 네이버 영어사전</a></li>
+            </ul>
+            <br>
+            <h4>CSS</h4>
+            <ul>
+              <li><a href="css_intro.html">Intro ... </a></li>
+              
 
+            </ul>
 
-        </ul>
+            <div class="wizzen2801">
+              <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+              <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+            </div>
+            <img class="circle-img"
+              src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+              alt="Avatar">
 
-        <div class="wizzen2801">
-          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
-          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
-        </div>
-        <img class="circle-img"
-          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
-          alt="Avatar">
-
-        <div class="info">
-          <a href="index.html" target="_blank"><img class="home"
-              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
-          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
-              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
-          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
-              class="linkedin"
-              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+            <div class="info">
+              <a href="index.html" target="_blank"><img class="home"
+                  src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+              <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+                  src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+              <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+                  class="linkedin"
+                  src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
 
-  <script src="jquery-2.1.4.min.js"></script>
-  <script src="foundation.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
+      <script src="jquery-2.1.4.min.js"></script>
+      <script src="foundation.js"></script>
+      <script>
+        $(document).foundation();
+      </script>
+
+
 </body>
 
 </html>
