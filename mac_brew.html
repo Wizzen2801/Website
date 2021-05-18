@@ -55,11 +55,10 @@
 
                 터미널에서 아래 명령어를 실행한다. <br><br>
 
-                <div style="width: 100%;" class="txtBox11bg">
-                    <code><p style="font: consolas;">
-                /usr/sbin/softwareupdate --install-rosetta --agree-to-license
-            </p></code>
-                </div>
+                <pre class="brush: html notranslate">
+             
+ /usr/sbin/softwareupdate --install-rosetta --agree-to-license      
+        </pre>
                 <br>
                 터미널을 종료 후 다시 실행하여 열면 아래 화면과 같은 에러가 뜬다. <br><br>
 
@@ -68,11 +67,11 @@
 
                 아래 명령어를 실행하고 터미널 종료한다. <br><br>
 
-                <div style="width: 100%;" class="txtBox11bg">
-                    <code><p style="font: consolas;">
-                compaudit | xargs chmod g-w,o-w
-            </p></code>
-                </div><br>
+                <pre>
+             
+   compaudit | xargs chmod g-w,o-w
+                           </pre>
+               <br>
 
                 <h4 span style="color:#04599e">iTerm2 로제타 환경설정</h4>
 
@@ -83,58 +82,58 @@
 
                 터미널을 다시 연 후 아래 명령어를 차례대로 실행한다. <br><br>
 
-                <div style="width: 100%;" class="txtBox11bg">
-                    <code><p style="font: consolas;">
-                /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br>
-                brew install wget<br>
-                export PATH=/opt/homebrew/bin:/Users/yangdonghyeon/.rbenv/shims:/opt/homebrew/bin:/Users/yangdonghyeon/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/opt/homebrew/bin:$PATH<br>
-                /usr/local/bin/brew<br>
-                brew config
-            </p></code>
-                </div>
+                <pre>
+
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"<br>
+   brew install wget<br>
+   export PATH=/opt/homebrew/bin:/Users/yangdonghyeon/.rbenv/shims:/opt/homebrew/bin:/Users/yangdonghyeon/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/opt/homebrew/bin:$PATH<br>
+   /usr/local/bin/brew<br>
+   brew config
+                </pre>
+
                 <br>
                 마지막 brew config 를 실행하면 아래와 같이 macOS version 정보 옆에 "x86_64" 와 "Rosetta 2: true" 를 확인한다. <br><br>
 
-                <div style="width: 100%;" class="txtBox11bg">
-                    <code><p style="font: consolas;">
-                macOS: 11.3-x86_64<br>
-                Rosetta 2: true
-            </p></code>
-                </div>
+                <pre>
+
+   macOS: 11.3-x86_64<br>
+   Rosetta 2: true
+                </pre>
+                
                 <br>
                 <h4 span style="color:#04599e">루비 설치</h4>
 
                 아래 명령어를 차례대로 터미널에서 실행한다. <br><br>
 
-                <div style="width: 100%;" class="txtBox11bg">
-                    <code><p style="font: consolas;">
-                brew install rbenv<br>
-                rbenv init<br>
-                eval "$(rbenv init -)"<br>
-                rbenv install 2.7.2<br>
-                rbenv global 2.7.2<br>
-                rbenv rehash<br>
-                ruby -v
-            </p></code>
-                </div>
+                <pre>
+
+   brew install rbenv<br>
+   rbenv init<br>
+   eval "$(rbenv init -)"<br>
+   rbenv install 2.7.2<br>
+   rbenv global 2.7.2<br>
+   rbenv rehash<br>
+   ruby -v
+                </pre>
+                
                 <br>
                 버전 확인 즉 ruby -v 를 터미널에서 입력하면 아래와 같이 2.7.2 버전을 확인하고 마지막에 x86_64 를 확인한다. <br><br>
 
-                <div style="width: 100%;" class="txtBox11bg">
-                    <code><p style="font: consolas;">
-                ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
-            </p></code>
-                </div>
+                <pre>
+
+   ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
+                </pre>
+   
                 <br>
                 <h4 span style="color:#04599e">jekyll 설치</h4><br>
 
                 터미널에서 아래 명령어를 실행한다. <br><br>
 
-                <div style="width: 100%;" class="txtBox11bg">
-                    <code><p style="font: consolas;">
-                gem install --user-install bundler jekyll                    
-            </p></code>
-                </div>
+                <pre>
+
+   gem install --user-install bundler jekyll                    
+                </pre>
+                
                 <br>
                 여기까지만 하고 그 이상 jekyll 을 설치 할 수 없었다. <br>
                 허나 홈브류를 통해 앱을 설치하는데 문제는 없었다. <br><br>
@@ -142,13 +141,14 @@
                 <h4 span style="color:#04599e">홈브류 설치</h4>
 
                 먼저 터미널에서 아래 명령어를 실행해 casks를 설치한다. <br><br>
-                <div style="width: 100%;" class="txtBox11bg">
-                    <code><p style="font: consolas;">
-                brew install casks<br>
-                brew install mas <br>
-                brew bundle                     
-            </p></code>
-                </div>
+
+                <pre>
+                
+   brew install casks<br>
+   brew install mas <br>
+   brew bundle                     
+                </pre>
+                
                 <br>
                 일부 앱은 brew 를 통해서 또 다른 일부 앱은 mas 를 통해서 설치 할 수 있다. <br>
                 예를들어 카카오톡의 경우 mas search KaKaoTalk 이란 명령을 통해 조회가 되면
