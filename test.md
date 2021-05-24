@@ -1,71 +1,16 @@
 ```html
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(9, 108, 173);
-    padding: 0px 12px;
-}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-a {
-    text-decoration: none;
-    color: white;
+<ul id="post_menu" class="navbar__menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Macbook</a></li>
+    <li><a href="#">Html</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">JavaScript</a></li>
+    <li><a href="#">Python</a></li>
+</ul>
 
-}
-
-body {
-    margin: 0;
-}
-
-.navbar__logo {
-    font-size: 18px;
-
-}
-
-.navbar__logo i {
-    color: yellow;
-
-}
-
-.navbar__menu {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-    padding-top: 15px;
-
-}
-
-.navbar__menu li {
-    padding: 8px 12px;
-
-}
-
-.navbar__menu li:hover {
-    background-color: #838346;
-    border-radius: 4px;
-
-}
-
-.navbar__icons {
-    list-style: none;
-    color: white;
-    display: flex;
-    padding: 0;
-    padding-top: 15px;
-
-}
-
-.navbar__icons li {
-    padding: 8px 12px;
-
-}
-
-.navbar__tooggleBtn {
-    position: absolute;
-    right: 32px;
-    font-size: 24px;
-    color: #109e73;
-    display: none;
-
-}
+<a onclick="openclose()" href="#" class="navbar__tooggleBtn">
+    <i class="fas fa-bars"></i>
+</a>
 ```

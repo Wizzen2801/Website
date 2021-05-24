@@ -11,7 +11,8 @@
 
 <body>
     <script src="https://kit.fontawesome.com/ec520b0579.js" crossorigin="anonymous"></script>
-    
+    <script src="practice.js"></script>
+
     <nav class="navbar">
         <div class="navbar__logo">
             <i class="fab fa-old-republic"></i>
@@ -19,7 +20,7 @@
 
         </div>
 
-        <ul class="navbar__menu">
+        <ul id="navbar__menu1" class="navbar__menu">
             <li><a href="">Home</a></li>
             <li><a href="">Macbook</a></li>
             <li><a href="">Html</a></li>
@@ -36,9 +37,21 @@
             
         </ul>
 
-        <a href="#" class="navbar__tooggleBtn">
-            <i class="fas fa-bars"></i>
-        </a>
+        <ul class="navbar_toogleBtn">
+            
+                <a href="#" class="navbar__tooggleBtn1" onclick="navbar__menu1(1)">
+                <i class="fas fa-bars"></i>
+                </a>
+            
+                <a href="#" class="navbar__tooggleBtn2" onclick="navbar__menu1(2)">
+                <i class="fas fa-hamburger"></i>
+                </a>
+            
+                <a href="#" class="navbar__tooggleBtn3" onmouseover="navbar__menu1(1)" onmouseleave="navbar__menu1(2)">
+                <i class="fas fa-bars"></i>
+            </a>
+            
+        </ul>
     </nav>
 
 </body>

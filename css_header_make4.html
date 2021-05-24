@@ -35,107 +35,122 @@
     <div class="medium-8 columns">
       <div class="blog-post">
         <br>
-        <h4 span style="color:#3ea1f1">반응형 헤더 만들기 (2)</h4>
+        <h4 span style="color:#3ea1f1">반응형 헤더 만들기 (4)</h4>
         <hr width="100%" align="left">
         </p>
 
-        그런데 지금 내 웹에서는 보이지 않지만 본인이 따라서 해 보면 좌우 및 상하에 여백이 있는 것을 볼 수 있다. <br>
-        전체적으로 margin 을 없애기 위해서 body 에 margin 을 0 으로 설정하였다. <br><br>
+        그래서 이번에는 좀 바꿔보았다. <br>
+        html 에서 navbar__tooggleBtn 란을 아래와 같이 바꿔보고<br><br>
 
-        navbar 의 메뉴들이 기본적으로 list 태그로 되어 있기에 항목앞에 각각 점이 표시가 되어 있는데
-        이를 없애기 위해서 list-style 을 none 으로 지정하였다. <br><br>
+        <pre class="language-html" style="line-height: 150%;">
+            
+    &lt;ul class=&quot;navbar_toogleBtn&quot;&gt;
 
-        또한 리스트 형식으로 세로로 정렬되어 있는것을 가로로 정렬하기 위해 display 를 flex 로 지정 해 주었다. <br>
-        리스트에 있는 항목들은 나중에 마우스로 가르켰을때 선택이 되는 것을 가시적으로 쉽게 보이기 위해 색깔을 넣어줄 것인데
-        어느정도 형태가 보여야 하기에 공백을 넣어주고자 padding 값을 주었다. <br><br>
+    &lt;a href=&quot;#&quot; class=&quot;navbar__tooggleBtn1&quot; onclick=&quot;navbar__menu1(1)&quot;&gt;
+        &lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
 
-        이를 위해 리스트 항목들에 hover 속성을 넣어주었고 마우스로 가르켰을때 너무 사각형으로 나타내어지는 것을
-        보기좋게 하기 위해서 모서리에 라운드 효과를 넣어주고자 border-radius 값을 주었다. <br><br>
+    &lt;a href=&quot;#&quot; class=&quot;navbar__tooggleBtn2&quot; onclick=&quot;navbar__menu1(2)&quot;&gt;
+        &lt;i class=&quot;fas fa-hamburger&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
 
-        navbar__icons 에 있는 항목들도 마찬가지이다. <br><br>
+    &lt;a href=&quot;#&quot; class=&quot;navbar__tooggleBtn3&quot; onmouseover=&quot;navbar__menu1(1)&quot; onmouseleave=&quot;navbar__menu1(2)&quot;&gt;
+        &lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
 
-        자~~ 오늘은 여기까지 이다. <br><br>
-
-        <pre class="language-html">
-          
-  .navbar {
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgb(9, 108, 173);
-      padding: 0px 12px;
-  }
-
-  a {
-      text-decoration: none;
-      color: white;
-
-  }
-
-  body {
-      margin: 0;
-  }
-
-  .navbar__logo {
-      font-size: 18px;
-
-  }
-
-  .navbar__logo i {
-      color: yellow;
-
-  }
-
-  .navbar__menu {
-      display: flex;
-      list-style: none;
-      padding-left: 0;
-      padding-top: 15px;
-
-  }
-
-  .navbar__menu li {
-      padding: 8px 12px;
-
-  }
-
-  .navbar__menu li:hover {
-      background-color: #838346;
-      border-radius: 4px;
-
-  }
-
-  .navbar__icons {
-      list-style: none;
-      color: white;
-      display: flex;
-      padding: 0;
-      padding-top: 15px;
-
-  }
-
-  .navbar__icons li {
-      padding: 8px 12px;
-
-  }
-
-  .navbar__tooggleBtn {
-      position: absolute;
-      right: 32px;
-      font-size: 24px;
-      color: #109e73;
-      display: none;
-
-  }
-      </pre>
-      <br>
-
-        <img style="width: 100%;" src='http://drive.google.com/uc?export=view&id=17UmYUUF-Nj_lnzpQjXsMKIYbh5seV4j0' /><br>
+    &lt;/ul&gt;
+        </pre><br>
+        
+        CSS 파일에는 아래와 같이 바꿔본다. <br><br>
 
 
+        <pre class="language-html" style="line-height: 150%;">
+        
+    .navbar__tooggleBtn {
+        font-size: 24px;
+        list-style: none;
+    }
 
+    .navbar__tooggleBtn1 {
+        color: #109e73;
+        display: none;
+        list-style: none;
 
+    }
+    .navbar__tooggleBtn2 {
+        color: #af6839;
+        display: none;
+        list-style: none;
+    }
+
+    .navbar__tooggleBtn3 {
+        color: #f0da17;
+        display: none;
+        list-style: none;
+    }
+
+    @media screen and (max-width: 800px) {
+        
+        #navbar__tooggleBtn {
+        }
+
+        .navbar__tooggleBtn1 {
+            display: block;
+            position: absolute;
+            right: 52px;
+        }
+
+        .navbar__tooggleBtn2 {
+            display: block;
+            position: absolute;
+            right: 32px;
+        }
+
+        .navbar__tooggleBtn3 {
+            display: block;
+            position: absolute;
+            right: 12px;
+        }
+    }
+    </pre><br>
+        
+    마지막으로 자바스크립트 파일의 내용을 아래와 같이 바꿔본다. <br><br>
+
+    <pre class="language-html" style="line-height: 150%;">
+        
+    function navbar__menu1(status)
+    {
+        var menu = document.getElementById(&quot;navbar__menu1&quot;);
+        
+        if(status==1)
+        {
+            //메뉴 보이기
+            //alert(&quot;메뉴 보이기&quot;);
+            menu.style.display = &quot;block&quot;;
+        }
+        else
+        {
+            
+            //메뉴 감추기
+            //alert(&quot;메뉴 감추기&quot;);
+            menu.style.display =&quot;none&quot;;
+        }
+    }
+        </pre><br>
+
+        그러면 헤더에 아래와 같이 햄버거 아이콘이 3개가 나타나는데 ... <br><br>
+
+        <img width="100%" src='http://drive.google.com/uc?export=view&id=1uHyFGZlqQstDTYoKc70OL_njs3sOleA_' /><br><br>
+
+        이중 맨 왼쪽의 햄버거 버튼을 클릭하면 메뉴 버튼들이 보여지고<br><br>
+
+        <img width="100%" src='http://drive.google.com/uc?export=view&id=1DPnMUHvgiRyAACnAbpquHiQUqmV2PIbk' /><br><br>
+
+        그 다음 오른쪽 햄버거 버튼을 클릭하면 메뉴 버튼들이 감추어진다. <br>
+        그리고 맨 오른쪽 햄버거 버튼에 마우스를 갖다대면 버튼들이 보여지고 다시 옆으로 치우면 버튼들이 사라진다. <br><br>
+
+        그런데 이건 내가 원래 바랬던 것이 아니었다. <br>
+        다시 더 공부를 해 봐야겠다. <br><br>
 
         <hr width="100%" align="left">
         </p>

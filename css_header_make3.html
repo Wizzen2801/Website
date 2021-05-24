@@ -35,107 +35,95 @@
     <div class="medium-8 columns">
       <div class="blog-post">
         <br>
-        <h4 span style="color:#3ea1f1">반응형 헤더 만들기 (2)</h4>
+        <h4 span style="color:#3ea1f1">반응형 헤더 만들기 (3)</h4>
         <hr width="100%" align="left">
         </p>
 
-        그런데 지금 내 웹에서는 보이지 않지만 본인이 따라서 해 보면 좌우 및 상하에 여백이 있는 것을 볼 수 있다. <br>
-        전체적으로 margin 을 없애기 위해서 body 에 margin 을 0 으로 설정하였다. <br><br>
+        그럼 이번에는 모바일 환경이었을때 보여지는 것을 구현 해 보자. <br>
+        화면의 사이즈가 750px 보다 작을때에 보여지는 조건들이다. <br><br>
 
-        navbar 의 메뉴들이 기본적으로 list 태그로 되어 있기에 항목앞에 각각 점이 표시가 되어 있는데
-        이를 없애기 위해서 list-style 을 none 으로 지정하였다. <br><br>
+        물론 아래 명령들은 모두 지난 시간에 작성했던 css 파일에서 그 다음으로 작성 해 주면 된다. <br><br>
 
-        또한 리스트 형식으로 세로로 정렬되어 있는것을 가로로 정렬하기 위해 display 를 flex 로 지정 해 주었다. <br>
-        리스트에 있는 항목들은 나중에 마우스로 가르켰을때 선택이 되는 것을 가시적으로 쉽게 보이기 위해 색깔을 넣어줄 것인데
-        어느정도 형태가 보여야 하기에 공백을 넣어주고자 padding 값을 주었다. <br><br>
+        flex-direction: column 은 수직으로 정렬하라는 뜻이다. <br>
+        align-items: flex-start 은 왼쪽으로 정렬하라는 뜻이다. <br><br>
+        
+        여기서 메뉴는 중앙에 배치해야 되므로 center 라는 명령을 주었다. <br>
+        그런데 중앙으로 오지 않는다. <br>
+        왜냐하면 메뉴의 너비가 화면 전체의 크기가 아니기 때문이다. <br>
+        그래서 width 를 100% 로 설정한다. <br><br>
 
-        이를 위해 리스트 항목들에 hover 속성을 넣어주었고 마우스로 가르켰을때 너무 사각형으로 나타내어지는 것을
-        보기좋게 하기 위해서 모서리에 라운드 효과를 넣어주고자 border-radius 값을 주었다. <br><br>
+        navbar__menu 에서 li 항목들은 마우스를 갖다 대었을 때 색깔이 나타나도록 하였는데
+        모바일 환경에서는 너비가 100%의 박스 형태로 보여져야 하기에 width 를 100% 로 설정했다. <br><br>
 
-        navbar__icons 에 있는 항목들도 마찬가지이다. <br><br>
+        navbar__menu 나 navbar__icons 는 나중에 navbar__tooggleBtn 에 의해서 나타나게 할 것이므로
+        모두 display: none 으로 속성값을 설정하였다. <br><br>
 
-        자~~ 오늘은 여기까지 이다. <br><br>
-
-        <pre class="language-html">
-          
+          <pre class="language-html" style="line-height: 150%;">
+            
+  @media screen and (max-width: 750px) {
   .navbar {
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgb(9, 108, 173);
-      padding: 0px 12px;
-  }
-
-  a {
-      text-decoration: none;
-      color: white;
-
-  }
-
-  body {
-      margin: 0;
-  }
-
-  .navbar__logo {
-      font-size: 18px;
-
-  }
-
-  .navbar__logo i {
-      color: yellow;
-
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 24px;
   }
 
   .navbar__menu {
-      display: flex;
-      list-style: none;
-      padding-left: 0;
-      padding-top: 15px;
-
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
   }
 
   .navbar__menu li {
-      padding: 8px 12px;
-
-  }
-
-  .navbar__menu li:hover {
-      background-color: #838346;
-      border-radius: 4px;
-
+      width: 100%;
+      text-align: center;
   }
 
   .navbar__icons {
-      list-style: none;
-      color: white;
-      display: flex;
-      padding: 0;
-      padding-top: 15px;
-
-  }
-
-  .navbar__icons li {
-      padding: 8px 12px;
-
+      display: none;
+      justify-content: center;
+      width: 100%;
   }
 
   .navbar__tooggleBtn {
-      position: absolute;
-      right: 32px;
-      font-size: 24px;
-      color: #109e73;
-      display: none;
-
+      display: block;
   }
-      </pre>
-      <br>
 
-        <img style="width: 100%;" src='http://drive.google.com/uc?export=view&id=17UmYUUF-Nj_lnzpQjXsMKIYbh5seV4j0' /><br>
+  .navbar__menu.active,
+  .navbar__icons.active {
+      display: flex;
+  }
+  }
 
+        </pre><br>
 
+        자 이제 자바스크립트를 이용해서 navbar__tooggleBtn 버튼을 클릭했을때 navbar__menu 와  icons 들을 보여줄 수 있도록 해 보겠다. <br>
+        아래와 같은 명령어를 html 파일에 body 태그안에 넣는다. <br><br>
 
+  <pre class="language-html">
+    
+    &lt;script src=&quot;practice.js&quot;&gt;&lt;/script&gt;
+  </pre><br>
 
+  그리고 자바스크립트 파일에는 아래와 같이 작성 해 본다. <br><br>
+
+  <pre class="language-html" style="line-height: 150%;">
+    
+    const toogleBtn = document.querySelector('.navbar__toogleBtn');
+    const menu = document.querySelector('.navbar__menu');
+    const icons = document.querySelector('.navbar__icons');
+    
+    toogleBtn.addEventListener('click', () =&gt; {
+        menu.classlist.toggle('active');
+        icons.classlist.toggle('active');
+    });
+    </pre><br>
+    
+    그런데 불행하게도 자바스크립트 명령이 동작되지 않는다. <br>
+    혹시 오타가 있는 것은 아닌지 몇번을 확인해도 잘못된 곳을 찾을 수 가 없었다. <br>
+    심지어 이렇게 블로그를 작성하면서 하나하나 다시 검토 해 보았으나 역시 안된다. <br><br>
+
+    좀 더 공부를 더 해 봐야 할 것 같다. <br><br>
 
         <hr width="100%" align="left">
         </p>

@@ -1,8 +1,8 @@
-const toogleBtn = document.querySelector('.navbar2__toogleBtn');
-const menu = document.querySelector('.navbar2__menu');
-const icons = document.querySelector('.navbar2__icons');
-
-toogleBtn.addEventListener('click', () => {
-    menu.classlist.toggle('active');
-    icons.classlist.toggle('active');
-});
+function openclose() {
+    let status = $('#post_menu').css('display');
+    if (status == 'block') {
+        $('#post_menu').hide()
+    } else {
+        $('#post_menu').show()
+    }
+}

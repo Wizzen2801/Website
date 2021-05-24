@@ -5,39 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice</title>
-    <link rel="stylesheet" href="practice.css">
+    <link rel="stylesheet" href="practice_header.css">
     
 </head>
 
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/ec520b0579.js" crossorigin="anonymous"></script>
-    <script src="practice.js" defer></script>
+    <script src="practice_header.js"></script>
 
-    <nav class="navbar2">
-        <div class="navbar2__logo">
+    <nav class="navbar">
+        <div class="navbar__logo">
             <i class="fab fa-old-republic"></i>
             <a href="">Strength & Honor</a>
 
         </div>
 
-        <ul class="navbar2__menu">
-            <li><a href="">Home</a></li>
-            <li><a href="">Macbook</a></li>
-            <li><a href="">Html</a></li>
-            <li><a href="">CSS</a></li>
-            <li><a href="">JavaScript</a></li>
-            <li><a href="">Python</a></li>
+        <ul id="post_menu" class="navbar__menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Macbook</a></li>
+            <li><a href="#">Html</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Python</a></li>
 
         </ul>
 
-        <ul class="navbar2__icons">
+        <ul class="navbar__icons">
             <li><i class="fas fa-home"></i></li>
             <li><i class="fas fa-at"></i></li>
             <li><i class="fab fa-linkedin"></i></li>
             
         </ul>
 
-        <a href="#" class="navbar2__tooggleBtn">
+        <a onclick="openclose()" href="#" class="navbar__tooggleBtn">
             <i class="fas fa-bars"></i>
         </a>
     </nav>

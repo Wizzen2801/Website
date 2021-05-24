@@ -1,0 +1,324 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
+  
+</head>
+
+<body>
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="mac_intro.html">MacBook</a>
+    <a href="html_intro.html">Html</a>
+    <a href="css_intro.html">CSS</a>
+    <a href="javascript_intro.html">JavaScript</a>
+    <a href="python_intro.html">Python</a>
+    <a href="etc_intro.html">etc.</a>
+    <a href="all_posts_intro.html">All Posts.</a>
+
+    <!-- <a href="#" class="right">Link</a> -->
+  </div>
+
+  <div class="row" id="content">
+    <div class="medium-8 columns">
+      <div class="blog-post">
+        <br>
+        <h4 span style="color:#3ea1f1">반응형 헤더 만들기 (5)</h4>
+        <hr width="100%" align="left">
+        </p>
+
+        그래서 이번에는 html 파일에서 ajax 자바스크립트를 링크하였고 navbar__menu 에는 post_menu 라는 id 값을 주었다. <br>
+        또한 navbar__tooggleBtn 에는 onclick 하였을때 openclose 라는 명령을 주었다. <br><br>
+
+        <pre style="line-height: 150%;" class="language-html">
+          
+  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+  &lt;ul id=&quot;post_menu&quot; class=&quot;navbar__menu&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Macbook&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Python&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;a onclick=&quot;openclose()&quot; href=&quot;#&quot; class=&quot;navbar__tooggleBtn&quot;&gt;
+      &lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;
+  &lt;/a&gt;
+          </pre><br>
+    
+      그럼 아래와 같이 햄버거 버튼을 클릭했을때 메뉴바들이 나타나고 다시 클릭하면 사라지게 되었다. <br><br>
+
+      <img width="100%" src='http://drive.google.com/uc?export=view&id=1tfkfw9_nVZgakrhLIx9zANC4vC6RdTwp' /><br><br>
+
+      아래는 연습에 사용한 html, css, JavaScript 의 원문이다. <br><br>
+
+      1. html <br><br>
+
+      <pre style="line-height: 150%;" class="language-html">
+
+  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+      &lt;title&gt;Practice&lt;/title&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;practice_header.css&quot;&gt;
+      
+  &lt;/head&gt;
+
+  &lt;body&gt;
+      &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script src=&quot;https://kit.fontawesome.com/ec520b0579.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+      &lt;script src=&quot;practice_header.js&quot;&gt;&lt;/script&gt;
+
+      &lt;nav class=&quot;navbar&quot;&gt;
+          &lt;div class=&quot;navbar__logo&quot;&gt;
+              &lt;i class=&quot;fab fa-old-republic&quot;&gt;&lt;/i&gt;
+              &lt;a href=&quot;&quot;&gt;Strength &amp; Honor&lt;/a&gt;
+
+          &lt;/div&gt;
+
+          &lt;ul id=&quot;post_menu&quot; class=&quot;navbar__menu&quot;&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Macbook&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Html&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Python&lt;/a&gt;&lt;/li&gt;
+
+          &lt;/ul&gt;
+
+          &lt;ul class=&quot;navbar__icons&quot;&gt;
+              &lt;li&gt;&lt;i class=&quot;fas fa-home&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class=&quot;fas fa-at&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class=&quot;fab fa-linkedin&quot;&gt;&lt;/i&gt;&lt;/li&gt;
+              
+          &lt;/ul&gt;
+
+          &lt;a onclick=&quot;openclose()&quot; href=&quot;#&quot; class=&quot;navbar__tooggleBtn&quot;&gt;
+              &lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;
+          &lt;/a&gt;
+      &lt;/nav&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+        </pre><br>
+
+        2. CSS <br><br>
+
+        <pre style="line-height: 150%;" class="language-html">
+          
+    :root {
+    --text-color: #f0f4f5;
+    --background-color:#263344 ;
+    --accent-color: #d49466; 
+  }
+
+  body {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(9, 108, 173);
+    padding: 0px 12px;
+  }
+
+  .navbar__logo {
+    font-size: 18px;
+
+  }
+
+  .navbar__logo i {
+    color: yellow;
+
+  }
+
+  .navbar__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    padding-top: 15px;
+
+  }
+
+  .navbar__menu li {
+    padding: 8px 12px;
+
+  }
+
+  .navbar__menu li:hover {
+    background-color: #838346;
+    border-radius: 4px;
+
+  }
+
+  .navbar__icons {
+    list-style: none;
+    color: white;
+    display: flex;
+    padding: 0;
+    padding-top: 15px;
+
+  }
+
+  .navbar__icons li {
+    padding: 8px 12px;
+
+  }
+
+  .navbar__tooggleBtn {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: #d47c08;
+  }
+
+  @media screen and (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__icons {
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar__tooggleBtn {
+        display: block;
+        
+    }
+
+    
+  }
+      </pre><br>
+    
+      3. JavaScript <br><br>
+
+      <pre style="line-height: 150%;" class="language-html">
+        
+  function openclose() {
+  let status = $('#post_menu').css('display');
+  if (status == 'block') {
+      $('#post_menu').hide()
+  } else {
+      $('#post_menu').show()
+  }
+  }
+    </pre><br>
+    
+    휴~~ 이제 끝났다. <br>
+    사실 유투브만 보고 따라하면 쉬울줄 알았다.<br> 
+    여러 웹사이트의 정보를 기초로 따라하더라도 동일한 결과를 얻지 못한다는 것을 알고는 있었지만
+    유투브를 따라하더라도 안된것은 처음이다. <br><br>
+
+    그래도 여기저기 웹사이트에서 얻은 정보를 하나하나 조합해서 완성한 파일들이 나의 의도대로 동작하는 것에
+    만족을 한다. <br><br>
+
+    다만 내가 알지도 못하는 자바스크립트 링크를 붙여야 하는 것이 마음에 들지 않을 뿐이다. <br>
+
+        <hr width="100%" align="left">
+        </p>
+      </div>
+
+    </div>
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>CSS</h4>
+        <ul>
+          <li><a href="css_intro.html">Intro ...</a></li>
+          <li><a href="css_googledrive_image.html">구글드라이브에 있는 이미지 파일을 웹사이트에 추가하기</a></li>
+          <li><a href="css_sourcecode_convert.html">html 에 소스코드 보여주기</a></li>
+          <li><a href="css_sourcecode_convert2.html">html 에 소스코드 보여주기 (2)</a></li>
+          <li><a href="css_header_make.html">반응형 헤더 만들기</a></li>
+          <li><a href="css_header_make2.html">반응형 헤더 만들기 (2)</a></li>
+          <li><a href="css_header_make3.html">반응형 헤더 만들기 (3)</a></li>
+          <li><a href="css_header_make4.html">반응형 헤더 만들기 (4)</a></li>
+          <li><a href="css_header_make5.html">반응형 헤더 만들기 (5)</a></li>
+
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+
+</body>
+
+</html>
