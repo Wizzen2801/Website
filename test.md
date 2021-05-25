@@ -1,16 +1,15 @@
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<ul id="post_menu" class="navbar__menu">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Macbook</a></li>
-    <li><a href="#">Html</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-    <li><a href="#">Python</a></li>
-</ul>
-
-<a onclick="openclose()" href="#" class="navbar__tooggleBtn">
-    <i class="fas fa-bars"></i>
-</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script defer src="practice.js"></script>
+    
+</body>
+</html>
 ```

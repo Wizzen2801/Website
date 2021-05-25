@@ -38,6 +38,82 @@
         <hr width="100%" align="left">
         </p>
 
+        자 이제 자바스크립트를 배워 보겠다. <br>
+          html 이 뼈대라면 css 는 html 에 옷을 입히는 것이고 자바스크립트는 html 을 꿈틀거리며
+          살아 움직이게 하는 역할을 한다. <br><br>
+
+          이번에도 유투버 드림코딩의 엘리님의 강의를 가지고 따라서 공부 해 보자. <br><br>
+
+          지난번 CSS 때 처럼 똑같이 했지만 안될 수 도 있는데 동작이 될 수 있도록 여기저기 해법을 찾아보면 
+          오히려 더 머릿속에 잘 남게 되니 이런 경우 또한 너무 스트레스 받지 말고 시간을 두고 공부 해 보자. <br><br>
+
+          내 경험이지만 문제에 봉착해서 잘 풀리지 않을때에는 과감하게 노트북을 닫고 영화를 보든 유투브를 보든
+          다른 것을 하라는 것이다. <br><br>
+
+          그러다 어느 순간 또 다른 아이디어가 떠 올라 다시 내가 작성한 코드를 보면 잘못된 부분이든지
+          또는 다른 방법으로 코딩을 하게 된다. <br><br>
+
+          자바스크립트의 위치는 헤드 태그안에 넣기도 하지만 본문 즉 바디 태그안에 넣는다고 했다. <br>
+          또한 별도의 css 파일을 만들고 링크하는 것 처럼 별도의 자바스크립트 파일을 만들고 나서 본문내에서 연결해서 사용할 수 있다. <br><br>
+
+          우선 아래와 같이 자바스크립트 파일을 만들어 보자. <br>
+          확장자는 파일명.js 이다. <br><br>
+
+          여기서 " 'use strict'; " 은 자바스크립트의 선언문이라고 이해하자. <br>
+          즉 이렇게 선언 해 놓으면 자바스크립트 파일 작성시 문법적인 에러 발생하면 console 창에서 확인이 된다. <br><br>
+
+          <pre style="line-height: 150%;" class="language-javascript">
+            
+  'use strict';
+  console.log('Hello World!');
+          </pre><br>
+
+          그럼 자바스크립트 파일을 html에 아래와 같이 링크 해 보자. <br>
+          여기서 defer 라는 명령을 추가 해 보았다. <br><br>
+
+          defer 라는 명령은 엘리님의 설명을 빌면,<br>
+          인터넷이 html 파일을 위에서 차례대로 읽어나가고 있을때 만일 자바스크립트 파일이 커서
+          로딩할 때 상당히 많은 시간이 걸릴 정도라면 자바스크립트의 위치에 따라 웹사이트를 화면에 보여주는 시간이
+          천차만별이 될 것이다. <br><br>
+
+          그런데 이렇게 defer 명령을 주면 웹사이트를 차례대로 보여주다가 자바스크립트 명령을 만나면 우선 다운로드를 하되
+          웹사이트 보여주는 것을 멈추지 않고 병행해서 다운로드가 된 다는 것이다. <br><br>
+
+          그리고 웹사이트를 끝까지 보여준 후 자바스크립트 다운로드가 완료되지마자 바로 실행이 된다는 것이다. <br><br>
+
+          <pre style="line-height: 150%;" class="language-html">
+            
+  &lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+      &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;script defer src=&quot;practice.js&quot;&gt;&lt;/script&gt;
+      
+  &lt;/body&gt;
+  &lt;/html&gt;
+            </pre><br>
+          
+        이렇게 만든 html 파일을 열어보자. <br>
+        그런데 아무것도 보이지 않는 백지만이 보일 것이다. <br>
+        당연하다. <br>
+        바디 태그안에 그 어느것도 작성하지 않았기 때문이다. <br><br>
+
+        그럼 크롬 브라우저에서 열었다고 생각하고 본문에서 우측마우스를 클릭하면 검사라는 항목이 보인다. <br><br>
+
+        왼쪽부터 차례대로 Elements 에는 html 소스코드가,
+        그 다음 console 창에는 자바스크립트에 적었던 "Hello World!" 가 잘 출력된 것을 볼 수 있다. <br><br>
+
+        오늘은 여기까지 이다. <br>
+
+
+        <img style="width: 100%;" src='http://drive.google.com/uc?export=view&id=1N4Yq2YSZtOHFWm8pvdRdChHynfjzUBhN' /><br>
+            
+
         <hr width="100%" align="left">
         </p>
 
@@ -64,8 +140,7 @@
         <h4>JavaScript</h4>
         <ul>
           <li><a href="javascript_intro.html">Intro ...</a></li>
-          
-
+      
         </ul>
 
         <div class="wizzen2801">
