@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
+</head>
+
+<body>
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
+    </div>
+  </div>
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mac_intro.html">MacBook</a>
+        <a href="html_intro.html">Html</a>
+        <a href="css_intro.html">CSS</a>
+        <a href="javascript_intro.html">JavaScript</a>
+        <a href="python_intro.html">Python</a>
+        <a href="etc_intro.html">etc.</a>
+        <a href="all_posts_intro.html">All Posts.</a>
+
+        <!-- <a href="#" class="right">Link</a> -->
+    </div>
+    
+    <div class="row" id="content">
+      <div class="medium-8 columns">
+        <div class="blog-post">
+          <br>
+          <h4 span style="color:#3ea1f1">계산기 만들기</h4>
+          <hr width="100%" align="left">
+          </p>
+
+          <p>이번에는 계산기를 만들어 보자.<br>
+            파이썬에서 GUI 즉, 단순 터미널에서 결과값을 보는 것이 아니라 윈도우 창에서 명령을 실행하고 그에 따른 결과 또한 윈도우 창에서 볼 수 있게 하는 프로그램이다.<br>
+            이 내용은 nomadlife 님의 블로그 (https://opentutorials.org/module/2980/17973) 를 토대로 작성이 되었다.</p>
+            <p>우선 아래와 같은 명령어를 입력 해 보자.
+            확장자는 py 이다.</p>
+            <pre style="line-height: 150%;" class="language-python">
+
+    from tkinter import *
+    from tkinter import ttk
+        
+    # 함수 위치 (해당 키를 눌렀을때 작동 명령) 
+        
+    root = Tk()
+    root.title(&quot;Calculator&quot;)
+    root.geometry(&quot;600x400&quot;)
+        
+    # 계산기 창의 위치 (입력 및 출력 숫자 표시창)
+
+    # 숫자 버튼의 위치
+        
+    root.mainloop()
+            </pre><br>
+
+            <p>여기서 맨윗줄의 선언문을 해석 해 보면 tkinter 라는 모듈에서 ttk 라는 함수를 가져와 라는 뜻이다.
+            여기서 함수명이 길면 함수명 뒤에 as 를 부쳐서 좀 더 짧은 본인만의 함수명을 부여할 수 있다.</p>
+            <p>그런데 가만히 생각 해 보면 분명히 위에서 * 를 이용해 모든 함수를 가져오라는 명령을 선언하였는데
+            굳이 다시 ttk 라는 함수를 가져오라는 명령을 다시 선언하는 이유는 파악하지 못했다.</p>
+            <p>이것을 찾아보고자 여기저기 인터넷을 뒤져 보았으나 아직 해당 정보를 찾지 못해서 추후 이유를 알게 되었을때
+            다시 설명 해 보도록 할 예정이다.</p>
+            <p>root = Tk() 은 Tk() 을 root 에 할당하라는 것인데 재미있는 것은 만일 아래와 같이 코딩을 바꿔준다면,</p>
+
+            <pre style="line-height: 150%;" class="language-python">
+
+    Tk().title(&quot;Calculator&quot;)
+    Tk().geometry(&quot;600x400&quot;)
+        
+    Tk().mainloop()
+            </pre><br>
+            <p>창이 3개가 뜬다.
+            즉 Calculator 라는 이름을 가진 창과, 600 x 400 사이즈의 창 그리고 mainloop 라는 창이다.</p>
+            <p>이 부분도 왜 이렇게 되는지 원리를 파악하고자 하였으나 내용을 찾지 못했다.
+            이런식으로 파헤치면서 공부를 한다면 언어를 배우는 것이 아니라 언어를 연구하는 것이 되는 것 같아
+            더 깊게 들어가지는 않도록 하겠다.</p>
+            
+        
+        <hr width="100%" align="left"></p>
+
+      </div>
+    </div>
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>Python</h4>
+        <ul>
+          <li><a href="python_intro.html">Intro ...</a></li>
+          <li><a href="python_inv_mov.html">재고수불부</a></li>
+          <li><a href="python_calculator.html">계산기 만들기</a></li>
+          <li><a href="python_calculator2.html">계산기 만들기 (2)</a></li>
+          <li><a href="python_calculator3.html">계산기 만들기 (3)</a></li>
+          <li><a href="python_calculator4.html">계산기 만들기 (4)</a></li>
+
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+    
+</body>
+
+</html>

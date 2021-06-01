@@ -1,0 +1,293 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
+</head>
+
+<body>
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
+    </div>
+  </div>
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mac_intro.html">MacBook</a>
+        <a href="html_intro.html">Html</a>
+        <a href="css_intro.html">CSS</a>
+        <a href="javascript_intro.html">JavaScript</a>
+        <a href="python_intro.html">Python</a>
+        <a href="etc_intro.html">etc.</a>
+        <a href="all_posts_intro.html">All Posts.</a>
+
+        <!-- <a href="#" class="right">Link</a> -->
+    </div>
+    
+    <div class="row" id="content">
+      <div class="medium-8 columns">
+        <div class="blog-post">
+          <br>
+          <h4 span style="color:#3ea1f1">계산기 만들기 (4)</h4>
+          <hr width="100%" align="left">
+          </p>
+
+          <p>최종 완성된 코드는 아래와 같다.</p>
+          <pre style="line-height: 150%;" class="language-python">
+            
+  from tkinter import *
+  from tkinter import ttk
+
+  operation = ''  # 연산자 저장 변수
+  temp_number = 0  # 이전값 저장 변수
+
+  # 결과 출력 상태인지 상태저장.
+  answer_trigger = False
+
+  # 숫자버튼 처리 함수
+
+  def button_pressed(value):
+      global temp_number    # 한번 계산후에, 다른숫자를 입력하면, 기존결과를 지우고, 새로 계산
+      global answer_trigger
+      # 입력값이 'AC'일때
+      if value=='AC':
+          number_entry.delete(0,'end')
+          # AC버튼 누르면, trigger 변수도 초기화.
+          operation = ''
+          answer_trigger = False
+          print(&quot;AC pressed&quot;)
+      else: # 그외에 0부터 9까지 숫자일때
+          # Trigger가 True이면, Entry 초기화후 새로입력.
+          if answer_trigger:
+              number_entry.delete(0,&quot;end&quot;)
+              answer_trigger = False
+          number_entry.insert(&quot;end&quot;,value)  #텍스트 창으로 숫자 전송.'end'는 오른쪽끝에 추가하라는 의미.
+          print(value,&quot;pressed&quot;)
+    
+    # 소수점으로 int형 변환시 에러가 날경우, float형으로 반환.
+
+  def float_filter(value):
+      try:
+          int(value)
+          return int(value)
+      except ValueError:
+          return float(value)
+
+  # 두값이 같으면 정수로 표현가능.==&gt; 정수값으로 반환.
+
+  def int_changer(value):
+      if int(value) == float(value):
+          return int(value)
+      else:
+          return float(value)
+
+    # 사칙연산 처리
+
+  def math_button_pressed(value):  # 사칙연산버튼(/*+-)은 math_button_pressed() 함수로 연결
+      global operation  # 함수 바깥의 글로벌 변수사용
+      global temp_number
+      if not number_entry.get() == '': # 기존에 입력한 숫자가 있을때만 연산버튼 인식
+          operation = value
+          # float_filter 함수 호출.
+          temp_number = float_filter(number_entry.get())
+          number_entry.delete(0,'end')  # 입력칸을 비우고, 다음숫자를 입력받을 준비.
+          print(temp_number,operation)
+        
+  def equal_button_pressed():   # '='버튼은 equal_button_pressed() 함수로 연결
+      global operation
+      global temp_number
+      # 연산자나 숫자가 입력되지 않으면, 실행하지 않음.
+      if not (operation =='' and number_entry.get()==''):
+          number = int(number_entry.get())
+          if operation == '/':
+              solution = temp_number/number
+          elif operation == '*':
+              solution = temp_number*number
+          elif operation == '+':
+              solution = temp_number+number
+          else :
+              solution = temp_number-number
+          
+          # int_changer() 함수를 한번 거쳐서, 값저장.
+          solution = int_changer(solution)
+
+          # 계산후, 숫자표시칸을 비우고, 계산결과를 표시.
+          number_entry.delete(0,'end')
+          number_entry.insert(0,solution)
+          print(temp_number,operation,number,&quot;=&quot;,solution)
+          operation = ''
+          temp_number = 0
+          # 계산 완료후, Trigger 변수 True로 변경.
+          answer_trigger = True
+
+  # 키입력 함수
+
+  def key_input(value):
+      # 쉬프트키 입력 무시.(덧셈할때)
+      if not repr(value.char) == &quot;''&quot;:
+          numbers = '1234567890'
+          operators = '/*+-'
+          # 숫자키 입력시, button_pressed()함수 호출.
+          if value.char in numbers :
+              button_pressed(value.char)
+              print(value.char)
+          # 연산자 입력시, math_button_pressed() 함수 호출. 
+          elif value.char in operators :
+              math_button_pressed(value.char)
+              print(value.char)
+          # 엔터키 입력 -&gt; =버튼 
+          elif value.keysym == &quot;Return&quot;:
+              equal_button_pressed()
+              print(&quot;equal button pressed&quot;)
+          # ESC 키 입력. -&gt; AC 버튼 입력.
+          elif value.keysym == &quot;Escape&quot;:
+              button_pressed('AC')
+              print('AC button pressed')
+          # BackSpace 입력시, 마지막 한글자 삭제.
+          elif value.keysym == &quot;BackSpace&quot;:
+              number_entry.delete(len(number_entry.get())-1,'end')
+              print(number_entry)
+
+  root = Tk()
+  root.title(&quot;Calculator&quot;)
+  root.geometry(&quot;300x120&quot;)
+
+  # 키입력 binding - 입력되는 키 값(객체)을 key_input 이라는 함수로 넘겨주라는 의미
+
+  root.bind('&lt;Key&gt;',key_input)
+
+
+
+  # 텍스트창의 값 저장할 변수.
+
+  entry_value = StringVar(root, value='')
+
+  # 숫자 및 결과 표시창
+  # textvariable 속성으로 변수 설정.
+
+  number_entry = ttk.Entry(root, textvariable = entry_value, width=35)
+  number_entry.grid(row=0, columnspan=3) # columnspan 은 여러칸에 걸쳐서 표시함.
+    
+  # 숫자 버튼
+  # command=lambda: 뒤에 명령 작성.
+  # command에 함수 연결. 전달값은 버튼의 숫자 '1'
+  # button 9개 추가
+  button7 = ttk.Button(root, text=&quot;7&quot;, command = lambda:button_pressed('7'))
+  button7.grid(row=1, column=0)
+  button8 = ttk.Button(root, text=&quot;8&quot;, command = lambda:button_pressed('8'))
+  button8.grid(row=1, column=1)
+  button9 = ttk.Button(root, text=&quot;9&quot;, command = lambda:button_pressed('9'))
+  button9.grid(row=1, column=2)
+
+  # 나누기 버튼 -&gt; math_button_pressed() 로 연결.
+
+  button_div = ttk.Button(root, text=&quot;/&quot;, command = lambda:math_button_pressed('/'))
+  button_div.grid(row=1, column=3)
+    
+  button4 = ttk.Button(root, text=&quot;4&quot;, command = lambda:button_pressed('4'))
+  button4.grid(row=2, column=0)
+  button5 = ttk.Button(root, text=&quot;5&quot;, command = lambda:button_pressed('5'))
+  button5.grid(row=2, column=1)
+  button6 = ttk.Button(root, text=&quot;6&quot;, command = lambda:button_pressed('6'))
+  button6.grid(row=2, column=2)
+
+  # 곱하기 버튼 -&gt; math_button_pressed() 로 연결.
+
+  button_mult = ttk.Button(root, text=&quot;*&quot;, command = lambda:math_button_pressed('*'))
+  button_mult.grid(row=2, column=3)
+    
+  button1 = ttk.Button(root, text=&quot;1&quot;, command = lambda:button_pressed('1'))
+  button1.grid(row=3, column=0)
+  button2 = ttk.Button(root, text=&quot;2&quot;, command = lambda:button_pressed('2'))
+  button2.grid(row=3, column=1)
+  button3 = ttk.Button(root, text=&quot;3&quot;, command = lambda:button_pressed('3'))
+  button3.grid(row=3, column=2)
+
+  # 더하기 버튼 -&gt; math_button_pressed() 로 연결.
+
+  button_add = ttk.Button(root, text=&quot;+&quot;, command = lambda:math_button_pressed('+'))
+  button_add.grid(row=3, column=3)
+
+  # 마지막줄 AC,0,=,- 버튼추가
+
+  button_ac = ttk.Button(root, text=&quot;AC&quot;, command = lambda:button_pressed('AC'))  # AC,0 버튼 -&gt; button_pressed() 로 연결
+  button_ac.grid(row=4, column=0)
+  button0 = ttk.Button(root, text=&quot;0&quot;, command = lambda:button_pressed('0'))
+  button0.grid(row=4, column=1)
+  button_equal = ttk.Button(root, text=&quot;=&quot;, command = lambda:equal_button_pressed())  # = 버튼 -&gt; equal_button_pressed() 로 연결
+  button_equal.grid(row=4, column=2)
+  button_sub = ttk.Button(root, text=&quot;-&quot;, command = lambda:math_button_pressed('-'))  # -버튼 -&gt; math_button_pressed() 로 연결.
+  button_sub.grid(row=4, column=3)
+    
+  root.mainloop()
+          </pre>
+          
+        
+        <hr width="100%" align="left"></p>
+
+      </div>
+    </div>
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>Python</h4>
+        <ul>
+          <li><a href="python_intro.html">Intro ...</a></li>
+          <li><a href="python_inv_mov.html">재고수불부</a></li>
+          <li><a href="python_calculator.html">계산기 만들기</a></li>
+          <li><a href="python_calculator2.html">계산기 만들기 (2)</a></li>
+          <li><a href="python_calculator3.html">계산기 만들기 (3)</a></li>
+          <li><a href="python_calculator4.html">계산기 만들기 (4)</a></li>
+
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
+</head>
+
+<body>
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
+    </div>
+  </div>
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mac_intro.html">MacBook</a>
+        <a href="html_intro.html">Html</a>
+        <a href="css_intro.html">CSS</a>
+        <a href="javascript_intro.html">JavaScript</a>
+        <a href="python_intro.html">Python</a>
+        <a href="etc_intro.html">etc.</a>
+        <a href="all_posts_intro.html">All Posts.</a>
+
+        <!-- <a href="#" class="right">Link</a> -->
+    </div>
+    
+    <div class="row" id="content">
+      <div class="medium-8 columns">
+        <div class="blog-post">
+          <br>
+          <h4 span style="color:#3ea1f1">계산기 만들기 (2)</h4>
+          <hr width="100%" align="left">
+          </p>
+
+          <p>계산기에 숫자와 결과를 나타내는 창은 아래와 같다.
+            이 창의 값을 저장할 변수를 textvariable 속성으로 entry_value 라는 이름으로 설정한다.</p>
+            <p>여기서 columnspan 을 3 으로 지정한 이유는,
+            다른 버튼들은 크기와 버튼간의 간격이 동일하다.
+            허나 이 창은 크기가 전혀 다른 창이다.
+            이에 column 의 위치를 지정하지 않고 마치 html 의 span 명령처럼 columnspan 으로 처리한다.</p>
+            <p>여기서 3 이상의 숫자로 지정해야 한다.
+            3 이라는 숫자는 왼쪽에서 4번째 열이라는 말이다.
+            나머지 버튼들은 현재 4 x 4 배치이므로</p>
+            <p>즉 3 보다 작은 숫자를 입력하면 나머지 버튼들의 간격이 넓어진다.</p>
+
+            <pre style="line-height: 150%;" class="language-python">
+            
+  entry_value = StringVar(root, value='')
+
+  number_entry = ttk.Entry(root, textvariable = entry_value, width=35)
+  number_entry.grid(row=0, columnspan=3) 
+            </pre><p></p>
+            <p>그럼 나머지 버튼들을 만들어 보자.
+            아래 소스를 앞에서 언급한 &quot;숫자 버튼의 위치&quot; 라는 곳에 넣는다.</p>
+            <p>command = lambda 라는 명령을 사용해서 버튼이 눌렸을때 해당 숫자를 각 버튼에 할당하라는 명령이다.
+            버튼의 위치는 row 즉 행, column 즉 열에 할당 해 주면 된다.</p>
+            <p>이렇게 0 부터 8까지 동일한 명령을 사용해서 입력하면 된다.</p>
+
+            <pre style="line-height: 150%;" class="language-python">
+            
+  button7 = ttk.Button(root, text=&quot;7&quot;, command = lambda:button_pressed('7'))
+  button7.grid(row=1, column=0)
+  button8 = ttk.Button(root, text=&quot;8&quot;, command = lambda:button_pressed('8'))
+  button8.grid(row=1, column=1)
+  button9 = ttk.Button(root, text=&quot;9&quot;, command = lambda:button_pressed('9'))
+  button9.grid(row=1, column=2)
+            </pre><p>
+            <p>4칙 연산을 위한 버튼들은 아래와 같이 입력 해 보자.
+            4칙 연산을 위해서는 button_pressed 앞에 math 라는 항목을 더 넣어서 입력 해 주면 된다.</p>
+            <pre style="line-height: 150%;" class="language-python">
+              
+  button_div = ttk.Button(root, text=&quot;/&quot;, command = lambda:math_button_pressed('/'))
+  button_div.grid(row=1, column=3)
+    
+  button_mult = ttk.Button(root, text=&quot;*&quot;, command = lambda:math_button_pressed('*'))
+  button_mult.grid(row=2, column=3)
+    
+  button_add = ttk.Button(root, text=&quot;+&quot;, command = lambda:math_button_pressed('+'))
+  button_add.grid(row=3, column=3)
+
+  button_sub = ttk.Button(root, text=&quot;-&quot;, command = lambda:math_button_pressed('-'))  
+  button_sub.grid(row=4, column=3)
+            </pre><p>
+            <p>마지막으로 &quot;AC, 0, =&quot; 버튼들을 만들어 보자.
+            AC 와 0 버튼은 일반 숫자 버튼과 동일한 명령으로 입력하면 된다.
+            &quot; = &quot; 버튼은 단순히 생각해 보면 math 라는 항목을 이용할 것 같은데 단순 출력하는 역할이므로 equal_button_pressed 라고 입력하는 것 같다.</p>
+            <pre style="line-height: 150%;" class="language-python">
+              
+  button_ac = ttk.Button(root, text=&quot;AC&quot;, command = lambda:button_pressed('AC')) 
+  button_ac.grid(row=4, column=0)
+  button0 = ttk.Button(root, text=&quot;0&quot;, command = lambda:button_pressed('0'))
+  button0.grid(row=4, column=1)
+  button_equal = ttk.Button(root, text=&quot;=&quot;, command = lambda:equal_button_pressed())  
+  button_equal.grid(row=4, column=2)
+            </pre></p>
+            
+            
+        
+        <hr width="100%" align="left"></p>
+
+      </div>
+    </div>
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>Python</h4>
+        <ul>
+          <li><a href="python_intro.html">Intro ...</a></li>
+          <li><a href="python_inv_mov.html">재고수불부</a></li>
+          <li><a href="python_calculator.html">계산기 만들기</a></li>
+          <li><a href="python_calculator2.html">계산기 만들기 (2)</a></li>
+          <li><a href="python_calculator3.html">계산기 만들기 (3)</a></li>
+          <li><a href="python_calculator4.html">계산기 만들기 (4)</a></li>
+
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+    
+</body>
+
+</html>
