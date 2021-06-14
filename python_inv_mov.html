@@ -272,50 +272,50 @@
         <br><br>
         이제 아래와 같이 완성된 프로그램을 만들었다.<br><br>
 
-        <pre>
+        <pre style="line-height: 150%;" class="language-python">
 
-    import pandas as pd<br>
-    from pandas import DataFrame<br>
-    import sys<br>
-    import numpy as np<br>
-    from openpyxl import load_workbook<br><br>
+    import pandas as pd
+    from pandas import DataFrame
+    import sys
+    import numpy as np
+    from openpyxl import load_workbook
 
-    var_path = '/Users/wizzen2801/Python_WZN/Test/' <br><br>
+    var_path = '/Users/wizzen2801/Python_WZN/Test/' 
 
-    df = DataFrame(columns = ['Product_Code', 'Product_Name', 'BOH_Qty', 'BOH_Amt', 'IN_Qty', 'IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
-    df.to_excel(var_path+'INV_MOV.xlsx', index=False)<br><br>
+    df = DataFrame(columns = ['Product_Code', 'Product_Name', 'BOH_Qty', 'BOH_Amt', 'IN_Qty', 'IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])
+    df.to_excel(var_path+'INV_MOV.xlsx', index=False)
 
-    excel_names = [var_path+'INV_MOV.xlsx', var_path+'BOH.xlsx', var_path+'IN.xlsx', var_path+'OUT.xlsx', var_path+'EOH.xlsx']<br><br>
+    excel_names = [var_path+'INV_MOV.xlsx', var_path+'BOH.xlsx', var_path+'IN.xlsx', var_path+'OUT.xlsx', var_path+'EOH.xlsx']
 
-    excels = [pd.ExcelFile(name) for name in excel_names] <br><br>
+    excels = [pd.ExcelFile(name) for name in excel_names]
 
-    frames = [x.parse(x.sheet_names[0], header=None,index_col=None) for x in excels]  <br>
-    frames[1:] = [df[1:] for df in frames[1:]]  <br>
-    combined = pd.concat(frames)<br><br>
+    frames = [x.parse(x.sheet_names[0], header=None,index_col=None) for x in excels] 
+    frames[1:] = [df[1:] for df in frames[1:]] 
+    combined = pd.concat(frames)
 
-    combined.to_excel(var_path+'INV_MOV_Total.xlsx', header=False, index=False)<br><br>
+    combined.to_excel(var_path+'INV_MOV_Total.xlsx', header=False, index=False)
 
-    df = pd.read_excel(var_path+'INV_MOV_Total.xlsx')<br>
-    df = df.pivot_table(index = ['Product_Code'], aggfunc = {'BOH_Qty':sum, 'BOH_Amt':sum, 'IN_Qty':sum, 'IN_Amt':sum, 'OUT_Qty':sum, 'OUT_Amt':sum, 'EOH_Qty':sum, 'EOH_Amt':sum})<br><br>
+    df = pd.read_excel(var_path+'INV_MOV_Total.xlsx')
+    df = df.pivot_table(index = ['Product_Code'], aggfunc = {'BOH_Qty':sum, 'BOH_Amt':sum, 'IN_Qty':sum, 'IN_Amt':sum, 'OUT_Qty':sum, 'OUT_Amt':sum, 'EOH_Qty':sum, 'EOH_Amt':sum})
 
-    df2 = pd.read_excel(var_path+'Code_Master.xlsx')<br>
-    df = df.join(df2.set_index('Product_Code')['Product_Name'], on='Product_Code')<br><br>
+    df2 = pd.read_excel(var_path+'Code_Master.xlsx')
+    df = df.join(df2.set_index('Product_Code')['Product_Name'], on='Product_Code')
 
-    df = df.reindex(columns=['Product_Name', 'BOH_Qty','BOH_Amt','IN_Qty','IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])<br>
-    df.to_excel(var_path+'INV_MOV_Pivot.xlsx')<br><br>
+    df = df.reindex(columns=['Product_Name', 'BOH_Qty','BOH_Amt','IN_Qty','IN_Amt', 'OUT_Qty', 'OUT_Amt', 'EOH_Qty', 'EOH_Amt', 'Adjust_Qty', 'Adjust_Amt'])
+    df.to_excel(var_path+'INV_MOV_Pivot.xlsx')
 
-    wb = load_workbook(var_path+'INV_MOV_Pivot.xlsx')<br>
-    ws = wb.active<br><br>
+    wb = load_workbook(var_path+'INV_MOV_Pivot.xlsx')
+    ws = wb.active
 
-    for r in ws.rows:<br>
-        row_index = r[0].row<br>
-        ws.cell(row=row_index, column=11).value = "=C"+str(row_index)+"+E"+str(row_index)+"-G"+str(row_index)+"-I"+str(row_index)+''<br>
-        ws['K1'] ='Adjust_Qty'<br>
-        ws.cell(row=row_index, column=12).value = "=D"+str(row_index)+"+F"+str(row_index)+"-H"+str(row_index)+"-J"+str(row_index)+''<br>
-        ws['L1'] ='Adjust_Amt'<br><br>
+    for r in ws.rows:
+        row_index = r[0].row
+        ws.cell(row=row_index, column=11).value = "=C"+str(row_index)+"+E"+str(row_index)+"-G"+str(row_index)+"-I"+str(row_index)+''
+        ws['K1'] ='Adjust_Qty'
+        ws.cell(row=row_index, column=12).value = "=D"+str(row_index)+"+F"+str(row_index)+"-H"+str(row_index)+"-J"+str(row_index)+''
+        ws['L1'] ='Adjust_Amt'
         
         wb.save(var_path+'INV_MOV_Final.xlsx')
-                </p></pre>
+                </pre>
         
         <hr width="100%" align="left"></p>
 

@@ -1,0 +1,374 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
+</head>
+
+<body>
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="mac_intro.html">MacBook</a>
+    <a href="html_intro.html">Html</a>
+    <a href="css_intro.html">CSS</a>
+    <a href="javascript_intro.html">JavaScript</a>
+    <a href="python_intro.html">Python</a>
+    <a href="etc_intro.html">etc.</a>
+    <a href="all_posts_intro.html">All Posts.</a>
+
+    <!-- <a href="#" class="right">Link</a> -->
+  </div>
+
+  <div class="row" id="content">
+    <div class="medium-8 columns">
+      <div class="blog-post">
+        <br>
+        <h4 span style="color:#3ea1f1">Functions 함수</h4>
+        <hr width="100%" align="left">
+        </p>
+
+        자 이번에는 함수를 공부 해 보자. <br>
+        역시 드림코딩의 엘리님 강의를 기초로 작성되었다. <br><br>
+
+        <h5 span style="color:#bb0f6ea9">1. 함수의 선언</h5><br>
+
+        앞에서도 언급했듯이 javascript 파일 작성시 use strict 라고 항상 선언하자. <br><br>
+
+        아래는 printHello 라는 함수를 선언하였는데 함수는 Hello 를 출력하라는 것이다. <br>
+        이렇게 하면 printHello 함수를 실행하면 항상 Hello 만 출력이 되어 활용성이 떨어진다. <br><br> 
+
+        <pre style="line-height: 150%;" class="language-javascript">
+          
+  'use strict';
+
+  function printHello() {
+      console.log('Hello');
+  }
+  printHello();
+          </pre><br>
+          
+        그럼 아래와 같이 log 함수에 message 라는 변수를 받으면 message 를 출력해 보겠다. <br>
+        이렇게 하면 위에서와 같이 해당 문자를 출력하기 위해 전체 함수를 일일히 작성하지 않아도 된다. <br><br>
+
+          <pre style="line-height: 150%;" class="language-javascript">
+
+  function log(message) {
+    console.log(message);
+  }
+  log('Hello@');
+  log(1234);
+        </pre><br>
+      
+        <h5 span style="color:#bb0f6ea9">2. 매개변수</h5><br>
+        
+아래 changeName 이라는 함수는 coder 라는 이름을 obj.name 에 넣어서
+ellie 라는 상수에 그 어떤 이름이 입력이 되더라도 coder 가 출력되게끔 하는 함수이다.<br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+
+  function changeName(obj) {
+      obj.name = 'coder';
+  }
+  const ellie = { name: 'ellie' };
+  changeName(ellie);
+  console.log(ellie);
+
+</pre><br>
+
+<h5 span style="color:#bb0f6ea9">3. Default parameters</h5><br>
+
+타이틀을 그때그때마다 한글로 번역을 했는데 도저히 안되겠다.<br>
+엘리님과 같이 영문으로 제목을 그대로 사용해야겠다.<br>
+아래 showMessage 함수는 Hi 와 Tom 이라는 변수를 넣어주면
+Hi! by Tom 이라고 출력하는 함수이다.<br><br>
+
+만일 Tom 을 입력하지 않고 Hi 만 입력하면 함수에서 정의한 바와 같이 Hi from unknown 이라고 출력이 된다. <br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+
+  function showMessage(message, from = 'unknown') {
+      console.log(`${message} by ${from}`);
+  }
+  showMessage('Hi!', 'Tom');
+
+</pre><br>
+
+<h5 span style="color:#bb0f6ea9">4. Rest parameters</h5><br>
+
+아래 printAll 함수를 보면 ...arg 가 있는데 배열형태로 전달하라는 함수이다.<br>
+printAll 에 3가지, 즉 dream, coding, ellie 값이 있다.<br>
+for 함수를 보면 i 가 0 부터 3가지 즉 3보다 적을때까지 이므로 0, 1, 2 총 3개의 배열에
+dream, coding, ellie 이 3가지 값들을 각각 배열시켜 한줄에 한가지씩 출력을 시킨다.<br><br>
+
+허나 이와같은 for 함수보다 더 간단한 방법으로는 args 에 arg 하나하나씩 대입을 시키는 것이다.<br><br>
+
+더더욱 간단한 방법으로는 forEach 라는 함수를 사용하는 것이다.<br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+
+  function printAll(...args) {
+      for (let i = 0; i &lt; args.length; i++) {  // 일반적인 함수
+          console.log(args[i]);
+      }
+
+      for (const arg of args) { // 조금 더 간단한 방법
+          console.log(arg);
+      }
+
+      args.forEach((arg) =&gt; console.log(arg)); // 제일 간단한 방법
+  }
+  printAll('dream', 'coding', 'ellie');
+
+</pre><br>
+
+<h5 span style="color:#bb0f6ea9">5. Local scope</h5><br>
+
+아래 printMessage 함수는 global 을 globalMessage 라는 변수로 지정을 한후
+Hello 를 message 에 대입하고 message 를 출력하고 globalMessage를 출력하는 함수이다.<br>
+즉 Hello global 을 각각 한줄에 하나씩 출력하는 함수이다.<br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+
+  let globalMessage = 'global'; // global variable
+  function printMessage() {
+      let message = 'Helo';
+      console.log(message); // local variable
+      console.log(globalMessage);
+  }
+  printMessage();
+
+</pre><br>
+
+<h5 span style="color:#bb0f6ea9">6. Return a value</h5><br>
+
+아래는 a 와 b 의 합을 return 하라 는 함수이다. <br>
+특별히 이해가 되지 않는 부분이 없는 쉬운 함수이다. <br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+
+  function sum(a, b) {
+    return a + b;
+  }
+  const result = sum(1, 2);
+  console.log(`sum: ${sum(1, 2)}`);
+
+</pre><br>
+
+<h5 span style="color:#bb0f6ea9">7. Early return, early exit</h5><br>
+
+함수는 계속 연산해야 하는 말 그대로 함수이다. <br>
+이에따라 가장 적고 가장 빠르게 연산이 끝날 수 있도록 해야 그 다음 출력 명령이 실행되므로
+보다 빠른 결과를 얻기 위해서는 가장 빠른 연산이 되게끔 함수를 정의해야 한다. <br><br>
+
+아래중 나쁜 코딩의 예를 보면 함수내에서 업그레이드가 진행되므로 시간이 올래걸리지만
+반대로 좋은 코딩의 예와 같이 10보다 적은 포인트일때 함수를 끝내고 바로 업그레이드 하라고 하면 
+보다 빠른 결과를 얻을 수 있게 된다. <br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+  
+  // 나쁜 코딩의 예 - 함수내에서 진행이 되므로 가독성이 떨어짐
+
+  function upgradeUser(user) {
+    if (user.point &gt; 10) {
+        // long upgrade logic...
+    }
+  }
+  
+  // 좋은 코딩의 예 - 10 보다 적을때에는 return 을 통해 함수밖으로 빠져나오고 진행할때 가독성이 좋아짐.
+  
+  function upgradeUser(user) {
+      if (user.point &lt;= 10) {
+          return;
+      }
+      // long upgrade logic...
+  }
+  </pre><br>
+  
+  <h5 span style="color:#bb0f6ea9">8. Anonymous Function</h5><br>
+
+  말 그대로 함수명이 정의되어 있지 않는 함수이다.<br>
+  아래 코딩을 해석해 보면, print 라고 출력하는 함수를 print 라는 상수에 대입시킨다.<br><br>
+
+  console.log 명령어를 통해 print 라는 상수를 출력한다.<br><br>
+
+  print 라는 상수를 printAgain 이라는 상수에 다시 대입시킨다.<br>
+  printAgain 을 출력한다.<br><br>
+
+  합계를 sumAgain 에 대입시킨다.<br>
+  1 + 3 의 결과값을 출력한다.<br><br>
+
+  그런데 솔직히 어떤 경우에 이런 함수가 필요한지 잘 모르겠다.<br>
+  역시 실전이 아닌 기초부터 하나하나 배우는 것은 쉽게 머리에 각인이 되지 않는 것 같다.<br><br>
+
+  <pre style="line-height: 150%;" class="language-javascript">
+    
+  const print = function () {
+    console.log('print');
+  }
+  print();
+  const printAgain = print;
+  printAgain();
+  const sumAgain = sum;
+  console.log(sumAgain(1, 3));
+  }
+
+</pre><br>
+
+<h5 span style="color:#bb0f6ea9">9. Callback Function</h5><br>
+
+아래 함수는 answer 가 love you 이면 printYes 라는 함수를 실행하고 아니라면 printNo 라는 함수를 실행한다.<br><br>
+
+printYes 라는 함수는 아래에 나온 것 처럼 yes 를 출력하고 printNo 라는 함수는 no 를 출력한다.<br>
+
+재미있는 것은 맨 아래 console.log('no!') 그 다음에 있는 대괄호 뒤에는 세미콜론이 있는데 console.log('yes!')뒤에는 세미콜론이 없다.<br>
+그러나 결과는 세미콜론의 유무와 상관없이 동일하게 출력이 된다.<br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+
+  function randomQuiz(answer, printYes, printNo) {
+    if (answer === 'love you'){
+        printYes();
+    }
+    else {
+        printNo();
+    }
+  }
+
+  // Anonymous function
+
+  const printYes = function () {
+    console.log('yes!');
+  }
+
+  // Named function
+
+  const printNo = function print() {
+    console.log('no!');
+  };
+  randomQuiz('wrong', printYes, printNo)
+  randomQuiz('love you', printYes, printNo)
+  }
+
+</pre><br>
+
+<h5 span style="color:#bb0f6ea9">10. Arrow Function</h5><br>
+
+아래 함수는 현재까지 배웠던 함수를 보다 간단하게 Arrow 함수를 통해 코딩을 간결하게 하는 방법이다.<br>
+솔직히 이건 출력도 안되고 해서 잘 모르겠다.<br>
+나름대로 출력을 해 봤으나 단순히 print 라고만 출력이 된다.<br><br>
+
+추후 이런 함수가 필요시 충분히 이해해서 보충 설명해야겠다.<br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+  
+  // Arrow function
+  // Always anonymous
+  const simplePrint = function() {
+      console.log('simplePrint!');
+  }
+  // 위와 같이 작성하는 함수를 Arrow function 으로 만들어 보면
+  const difficultPrint = () =&gt; console.log('difficultPrint');
+  
+  const add = function(a, b) {
+      return a + b;
+  }
+  
+  // 위와 같이 작성하는 함수를 Arrow function 으로 만들어 보면
+  const plus = (a, b) =&gt; a + b;
+  </pre><br>
+  
+  <h5 span style="color:#bb0f6ea9">11. IIFE : Immediately Invoked Funciton Express</h5><br>
+
+함수를 선언하고 출력을 하고 싶을때 함수를 부르게 되는데 아래와 같이 IIFE 함수로 작성하면 별도로 함수를 호출하지 않아도 된다.<br><br>
+
+<pre style="line-height: 150%;" class="language-javascript">
+
+  function hello() {
+      console.log('IIFE');
+  }
+  hello();
+  
+  // IIFE  함수로 작성시
+  (function hello() {
+      console.log('IIFE');
+  })();
+    </pre><br>
+    
+        
+
+        <hr width="100%" align="left">
+        </p>
+
+      </div>
+
+
+    </div>
+
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>JavaScript</h4>
+        <ul>
+          <li><a href="javascript_intro.html">Intro ...</a></li>
+          <li><a href="javascript_operator.html">Operator, if, for loop 코드 리뷰</a></li>
+          <li><a href="javascript_operator2.html">Operator, if, for loop 코드 리뷰 (2)</a></li>
+          <li><a href="javascript_functions.html">Functions 함수</a></li>
+      
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+
+</body>
+</body>
+
+</html>
