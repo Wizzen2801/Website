@@ -1,24 +1,12 @@
 ```javascript
-function randomQuiz(answer, printYes, printNo) {
-    if (answer === 'love you'){
-        printYes();
-    }
-    else {
-        printNo();
-    }
+// IIFE : Immediately Invoked Function Express
+function hello() {
+    console.log('IIFE');
 }
-// Anonymous function
+hello();
 
-const printYes = function () {
-    console.log('yes!');
-}
-
-// Named function
-
-const printNo = function print() {
-    console.log('no!');
-};
-randomQuiz('wrong', printYes, printNo)
-randomQuiz('love you', printYes, printNo)
-}
+// IIFE  함수로 작성시
+(function hello() {
+    console.log('IIFE');
+})();
 ```
