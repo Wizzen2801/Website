@@ -1,12 +1,20 @@
 ```javascript
-// IIFE : Immediately Invoked Function Express
-function hello() {
-    console.log('IIFE');
-}
-hello();
+class User {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
 
-// IIFE  함수로 작성시
-(function hello() {
-    console.log('IIFE');
-})();
+    get age() {
+        return this._age;
+    }
+
+    set age(value) {
+        this._age = value < 0 ? 0 : value;
+    }
+}
+
+const user1 = new User('Steve', 'Jobs', -1);
+console.log(user1.age);
 ```
