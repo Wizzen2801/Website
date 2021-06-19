@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength & Honor</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="wizzen.css">
+</head>
+
+<body>
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:300%">Strength & Honor</h1>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="mac_intro.html">MacBook</a>
+    <a href="html_intro.html">Html</a>
+    <a href="css_intro.html">CSS</a>
+    <a href="javascript_intro.html">JavaScript</a>
+    <a href="python_intro.html">Python</a>
+    <a href="etc_intro.html">etc.</a>
+    <a href="all_posts_intro.html">All Posts.</a>
+
+    <!-- <a href="#" class="right">Link</a> -->
+  </div>
+
+  <div class="row" id="content">
+    <div class="medium-8 columns">
+      <div class="blog-post">
+        <br>
+        <h4 span style="color:#3ea1f1">버튼 클릭시 배경화면이 다크모드로 전환되게 만들기</h4>
+        <hr width="100%" align="left">
+        </p>
+    
+        엘리님의 강의가 너무 어려워 다시 초심으로 돌아가야겠다고 생각을 했다.<br>
+        유튜버, 생활코딩님의 강의는 내가 코딩에 입문하면서 최소 3번씩 반복해서 보았던 것이다.<br>
+        그때는 머릿속에서만 넣어두었는데 이번에는 하나하나씩 자바스크립트 기초를 정리해 나가도록 하겠다.<br><br>
+        
+        이번 강의는 유투버, 생활코딩님의 강의를 빌려서 정리 해 보자. <br>
+        먼저 night 과 day 버튼을 만들어 버튼을 누를때 다크모드로 전환되게끔 해 보자. <br><br>
+
+    <h4>
+        <input type='button' value='night' onclick="
+         document.querySelector('body').style.backgroundColor='black';
+         document.querySelector('body').style.color='white';
+        ">
+
+        <input type='button' value='day' onclick="
+         document.querySelector('body').style.backgroundColor='white';
+         document.querySelector('body').style.color='black';
+        ">
+    </h4><br>
+
+    위의 버튼을 클릭하면 클릭할때마다 배경이 다크모드로 전환되고 다크모드시 글자는 흰색으로 보여지고
+    다시 데이코드로 전환시 글자는 검은색으로 보여진다.<br><br>
+
+    이에대한 소스코드는 아래와 같다.<br><br>
+
+    <pre style="line-height: 150%;" class="language-javascript">
+        
+    &lt;h4&gt;
+    &lt;input type='button' value='night' onclick=&quot;
+        document.querySelector('body').style.backgroundColor='black';
+        document.querySelector('body').style.color='white';
+    &quot;&gt;
+
+    &lt;input type='button' value='day' onclick=&quot;
+        document.querySelector('body').style.backgroundColor='white';
+        document.querySelector('body').style.color='black';
+    &quot;&gt;
+    &lt;/h4&gt;
+
+</pre><br>
+
+버튼을 만드는 방법은 여러가지가 있으나 심플하게 input 태그를 이용하였고 button 속성을 부여하였다.<br>
+글자 크기는 앞에서 h 태그로 정하였고 버튼을 클릭할때마다 어떠한 명령이 동작되도록 하기 위해 onclick 이라는
+명령을 주었다.<br><br>
+
+document.querySelector('body') 라는 뜻은 이 문서에서 body 태그를 선택하라는 명령이다.<br>
+style.backgroundColor 은 배경화면색을 지정해 주는 명령이다.<br><br>
+
+즉, 배경화면을 검은색으로 바꿀때에는 글자색을 흰색으로, 흰색으로 바꿀때에는 글자색을 검은색으로 하라는 명령이 되겠다.<br>
+
+
+
+
+        <hr width="100%" align="left">
+        </p>
+
+      </div>
+
+
+    </div>
+
+    <div class="medium-3 columns" data-sticky-container>
+      <div style="margin-left: 5%;" class="sticky" data-sticky data-anchor="content">
+        <br>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="mac_intro.html">MacBook</a></li>
+          <li><a href="html_intro.html">Html</a></li>
+          <li><a href="css_intro.html">CSS</a></li>
+          <li><a href="javascript_intro.html">JavaScript</a></li>
+          <li><a href="python_intro.html">Python</a></li>
+          <li><a href="etc_intro.html">etc.</a></li>
+          <li><a href="all_posts_intro.html">All Posts</a></li>
+
+        </ul>
+        <br>
+        <h4>JavaScript</h4>
+        <ul>
+          <li><a href="javascript_intro.html">Intro ...</a></li>
+          <li><a href="javascript_operator.html">Operator, if, for loop 코드 리뷰</a></li>
+          <li><a href="javascript_operator2.html">Operator, if, for loop 코드 리뷰 (2)</a></li>
+          <li><a href="javascript_functions.html">Functions 함수</a></li>
+          <li><a href="javascript_class.html">클래스와 오브젝트의 차이점 및 객체지향 언어 클래스</a></li>
+          <li><a href="javascript_onclick.html">버튼 클릭시 배경화면이 다크모드로 전환되게 만들기</a></li>
+          <li><a href="javascript_alert.html">버튼 클릭시 경고창 띄우기</a></li>
+      
+        </ul>
+
+        <div class="wizzen2801">
+          <h3 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">Wizzen2801</h3>
+          <h8 style="color: #3ea1f1; font-style: oblique; font-weight: bold;">One Day, One New!</h8>
+        </div>
+        <img class="circle-img"
+          src="https://user-images.githubusercontent.com/80723305/116153894-4d092300-a6e8-11eb-9a29-50db65096689.png"
+          alt="Avatar">
+
+        <div class="info">
+          <a href="index.html" target="_blank"><img class="home"
+              src="https://user-images.githubusercontent.com/80723305/116468001-9f754b80-a870-11eb-85a7-5af02a5d5a87.png"></a>
+          <a href="mailto:wizzen.lee@icloud.com" target="_blank"><img class="email"
+              src="https://user-images.githubusercontent.com/80723305/116468102-be73dd80-a870-11eb-9261-e3cafaa811f3.png"></a>
+          <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin" target="_blank"><img
+              class="linkedin"
+              src="https://user-images.githubusercontent.com/80723305/116468462-2d513680-a871-11eb-8a1f-67e797bb9733.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+
+</body>
+</body>
+
+</html>

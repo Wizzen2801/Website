@@ -1,20 +1,13 @@
 ```javascript
-class User {
-    constructor(firstName, lastName, age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
+    <h4>
+        <input type='button' value='night' onclick="
+         document.querySelector('body').style.backgroundColor='black';
+         document.querySelector('body').style.color='white';
+        ">
 
-    get age() {
-        return this._age;
-    }
-
-    set age(value) {
-        this._age = value < 0 ? 0 : value;
-    }
-}
-
-const user1 = new User('Steve', 'Jobs', -1);
-console.log(user1.age);
+        <input type='button' value='day' onclick="
+         document.querySelector('body').style.backgroundColor='white';
+         document.querySelector('body').style.color='black';
+        ">
+    </h4>
 ```
