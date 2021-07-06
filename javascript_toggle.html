@@ -34,60 +34,64 @@
     <div class="medium-8 columns">
       <div class="blog-post">
         <br>
-        <h4 span style="color:#3ea1f1">버튼 클릭시 배경화면이 다크모드로 전환되게 만들기</h4>
+        <h4 span style="color:#3ea1f1">버튼 클릭시 배경화면이 다크모드로 전환되게 만들기 (2)</h4>
         <hr width="100%" align="left">
         </p>
     
-        엘리님의 강의가 너무 어려워 다시 초심으로 돌아가야겠다고 생각을 했다.<br>
-        유튜버, 생활코딩님의 강의는 내가 코딩에 입문하면서 최소 3번씩 반복해서 보았던 것이다.<br>
-        그때는 머릿속에서만 넣어두었는데 이번에는 하나하나씩 자바스크립트 기초를 정리해 나가도록 하겠다.<br><br>
-        
-        이번 강의는 유투버, 생활코딩님의 강의를 빌려서 정리 해 보자. <br>
-        먼저 night 과 day 버튼을 만들어 버튼을 누를때 다크모드로 전환되게끔 해 보자. <br><br>
+        앞에서 버튼 2개를 만들어 다크모드와 데이모드로 변환되게끔 해 보았다. <br>
+        그럼 이번에는 버튼 1개로 동일한 결과를 나타내도록 구현 해 보자. <br><br>
 
-    <h4>
-        <input type='button' value='night' onclick="
-         document.querySelector('body').style.backgroundColor='black';
-         document.querySelector('body').style.color='white';
-        ">
+        <h4>
+            <input type='button' value='night' onclick="
+             if(document.querySelector('body').dataset.mode === 'day'){
+                document.querySelector('body').style.backgroundColor='black';
+                document.querySelector('body').style.color='white';
+                document.querySelector('body').dataset.mode = 'night';
+                this.value = 'day';
+             }
+             else {
+                document.querySelector('body').style.backgroundColor='white';
+                document.querySelector('body').style.color='black';
+                document.querySelector('body').dataset.mode = 'day';
+                this.value = 'night';
+             }
+            ">
+            </h4><br>
 
-        <input type='button' value='day' onclick="
-         document.querySelector('body').style.backgroundColor='white';
-         document.querySelector('body').style.color='black';
-        ">
-    </h4><br>
-
-    위의 버튼을 클릭하면 클릭할때마다 배경이 다크모드로 전환되고 다크모드시 글자는 흰색으로 보여지고
-    다시 데이코드로 전환시 글자는 검은색으로 보여진다.<br><br>
-
-    이에대한 소스코드는 아래와 같다.<br><br>
-
-    <pre style="line-height: 150%;" class="language-javascript">
-        
-    &lt;h4&gt;
+            코드는 아래와 같다. <br><br>
+    
+    <pre style="line-height: 150%;" class="language-javascript">    
     &lt;input type='button' value='night' onclick=&quot;
-        document.querySelector('body').style.backgroundColor='black';
-        document.querySelector('body').style.color='white';
-    &quot;&gt;
-
-    &lt;input type='button' value='day' onclick=&quot;
+        if(document.querySelector('body').dataset.mode === 'day'){
+            document.querySelector('body').style.backgroundColor='black';
+            document.querySelector('body').style.color='white';
+            document.querySelector('body').dataset.mode = 'night';
+            this.value = 'day';
+        }
+        else {
         document.querySelector('body').style.backgroundColor='white';
         document.querySelector('body').style.color='black';
+        document.querySelector('body').dataset.mode = 'day';
+        this.value = 'night';
+        }
     &quot;&gt;
-    &lt;/h4&gt;
 
 </pre><br>
 
-버튼을 만드는 방법은 여러가지가 있으나 심플하게 input 태그를 이용하였고 button 속성을 부여하였다.<br>
-글자 크기는 앞에서 h 태그로 정하였고 버튼을 클릭할때마다 어떠한 명령이 동작되도록 하기 위해 onclick 이라는
-명령을 주었다.<br><br>
+            여기서 === 은 동등비교 연산자로서 왼쪽과 오른쪽이 같은지를 비교해서 같으면 true 를 틀리면 false 를 출력한다. <br>
+            참고로 html 에서 꺽쇠, 즉 '&lt;' 은 & 와 lt; 를 이어서 사용하는데 여기서 lt 는 less than 즉 오른쪽 값보다 작다이다. <br>
+            반대로 닫는 꺽쇠, 즉 '&gt;' 은 & 와 gt; 를 이어서 사용하는데 여기서 gt 는 greater than 즉 오른쪽 값보다 크다이다. <br>
 
-document.querySelector('body') 라는 뜻은 이 문서에서 body 태그를 선택하라는 명령이다.<br>
-style.backgroundColor 은 배경화면색을 지정해 주는 명령이다.<br><br>
+            if 문은 조건문으로서 구조는,<br><br>
 
-즉, 배경화면을 검은색으로 바꿀때에는 글자색을 흰색으로, 흰색으로 바꿀때에는 글자색을 검은색으로 하라는 명령이 되겠다.<br>
+            if() {<br><br>
+            
+            } else {<br><br>
 
-
+            }<br>
+        
+            위와 같은 구조인데 if 다음에 괄호안의 값이 true 이면 if 문 다음의 명령이 실행이 되고 else 이후의 명령은 실행되지 않는다. <br>
+            만일 false 이면 if 다음의 명령은 실행되지 않고 else 이후의 명령이 실행된다.<br> 
 
 
         <hr width="100%" align="left">

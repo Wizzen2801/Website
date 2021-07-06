@@ -1,13 +1,9 @@
 ```javascript
-    <h4>
-        <input type='button' value='night' onclick="
-         document.querySelector('body').style.backgroundColor='black';
-         document.querySelector('body').style.color='white';
-        ">
+    <input type='button' value='Alert' onclick="
+    alert('Warning!!!')
+    "> 
 
-        <input type='button' value='day' onclick="
-         document.querySelector('body').style.backgroundColor='white';
-         document.querySelector('body').style.color='black';
-        ">
-    </h4>
+    <input type="text" onchange="
+    alert('changed!!!')
+    ">
 ```
