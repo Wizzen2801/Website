@@ -34,25 +34,29 @@
     <div class="medium-8 columns">
       <div class="blog-post">
         <br>
-        <h4 span style="color:#3ea1f1">버튼 클릭시 배경화면이 다크모드로 전환되게 만들기 (2)</h4>
+        <h4 span style="color:#3ea1f1">리팩토링</h4>
         <hr width="100%" align="left">
         </p>
     
-        앞에서 버튼 2개를 만들어 다크모드와 데이모드로 변환되게끔 해 보았다. <br>
-        그럼 이번에는 버튼 1개로 동일한 결과를 나타내도록 구현 해 보자. <br><br>
+        리팩토링이란 코드 작성 후 비효율적인 면이 있는 부분을 효율적인 코드로 개선시켜 가독성을 높이고 유지보수를 하기 편하게 하고 중복된 코드를 줄이는 등, 코드를 개선하는 작업을 말한다. <br>
+        이렇게 하는 이유는 코드의 양이 많으면 많을수록 시스템이 커지고 연산시 시간이 많이 소요되기 때문이다. <br><br>
+
+        가장 기본적인 것이 바로 코드에 여러번 동일하게 사용되는 값이나 명령을 변수화 시키는 것이다.<br>
+        즉 예를들어 아래 코드에서 document.querySelector('body') 을 target 이라는 변수로 바꾸면<br><br>
 
         <h4>
             <input type='button' value='night' onclick="
-             if(document.querySelector('body').dataset.mode === 'day'){
-                document.querySelector('body').style.backgroundColor='black';
-                document.querySelector('body').style.color='white';
-                document.querySelector('body').dataset.mode = 'night';
+             var target = document.querySelector('body');
+             if(target.dataset.mode === 'day'){
+                target.style.backgroundColor='black';
+                target.style.color='white';
+                target.dataset.mode = 'night';
                 this.value = 'day';
              }
              else {
-                document.querySelector('body').style.backgroundColor='white';
-                document.querySelector('body').style.color='black';
-                document.querySelector('body').dataset.mode = 'day';
+                target.style.backgroundColor='white';
+                target.style.color='black';
+                target.dataset.mode = 'day';
                 this.value = 'night';
              }
             ">
@@ -62,36 +66,24 @@
     
     <pre style="line-height: 150%;" class="language-javascript">    
     &lt;input type='button' value='night' onclick=&quot;
-        if(document.querySelector('body').dataset.mode === 'day'){
-            document.querySelector('body').style.backgroundColor='black';
-            document.querySelector('body').style.color='white';
-            document.querySelector('body').dataset.mode = 'night';
+        var target = document.querySelector('body');
+        if(target.dataset.mode === 'day'){
+            target.style.backgroundColor='black';
+            target.style.color='white';
+            target.dataset.mode = 'night';
             this.value = 'day';
         }
         else {
-        document.querySelector('body').style.backgroundColor='white';
-        document.querySelector('body').style.color='black';
-        document.querySelector('body').dataset.mode = 'day';
-        this.value = 'night';
+            target.style.backgroundColor='white';
+            target.style.color='black';
+            target.dataset.mode = 'day';
+            this.value = 'night';
         }
     &quot;&gt;
 
 </pre><br>
 
-            여기서 === 은 동등비교 연산자로서 왼쪽과 오른쪽이 같은지를 비교해서 같으면 true 를 틀리면 false 를 출력한다. <br>
-            참고로 html 에서 꺽쇠, 즉 '&lt;' 은 & 와 lt; 를 이어서 사용하는데 여기서 lt 는 less than 즉 오른쪽 값보다 작다이다. <br>
-            반대로 닫는 꺽쇠, 즉 '&gt;' 은 & 와 gt; 를 이어서 사용하는데 여기서 gt 는 greater than 즉 오른쪽 값보다 크다이다. <br>
-
-            if 문은 조건문으로서 구조는,<br><br>
-
-            if() {<br><br>
-            
-            } else {<br><br>
-
-            }<br>
-        
-            위와 같은 구조인데 if 다음에 괄호안의 값이 true 이면 if 문 다음의 명령이 실행이 되고 else 이후의 명령은 실행되지 않는다. <br>
-            만일 false 이면 if 다음의 명령은 실행되지 않고 else 이후의 명령이 실행된다.<br> 
+    
 
 
         <hr width="100%" align="left">
